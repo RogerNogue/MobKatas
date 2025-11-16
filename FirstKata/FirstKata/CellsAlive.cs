@@ -20,4 +20,10 @@ public class CellsAlive : IEnumerable<Cell> {
 	}
 
 	public int GetAliveNeighbours(Cell cell) => cells.Count(aliveCell => aliveCell.IsAdjacentTo(cell));
+
+
+	public List<Cell> GetDeadCellsWithAliveNeighbours() 
+  {
+    return null;
+  }
 }

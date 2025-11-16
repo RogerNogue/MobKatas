@@ -179,6 +179,17 @@ public class UnitTest1
         Assert.True(sut.IsAlive(new Cell(1, 1)));
     }
 
+    [Fact]
+    public void hdsfgjkl() {
+      CellsAlive sut = new CellsAlive();
+
+      sut.Add(Cell.Origin());
+
+      Assert.Equals(sut.GetDeadCellsWithAliveNeighbours().Count, 3);
+   }
+
+
+
     
 }
 
