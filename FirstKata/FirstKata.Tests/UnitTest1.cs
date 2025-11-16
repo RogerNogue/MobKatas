@@ -85,8 +85,26 @@ public class UnitTest1
 
     [Fact]
     public void TooFarAwayCellsAreNotNeighbours() {
+        CellsAlive sut = new();
         
+        sut.Add(new Cell(0, 0));
+        sut.Add(new Cell(0, 2));
+        sut.Add(new Cell(1, 0));
+        
+        Assert.Equal(1, sut.GetNeighbours(new Cell(0, 0)));
     }
+    [Fact]
+    public void AlignedCellsAreNeighbours() {
+        CellsAlive sut = new();
+        
+        sut.Add(new Cell(0, 0));
+        sut.Add(new Cell(1, 0));
+        sut.Add(new Cell(2, 0));
+        
+        Assert.Equal(2, sut.GetNeighbours(new Cell(1, 0)));
+    }
+    
+
 }
 
 
