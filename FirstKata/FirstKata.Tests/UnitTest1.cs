@@ -133,6 +133,26 @@ public class UnitTest1
         Assert.False((sut.IsAlive(Cell.Origin())));
         Assert.False((sut.IsAlive(new Cell(0, 2))));
     }
+
+    [Fact]
+    public void DiagonalCellsAreNeighbours() {
+        Assert.True(new Cell(2, 2).IsAdjacentTo(new Cell(1, 1)));
+    }
+
+    [Fact]
+    public void CellsWithTooManyNeighboursDieByOverCrowding() {
+        GameOfLife sut = new GameOfLife();
+
+        sut.ReviveCell(new Cell(1, 1));
+        sut.ReviveCell(new Cell(0, 0));
+        sut.ReviveCell(new Cell(0, 1));
+        sut.ReviveCell(new Cell(0, 2));
+        sut.ReviveCell(new Cell(1, 0));
+
+        sut.NextGen();
+
+        Assert.False(sut.IsAlive(new Cell(1, 1)));
+    }
 }
 
 
