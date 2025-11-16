@@ -15,6 +15,8 @@ public class GameOfLife {
 		}
 
 		cellsAlive = nextgenerationCells;
+		
+		
 	}
 
 	public bool IsAlive(Cell cell) {
