@@ -104,6 +104,22 @@ public class UnitTest1
         Assert.Equal(2, sut.GetNeighbours(new Cell(1, 0)));
     }
 
+    [Fact]
+
+    public void NoNeighbourCellsDieAfterPassingGeneration()
+    {
+        GameOfLife sut = new GameOfLife();
+        
+        sut.ReviveCell(new Cell(0,0));
+        sut.ReviveCell(new Cell(1,0));
+        sut.ReviveCell(new Cell(3,0));
+
+        sut.NextGen();
+        
+        Assert.False((sut.IsAlive(new Cell(0,0))));
+        Assert.False((sut.IsAlive(new Cell(1,0))));
+        Assert.False((sut.IsAlive(new Cell(3,0))));
+    }
 
 }
 

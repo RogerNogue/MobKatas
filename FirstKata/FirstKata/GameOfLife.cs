@@ -9,11 +9,15 @@ public class GameOfLife {
 		cellsAlive.Add(cell);
 	}
 
-	public void NextGen() {
-    if (cellsAlive.Count() <= 2)
-    {
-		  cellsAlive.Clear();
-    }
+	public void NextGen()
+	{
+		CellsAlive nextgenerationCells = new(); 
+		foreach (var cell in cellsAlive)
+		{
+			if (cellsAlive.GetNeighbours(cell) is 2 or 3) nextgenerationCells.Add(cell);
+		}
+
+		cellsAlive = nextgenerationCells;
 	}
 
 	public bool IsAlive(Cell cell) {
@@ -30,9 +34,7 @@ public class CellsAlive : IEnumerable<Cell> {
 		cells.Add(cell);
 	}
 
-	public void Clear() {
-		cells.Clear();
-	}
+	
 
 	public IEnumerator<Cell> GetEnumerator() {
 		return cells.GetEnumerator();
