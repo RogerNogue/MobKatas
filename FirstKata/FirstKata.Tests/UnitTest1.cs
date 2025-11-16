@@ -46,7 +46,7 @@ public class UnitTest1
         
         sut.ReviveCell(new Cell(1,0));
         
-        Assert.False((sut.IsAlive(new Cell(0,0))));
+        Assert.False((sut.IsAlive(Cell.Origin())));
     }
 
     [Fact]
@@ -54,7 +54,7 @@ public class UnitTest1
     {
         GameOfLife sut = new GameOfLife();
         
-        sut.ReviveCell(new Cell(0,0));
+        sut.ReviveCell(Cell.Origin());
         sut.ReviveCell(new Cell(1,0));
         sut.ReviveCell(new Cell(2,0));
 
@@ -105,22 +105,34 @@ public class UnitTest1
     }
 
     [Fact]
-
     public void NoNeighbourCellsDieAfterPassingGeneration()
     {
         GameOfLife sut = new GameOfLife();
         
-        sut.ReviveCell(new Cell(0,0));
+        sut.ReviveCell(Cell.Origin());
         sut.ReviveCell(new Cell(1,0));
         sut.ReviveCell(new Cell(3,0));
 
         sut.NextGen();
         
-        Assert.False((sut.IsAlive(new Cell(0,0))));
+        Assert.False((sut.IsAlive(Cell.Origin())));
         Assert.False((sut.IsAlive(new Cell(1,0))));
         Assert.False((sut.IsAlive(new Cell(3,0))));
     }
 
+    [Fact]
+    public void CellsWithoutEnoughNeighboursDie() {
+        GameOfLife sut = new GameOfLife();
+
+        sut.ReviveCell(Cell.Origin());
+        sut.ReviveCell(new Cell(0, 1));
+        sut.ReviveCell(new Cell(0, 2));
+
+        sut.NextGen();
+
+        Assert.False((sut.IsAlive(Cell.Origin())));
+        Assert.False((sut.IsAlive(new Cell(0, 2))));
+    }
 }
 
 
