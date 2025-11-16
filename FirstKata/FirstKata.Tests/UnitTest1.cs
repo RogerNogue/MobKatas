@@ -82,6 +82,11 @@ public class UnitTest1
         
         Assert.Equal(2, sut.GetNeighbours(new Cell(0, 0)));
     }
+
+    [Fact]
+    public void TooFarAwayCellsAreNotNeighbours() {
+        
+    }
 }
 
 
