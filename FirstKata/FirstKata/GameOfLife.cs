@@ -1,17 +1,17 @@
 ﻿namespace FirstKata.Tests;
 
 public class GameOfLife {
-	private bool isAlive;
+	private List<Cell> CellsAlive = new();
 
 	public void ReviveCell(Cell cell) {
-		isAlive = true;
+		CellsAlive.Add(cell);
 	}
 
 	public void NextGen() {
-		isAlive = false;
+		CellsAlive.Clear();
 	}
 
 	public bool IsAlive(Cell cell) {
-		return isAlive;
+		return CellsAlive.Contains(cell);
 	}
 }

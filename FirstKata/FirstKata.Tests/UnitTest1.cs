@@ -38,4 +38,18 @@ public class UnitTest1
         
         Assert.False(sut.IsAlive(new Cell(0, 0)));
     }
+
+    [Fact]
+    public void KeepAliveBeforePassingNextGenerationIn1()
+    {
+        GameOfLife sut = new GameOfLife();
+        
+        sut.ReviveCell(new Cell(1,0));
+        
+        Assert.False((sut.IsAlive(new Cell(0,0))));
+    }
 }
+
+
+
+
