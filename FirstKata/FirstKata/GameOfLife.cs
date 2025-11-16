@@ -25,6 +25,8 @@ public class CellsAlive : IEnumerable<Cell> {
 	private List<Cell> cells = new();
 
 	public void Add(Cell cell) {
+		if (cells.Contains(cell))
+			throw new Exception("Cell already added");
 		cells.Add(cell);
 	}
 
