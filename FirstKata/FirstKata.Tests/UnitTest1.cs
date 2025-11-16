@@ -13,7 +13,7 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 public class UnitTest1
 {
     [Fact]
-    public void aslkhgdr()
+    public void DieByUnderpopulation()
     {
       GameOfLife sut = new GameOfLife();
       sut.ReviveCell(new Cell(0, 0));
