@@ -10,8 +10,30 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 public class UnitTest1
 {
     [Fact]
-    public void Test1()
+    public void aslkhgdr()
     {
-
+      GameOfLife sut = new GameOfLife();
+      sut.AddCell(0, 0);
+      sut.NextGen();
+      Assert.False(sut.IsAlive(0, 0));
     }
+}
+
+
+public class GameOfLife
+{
+  public void AddCell(int x, int y)
+  {
+
+  }
+
+  public void NextGen()
+  {
+
+  }
+
+  public bool IsAlive(int x, int y)
+  {
+    return false;
+  }
 }
