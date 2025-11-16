@@ -23,9 +23,9 @@ public class UnitTest1
 }
 
 public readonly struct Cell {
-  public readonly int x;
-  public readonly int y;
-  public Cell(int x, int y) {
+  public readonly uint x;
+  public readonly uint y;
+  public Cell(uint x, uint y) {
     this.x = x;
     this.y = y;
   }
