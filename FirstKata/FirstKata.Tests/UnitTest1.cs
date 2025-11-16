@@ -62,6 +62,15 @@ public class UnitTest1
         
         Assert.True((sut.IsAlive(new Cell(1,0))));
     }
+
+    [Fact]
+    public void asodiufoiasudhf() {
+        CellsAlive sut = new();
+
+        sut.Add(new Cell(0, 0));
+
+        Assert.Equal(0, sut.GetNeighbours(new Cell(0, 0)));
+    }
 }
 
 

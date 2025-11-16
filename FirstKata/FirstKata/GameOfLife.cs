@@ -41,4 +41,8 @@ public class CellsAlive : IEnumerable<Cell> {
 	IEnumerator IEnumerable.GetEnumerator() {
 		return GetEnumerator();
 	}
+
+	public int GetNeighbours(Cell cell) {
+		return 0;
+	}
 }
