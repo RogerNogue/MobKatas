@@ -23,30 +23,3 @@ public class UnitTest1
       Assert.False(sut.IsAlive(new Cell(0, 0)));
     }
 }
-
-public readonly struct Cell {
-  public readonly uint x;
-  public readonly uint y;
-  public Cell(uint x, uint y) {
-    this.x = x;
-    this.y = y;
-  }
-}
-
-public class GameOfLife
-{
-  public void ReviveCell(Cell cell)
-  {
-
-  }
-
-  public void NextGen()
-  {
-
-  }
-
-  public bool IsAlive(Cell cell)
-  {
-    return false;
-  }
-}
