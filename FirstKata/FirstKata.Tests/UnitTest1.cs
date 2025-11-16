@@ -62,6 +62,21 @@ public class UnitTest1
         
         Assert.True((sut.IsAlive(new Cell(1,0))));
     }
+
+   [Fact]
+    public void aslrfh()
+    {
+        GameOfLife sut = new GameOfLife();
+        
+        sut.ReviveCell(new Cell(0,0));
+        sut.ReviveCell(new Cell(1,0));
+        sut.ReviveCell(new Cell(2,0));
+
+        sut.NextGen();
+        
+        Assert.True((sut.IsAlive(new Cell(1,0))));
+    }
+
 }
 
 
