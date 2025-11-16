@@ -1,14 +1,17 @@
 ﻿namespace FirstKata.Tests;
 
 public class GameOfLife {
-	private bool generationPassed;
-	public void ReviveCell(Cell cell) { }
+	private bool isAlive;
+
+	public void ReviveCell(Cell cell) {
+		isAlive = true;
+	}
 
 	public void NextGen() {
-		generationPassed = true;
+		isAlive = false;
 	}
 
 	public bool IsAlive(Cell cell) {
-		return !generationPassed;
+		return isAlive;
 	}
 }
