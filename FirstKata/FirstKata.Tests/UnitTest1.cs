@@ -16,8 +16,10 @@ public class UnitTest1
     public void aslkhgdr()
     {
       GameOfLife sut = new GameOfLife();
-      sut.AddCell(new Cell(0, 0));
+      sut.ReviveCell(new Cell(0, 0));
+
       sut.NextGen();
+
       Assert.False(sut.IsAlive(new Cell(0, 0)));
     }
 }
@@ -33,7 +35,7 @@ public readonly struct Cell {
 
 public class GameOfLife
 {
-  public void AddCell(Cell cell)
+  public void ReviveCell(Cell cell)
   {
 
   }
