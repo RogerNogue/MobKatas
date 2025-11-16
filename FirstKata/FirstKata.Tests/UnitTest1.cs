@@ -50,7 +50,7 @@ public class UnitTest1
     }
 
     [Fact]
-    public void aslrfh()
+    public void NeighbourCellsSurviveAfterPassingGeneration()
     {
         GameOfLife sut = new GameOfLife();
         
@@ -103,7 +103,7 @@ public class UnitTest1
         
         Assert.Equal(2, sut.GetNeighbours(new Cell(1, 0)));
     }
-    
+
 
 }
 
