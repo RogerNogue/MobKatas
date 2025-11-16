@@ -43,6 +43,12 @@ public class CellsAlive : IEnumerable<Cell> {
 	}
 
 	public int GetNeighbours(Cell cell) {
-		return 0;
+		int neighbours = 0;
+		foreach (Cell aliveCell in cells) {
+			if (aliveCell.IsAdjacentTo(cell)) {
+				neighbours++;
+			}
+		}
+		return neighbours;
 	}
 }

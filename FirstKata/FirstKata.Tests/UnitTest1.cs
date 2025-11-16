@@ -64,12 +64,23 @@ public class UnitTest1
     }
 
     [Fact]
-    public void asodiufoiasudhf() {
+    public void ZeroNeighboursByDefault() {
         CellsAlive sut = new();
 
         sut.Add(new Cell(0, 0));
 
         Assert.Equal(0, sut.GetNeighbours(new Cell(0, 0)));
+    }
+
+    [Fact]
+    public void NeighboursAreAdjacentCells() {
+        CellsAlive sut = new();
+        
+        sut.Add(new Cell(0, 0));
+        sut.Add(new Cell(0, 1));
+        sut.Add(new Cell(1, 0));
+        
+        Assert.Equal(2, sut.GetNeighbours(new Cell(0, 0)));
     }
 }
 
