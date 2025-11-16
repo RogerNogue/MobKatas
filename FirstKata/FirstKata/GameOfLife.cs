@@ -8,7 +8,10 @@ public class GameOfLife {
 	}
 
 	public void NextGen() {
-		CellsAlive.Clear();
+    if (CellsAlive.Count() <= 2)
+    {
+		  CellsAlive.Clear();
+    }
 	}
 
 	public bool IsAlive(Cell cell) {
