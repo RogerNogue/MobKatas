@@ -22,4 +22,13 @@ public class UnitTest1
 
       Assert.False(sut.IsAlive(new Cell(0, 0)));
     }
+
+    [Fact]
+    public void METHOD() {
+        GameOfLife sut = new GameOfLife();
+        
+        sut.ReviveCell(new Cell(0, 0));
+        
+        Assert.True(sut.IsAlive(new Cell(0, 0)));
+    }
 }
