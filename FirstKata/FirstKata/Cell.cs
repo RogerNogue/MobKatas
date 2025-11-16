@@ -1,4 +1,4 @@
-﻿namespace FirstKata.Tests;
+﻿namespace FirstKata;
 
 public readonly struct Cell {
 	public readonly uint x;
