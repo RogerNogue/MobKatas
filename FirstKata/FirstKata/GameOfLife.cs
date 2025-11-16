@@ -3,21 +3,21 @@
 namespace FirstKata.Tests;
 
 public class GameOfLife {
-	private CellsAlive CellsAlive = new();
+	private CellsAlive cellsAlive = new();
 
 	public void ReviveCell(Cell cell) {
-		CellsAlive.Add(cell);
+		cellsAlive.Add(cell);
 	}
 
 	public void NextGen() {
-    if (CellsAlive.Count() <= 2)
+    if (cellsAlive.Count() <= 2)
     {
-		  CellsAlive.Clear();
+		  cellsAlive.Clear();
     }
 	}
 
 	public bool IsAlive(Cell cell) {
-		return CellsAlive.Contains(cell);
+		return cellsAlive.Contains(cell);
 	}
 }
 
