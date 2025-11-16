@@ -180,12 +180,12 @@ public class UnitTest1
     }
 
     [Fact]
-    public void hdsfgjkl() {
+    public void GetDeadCellsWithAliveNeighbours() {
       CellsAlive sut = new CellsAlive();
 
       sut.Add(Cell.Origin());
 
-      Assert.Equals(sut.GetDeadCellsWithAliveNeighbours().Count, 3);
+      Assert.Equal(3, sut.GetDeadCellsWithAliveNeighbours().Count);
    }
 
 
