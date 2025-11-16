@@ -69,7 +69,7 @@ public class UnitTest1
 
         sut.Add(Cell.Origin());
 
-        Assert.Equal(0, sut.GetNeighbours(Cell.Origin()));
+        Assert.Equal(0, sut.GetAliveNeighbours(Cell.Origin()));
     }
 
     [Fact]
@@ -80,7 +80,7 @@ public class UnitTest1
         sut.Add(new Cell(0, 1));
         sut.Add(new Cell(1, 0));
         
-        Assert.Equal(2, sut.GetNeighbours(Cell.Origin()));
+        Assert.Equal(2, sut.GetAliveNeighbours(Cell.Origin()));
     }
 
     [Fact]
@@ -91,7 +91,7 @@ public class UnitTest1
         sut.Add(new Cell(0, 2));
         sut.Add(new Cell(1, 0));
         
-        Assert.Equal(1, sut.GetNeighbours(Cell.Origin()));
+        Assert.Equal(1, sut.GetAliveNeighbours(Cell.Origin()));
     }
     [Fact]
     public void AlignedCellsAreNeighbours() {
@@ -101,7 +101,7 @@ public class UnitTest1
         sut.Add(new Cell(1, 0));
         sut.Add(new Cell(2, 0));
         
-        Assert.Equal(2, sut.GetNeighbours(new Cell(1, 0)));
+        Assert.Equal(2, sut.GetAliveNeighbours(new Cell(1, 0)));
     }
 
     [Fact]

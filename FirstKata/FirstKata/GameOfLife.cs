@@ -10,7 +10,7 @@ public class GameOfLife {
 	public void NextGen() {
 		CellsAlive nextgenerationCells = new();
 		foreach (var cell in cellsAlive) {
-			if (cellsAlive.GetNeighbours(cell) is 2 or 3) 
+			if (cellsAlive.GetAliveNeighbours(cell) is 2 or 3) 
 				nextgenerationCells.Add(cell);
 		}
 
