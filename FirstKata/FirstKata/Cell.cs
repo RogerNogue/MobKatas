@@ -10,4 +10,6 @@ public readonly struct Cell {
 	}
 
 	public bool IsAdjacentTo(Cell cell) => Math.Abs((int)(x - cell.x)) <= 1 && Math.Abs((int)(y - cell.y)) <= 1 && !(x == cell.x && y == cell.y);
+
+	public static Cell Origin() => new(0, 0);
 }

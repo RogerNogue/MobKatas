@@ -16,27 +16,27 @@ public class UnitTest1
     public void DieByUnderpopulation()
     {
       GameOfLife sut = new GameOfLife();
-      sut.ReviveCell(new Cell(0, 0));
+      sut.ReviveCell(Cell.Origin());
 
       sut.NextGen();
 
-      Assert.False(sut.IsAlive(new Cell(0, 0)));
+      Assert.False(sut.IsAlive(Cell.Origin()));
     }
 
     [Fact]
     public void KeepAliveBeforePassingNextGeneration() {
         GameOfLife sut = new GameOfLife();
         
-        sut.ReviveCell(new Cell(0, 0));
+        sut.ReviveCell(Cell.Origin());
         
-        Assert.True(sut.IsAlive(new Cell(0, 0)));
+        Assert.True(sut.IsAlive(Cell.Origin()));
     }
 
     [Fact]
     public void IsNotAliveIfWasNotRevived() {
         GameOfLife sut = new GameOfLife();
         
-        Assert.False(sut.IsAlive(new Cell(0, 0)));
+        Assert.False(sut.IsAlive(Cell.Origin()));
     }
 
     [Fact]
@@ -67,37 +67,37 @@ public class UnitTest1
     public void ZeroNeighboursByDefault() {
         CellsAlive sut = new();
 
-        sut.Add(new Cell(0, 0));
+        sut.Add(Cell.Origin());
 
-        Assert.Equal(0, sut.GetNeighbours(new Cell(0, 0)));
+        Assert.Equal(0, sut.GetNeighbours(Cell.Origin()));
     }
 
     [Fact]
     public void NeighboursAreAdjacentCells() {
         CellsAlive sut = new();
         
-        sut.Add(new Cell(0, 0));
+        sut.Add(Cell.Origin());
         sut.Add(new Cell(0, 1));
         sut.Add(new Cell(1, 0));
         
-        Assert.Equal(2, sut.GetNeighbours(new Cell(0, 0)));
+        Assert.Equal(2, sut.GetNeighbours(Cell.Origin()));
     }
 
     [Fact]
     public void TooFarAwayCellsAreNotNeighbours() {
         CellsAlive sut = new();
         
-        sut.Add(new Cell(0, 0));
+        sut.Add(Cell.Origin());
         sut.Add(new Cell(0, 2));
         sut.Add(new Cell(1, 0));
         
-        Assert.Equal(1, sut.GetNeighbours(new Cell(0, 0)));
+        Assert.Equal(1, sut.GetNeighbours(Cell.Origin()));
     }
     [Fact]
     public void AlignedCellsAreNeighbours() {
         CellsAlive sut = new();
         
-        sut.Add(new Cell(0, 0));
+        sut.Add(Cell.Origin());
         sut.Add(new Cell(1, 0));
         sut.Add(new Cell(2, 0));
         
