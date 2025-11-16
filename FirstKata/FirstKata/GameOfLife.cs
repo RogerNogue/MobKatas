@@ -42,13 +42,5 @@ public class CellsAlive : IEnumerable<Cell> {
 		return GetEnumerator();
 	}
 
-	public int GetNeighbours(Cell cell) {
-		int neighbours = 0;
-		foreach (Cell aliveCell in cells) {
-			if (aliveCell.IsAdjacentTo(cell)) {
-				neighbours++;
-			}
-		}
-		return neighbours;
-	}
+	public int GetNeighbours(Cell cell) => cells.Count(aliveCell => aliveCell.IsAdjacentTo(cell));
 }
