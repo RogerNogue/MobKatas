@@ -28,22 +28,30 @@ public class Tests
     public void year_not_leap_if_not_divisible_by_4()
     {
         Year sut = new Year(3);
-        
-        
-        
+
         Assert.False(sut.IsLeap());
+    }
+
+    [Test]
+    public void year_is_leap_if_divisible_by_4()
+    {
+        Year sut = new Year(4);
+
+        Assert.True(sut.IsLeap());
     }
     
 }
 
 public class Year
 {
+    private int year;
     public Year(int year)
     {
+        this.year = year;
     }
 
     public bool IsLeap()
     {
-        return false;
+        return year%4 == 0;
     }
 }
