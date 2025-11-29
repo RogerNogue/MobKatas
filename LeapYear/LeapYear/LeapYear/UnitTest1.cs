@@ -65,25 +65,14 @@ public class Tests
     public void Year1996IsLeap()
     {
         Year sut = new Year(1996);
-        Assert.False(sut.IsLeap());
-    }
-    
-}
-
-public class Year
-{
-    private int year;
-    public Year(int year)
-    {
-        this.year = year;
+        Assert.True(sut.IsLeap());
     }
 
-    public bool IsLeap()
+    [Test]
+    public void Year1600IsLeap()
     {
-        if (year % 400 != 0 && year % 100 == 0)
-        {
-            return false;
-        } 
-        return (year%4 == 0 || year % 400 == 0);
+        Year sut = new Year(1600);
+        Assert.True(sut.IsLeap());
     }
+
 }
