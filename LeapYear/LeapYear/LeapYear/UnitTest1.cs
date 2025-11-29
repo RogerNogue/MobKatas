@@ -31,7 +31,7 @@ public class Tests
         
         
         
-        Assert.That();
+        Assert.False(sut.IsLeap());
     }
     
 }
@@ -40,6 +40,10 @@ public class Year
 {
     public Year(int year)
     {
-        throw new NotImplementedException();
+    }
+
+    public bool IsLeap()
+    {
+        return false;
     }
 }
