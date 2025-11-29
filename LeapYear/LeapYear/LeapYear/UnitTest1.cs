@@ -25,7 +25,7 @@ public class Tests
     }
 
     [Test]
-    public void year_not_leap_if_not_divisible_by_4()
+    public void YearNotLeapIfNotDivisibleBy4()
     {
         Year sut = new Year(3);
 
@@ -33,7 +33,7 @@ public class Tests
     }
 
     [Test]
-    public void year_is_leap_if_divisible_by_4()
+    public void YearIsLeapIfDivisibleBy4()
     {
         Year sut = new Year(4);
 
@@ -41,7 +41,7 @@ public class Tests
     }
 
     [Test]
-    public void year_is_leap_if_divisible_by_400()
+    public void YearIsLeapIfDivisibleBy400()
     {
         Year sut = new Year(400);
         Assert.True(sut.IsLeap());
