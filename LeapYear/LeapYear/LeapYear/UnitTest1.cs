@@ -53,7 +53,20 @@ public class Tests
         Year sut = new Year(1800);
         Assert.False(sut.IsLeap());
     }
-    
+
+    [Test]
+    public void Year1997IsNotLeap()
+    {
+        Year sut = new Year(1997);
+        Assert.False(sut.IsLeap());
+    }
+
+    [Test]
+    public void Year1996IsLeap()
+    {
+        Year sut = new Year(1996);
+        Assert.False(sut.IsLeap());
+    }
     
 }
 
@@ -71,6 +84,6 @@ public class Year
         {
             return false;
         } 
-        return year%4 == 0;
+        return (year%4 == 0 || year % 400 == 0);
     }
 }
