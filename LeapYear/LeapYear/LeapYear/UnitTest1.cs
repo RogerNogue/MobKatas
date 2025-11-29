@@ -46,6 +46,13 @@ public class Tests
         Year sut = new Year(400);
         Assert.True(sut.IsLeap());
     }
+
+    [Test]
+    public void YearIsNotLeapIfDivisibleBy100ButNot400()
+    {
+        Year sut = new Year(1800);
+        Assert.False(sut.IsLeap());
+    }
     
     
 }
@@ -60,6 +67,10 @@ public class Year
 
     public bool IsLeap()
     {
+        if (year % 400 != 0)
+        {
+            return false;
+        } 
         return year%4 == 0;
     }
 }
