@@ -67,7 +67,7 @@ public class Year
 
     public bool IsLeap()
     {
-        if (year % 400 != 0)
+        if (year % 400 != 0 && year % 100 == 0)
         {
             return false;
         } 
