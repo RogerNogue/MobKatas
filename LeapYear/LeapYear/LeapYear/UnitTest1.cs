@@ -43,8 +43,10 @@ public class Tests
     [Test]
     public void year_is_leap_if_divisible_by_400()
     {
-        
+        Year sut = new Year(400);
+        Assert.True(sut.IsLeap());
     }
+    
     
 }
 
