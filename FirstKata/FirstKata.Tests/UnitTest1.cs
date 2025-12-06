@@ -256,16 +256,16 @@ public class UnitTest1
         Assert.Equal(sut.GetDeadCells().Count, 10);
     }
 
-    // [Fact]
-    // public void FilterOutAliveCells()
-    // {
-    //     var sut = new CellsAlive();
-    //
-    //     sut.Add(Cell.Origin());
-    //     sut.Add(new Cell(1, 1));
-    //
-    //     Assert.Equal(sut.GetDeadCells().Count, 7);
-    // }
+    [Fact]
+    public void FilterOutAliveCells()
+    {
+        var sut = new CellsAlive();
+    
+        sut.Add(Cell.Origin());
+        sut.Add(new Cell(1, 1));
+    
+        Assert.Equal(sut.GetDeadCells().Count, 7);
+    }
 }
 
 

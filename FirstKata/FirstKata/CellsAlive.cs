@@ -23,12 +23,12 @@ public class CellsAlive : IEnumerable<Cell> {
 
 
 	public List<Cell> GetDeadCells() {
-		var resultCells = new List<Cell>();
+		var deadCells = new List<Cell>();
 		foreach (var cell in this.cells)
 		{
-			resultCells.AddRange(cell.Neighbors());
+			deadCells.AddRange(cell.Neighbors());
 		}
 		
-		return resultCells.Distinct().ToList();
+		return deadCells.Distinct().Where(x => !cells.Contains(x)).ToList();
   }
 }
