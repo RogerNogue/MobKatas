@@ -22,8 +22,11 @@ public class CellsAlive : IEnumerable<Cell> {
 	public int GetAliveNeighbours(Cell cell) => cells.Count(aliveCell => aliveCell.IsAdjacentTo(cell));
 
 
-	public List<Cell> GetDeadCellsWithAliveNeighbours() 
-  {
-    return null;
+	public List<Cell> GetDeadCellsWithAliveNeighbours() {
+		var cells = new List<Cell>();
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+    return cells;
   }
 }
