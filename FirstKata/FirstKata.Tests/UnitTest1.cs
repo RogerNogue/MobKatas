@@ -181,12 +181,21 @@ public class UnitTest1
 
     [Fact]
     public void GetDeadCellsWithAliveNeighbours() {
-      CellsAlive sut = new CellsAlive();
+        CellsAlive sut = new CellsAlive();
 
-      sut.Add(Cell.Origin());
+        sut.Add(Cell.Origin());
 
-      Assert.Equal(3, sut.GetDeadCellsWithAliveNeighbours().Count);
-   }
+        Assert.Equal(3, sut.GetDeadCellsWithAliveNeighbours().Count);
+    }
+
+    [Fact]
+    public void GetDeadCellsWithAliveNeighboursByValues() {
+        CellsAlive sut = new CellsAlive();
+
+        sut.Add(new Cell(3, 3));
+
+        Assert.Equal(8, sut.GetDeadCellsWithAliveNeighbours().Count);
+    }
 
 
 
