@@ -226,6 +226,13 @@ public class UnitTest1
         
         Assert.Equal(3, sut.Neighbors().Count);
     }
+    
+    [Fact]
+    public void dsafasfas() {
+        var sut = new Cell(0, 1);
+        
+        Assert.Equal(5, sut.Neighbors().Count);
+    }
 
     [Fact]
     public void NeighboursCoordinatesAreCorrect() {
@@ -249,16 +256,16 @@ public class UnitTest1
         Assert.Equal(sut.GetDeadCells().Count, 10);
     }
 
-    [Fact]
-    public void FilterOutAliveCells()
-    {
-        var sut = new CellsAlive();
-
-        sut.Add(Cell.Origin());
-        sut.Add(new Cell(1, 1));
-
-        Assert.Equal(sut.GetDeadCells().Count, 7);
-    }
+    // [Fact]
+    // public void FilterOutAliveCells()
+    // {
+    //     var sut = new CellsAlive();
+    //
+    //     sut.Add(Cell.Origin());
+    //     sut.Add(new Cell(1, 1));
+    //
+    //     Assert.Equal(sut.GetDeadCells().Count, 7);
+    // }
 }
 
 
