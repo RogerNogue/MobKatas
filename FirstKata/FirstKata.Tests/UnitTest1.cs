@@ -212,7 +212,16 @@ public class UnitTest1
         Assert.Equal(3, sut.Neighbors().Count);
     }
 
-    
+    [Fact]
+    public void NeighboursCoordinatesAreCorrect() {
+        var sut = Cell.Origin();
+        
+        var neighbors = sut.Neighbors();
+        
+        Assert.Contains(new Cell(0,1), neighbors);
+        Assert.Contains(new Cell(1,0), neighbors);
+        Assert.Contains(new Cell(1,1), neighbors);
+    }
 }
 
 
