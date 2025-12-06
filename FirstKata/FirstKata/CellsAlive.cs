@@ -29,6 +29,6 @@ public class CellsAlive : IEnumerable<Cell> {
 			resultCells.AddRange(cell.Neighbors());
 		}
 		
-		return resultCells;
+		return resultCells.Distinct().ToList();
   }
 }

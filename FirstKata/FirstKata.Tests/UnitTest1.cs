@@ -237,6 +237,17 @@ public class UnitTest1
         Assert.Contains(new Cell(1,0), neighbors);
         Assert.Contains(new Cell(1,1), neighbors);
     }
+
+    [Fact]
+    public void METHOD()
+    {
+        var sut = new CellsAlive();
+
+        sut.Add(Cell.Origin());
+        sut.Add(new Cell(2, 2));
+
+        Assert.Equal(sut.GetDeadCells().Count, 10);
+    }
 }
 
 
