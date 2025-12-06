@@ -23,24 +23,12 @@ public class CellsAlive : IEnumerable<Cell> {
 
 
 	public List<Cell> GetDeadCellsWithAliveNeighbours() {
-		var cells = new List<Cell>();
-		if (this.Contains(Cell.Origin()))
+		var resultCells = new List<Cell>();
+		foreach (var cell in this.cells)
 		{
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
+			resultCells.AddRange(cell.Neighbors());
 		}
-		else
-		{
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-			cells.Add(Cell.Origin());
-		}
-		return cells;
+		
+		return resultCells;
   }
 }
