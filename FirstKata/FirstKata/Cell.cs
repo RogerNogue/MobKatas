@@ -12,14 +12,23 @@ public readonly struct Cell {
 	public List<Cell> Neighbors()
 	{
 		var cells = new List<Cell>();
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
+		if (this.Equals(Cell.Origin()))
+		{
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+		}
+		else
+		{
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+		}
 		return cells;
 	}
 

@@ -205,7 +205,12 @@ public class UnitTest1
         Assert.Equal(sut.Neighbors().Count, 8);
     }
 
-
+    [Fact]
+    public void DoNotIncludeNegativeCoordinates() {
+        var sut = Cell.Origin();
+        
+        Assert.Equal(3, sut.Neighbors().Count);
+    }
 
     
 }
