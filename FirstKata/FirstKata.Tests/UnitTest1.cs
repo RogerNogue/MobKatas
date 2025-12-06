@@ -185,7 +185,7 @@ public class UnitTest1
 
         sut.Add(Cell.Origin());
 
-        Assert.Equal(3, sut.GetDeadCellsWithAliveNeighbours().Count);
+        Assert.Equal(3, sut.GetDeadCells().Count);
     }
 
     [Fact]
@@ -194,7 +194,7 @@ public class UnitTest1
 
         sut.Add(new Cell(3, 3));
 
-        Assert.Equal(8, sut.GetDeadCellsWithAliveNeighbours().Count);
+        Assert.Equal(8, sut.GetDeadCells().Count);
     }
 
     [Fact]
@@ -204,7 +204,7 @@ public class UnitTest1
         sut.Add(Cell.Origin());
         sut.Add(new Cell(4, 4));
 
-        Assert.Equal(11, sut.GetDeadCellsWithAliveNeighbours().Count);
+        Assert.Equal(11, sut.GetDeadCells().Count);
     }
 
     [Fact]
