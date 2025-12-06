@@ -9,7 +9,7 @@ public readonly struct Cell {
 		this.y = y;
 	}
 
-	public List<Cell> neighbors()
+	public List<Cell> Neighbors()
 	{
 		var cells = new List<Cell>();
 		cells.Add(Cell.Origin());

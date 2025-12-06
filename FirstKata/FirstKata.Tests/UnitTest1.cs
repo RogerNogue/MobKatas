@@ -202,7 +202,7 @@ public class UnitTest1
     {
         Cell sut = new Cell(2, 2);
         
-        Assert.Equal(sut.neighbors().Count, 8);
+        Assert.Equal(sut.Neighbors().Count, 8);
     }
 
 
