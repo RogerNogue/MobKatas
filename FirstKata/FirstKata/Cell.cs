@@ -11,15 +11,17 @@ public readonly struct Cell {
 
 	public List<Cell> Neighbors()
 	{
-		var cells = new List<Cell>();
-		cells.Add(new Cell(x - 1, y - 1));
-		cells.Add(new Cell(x - 1, y));
-		cells.Add(new Cell(x - 1, y + 1));
-		cells.Add(new Cell(x, y - 1));
-		cells.Add(new Cell(x, y + 1));
-		cells.Add(new Cell(x + 1, y - 1));
-		cells.Add(new Cell(x + 1, y));
-		cells.Add(new Cell(x + 1, y + 1));
+		var cells = new List<Cell> {
+				new Cell(x - 1, y - 1),
+				new Cell(x - 1, y),
+				new Cell(x - 1, y + 1),
+				new Cell(x, y - 1),
+				new Cell(x, y + 1),
+				new Cell(x + 1, y - 1),
+				new Cell(x + 1, y),
+				new Cell(x + 1, y + 1)
+		};
+		
 		cells = cells.Where(cell => cell.x >= 0 && cell.y >= 0).ToList();
 		return cells;
 	}
