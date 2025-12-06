@@ -14,6 +14,11 @@ public class GameOfLife {
 				nextgenerationCells.Add(cell);
 		}
 
+		foreach (Cell deadCell in cellsAlive.GetDeadCells()) {
+			if (cellsAlive.GetAliveNeighbours(deadCell) is 3)
+				nextgenerationCells.Add(deadCell);
+		}
+
 		cellsAlive = nextgenerationCells;
 		
 		

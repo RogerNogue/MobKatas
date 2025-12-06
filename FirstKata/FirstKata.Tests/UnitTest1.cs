@@ -166,7 +166,7 @@ public class UnitTest1
 
         Assert.True(sut.IsAlive(new Cell(1, 1)));
     }
-    /*[Fact]
+    [Fact]
     public void DeadCellWith3NeighboursRevives() {
         GameOfLife sut = new GameOfLife();
 
@@ -177,7 +177,7 @@ public class UnitTest1
         sut.NextGen();
 
         Assert.True(sut.IsAlive(new Cell(1, 1)));
-    }*/
+    }
 
     [Fact]
     public void GetDeadCellsWithAliveNeighbours() {
