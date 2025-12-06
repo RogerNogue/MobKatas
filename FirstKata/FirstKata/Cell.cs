@@ -24,17 +24,6 @@ public readonly struct Cell {
 		return cells;
 	}
 
-	private void NewMethod(List<Cell> cells) {
-		cells.Add(new Cell(x - 1, y - 1));
-		cells.Add(new Cell(x - 1, y));
-		cells.Add(new Cell(x - 1, y + 1));
-		cells.Add(new Cell(x, y - 1));
-		cells.Add(new Cell(x, y + 1));
-		cells.Add(new Cell(x + 1, y - 1));
-		cells.Add(new Cell(x + 1, y));
-		cells.Add(new Cell(x + 1, y + 1));
-	}
-
 	public bool IsAdjacentTo(Cell cell) => Math.Abs((int)(x - cell.x)) <= 1 && Math.Abs((int)(y - cell.y)) <= 1 && !(x == cell.x && y == cell.y);
 
 	public static Cell Origin() => new(0, 0);
