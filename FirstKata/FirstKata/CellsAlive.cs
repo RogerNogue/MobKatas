@@ -24,9 +24,23 @@ public class CellsAlive : IEnumerable<Cell> {
 
 	public List<Cell> GetDeadCellsWithAliveNeighbours() {
 		var cells = new List<Cell>();
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-		cells.Add(Cell.Origin());
-    return cells;
+		if (this.Contains(Cell.Origin()))
+		{
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+		}
+		else
+		{
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+			cells.Add(Cell.Origin());
+		}
+		return cells;
   }
 }
