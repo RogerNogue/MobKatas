@@ -266,6 +266,22 @@ public class UnitTest1
     
         Assert.Equal(sut.GetDeadCells().Count, 7);
     }
+
+    [Fact]
+    public void aosuidhyfgoiaushdg() {
+        var sut = new GameOfLife();
+
+        sut.ReviveCell(Cell.Origin());
+        sut.ReviveCell(new Cell(2, 0));
+        sut.ReviveCell(new Cell(1, 2));
+
+        sut.NextGen();
+
+        Assert.True(sut.IsAlive(new Cell(1, 1)));
+        Assert.False(sut.IsAlive(Cell.Origin()));
+        Assert.False(sut.IsAlive(new Cell(2, 0)));
+        Assert.False(sut.IsAlive(new Cell(1, 2)));
+    }
 }
 
 
