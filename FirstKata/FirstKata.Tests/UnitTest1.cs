@@ -201,8 +201,13 @@ public class UnitTest1
     public void GetAllNeighborsOfACell()
     {
         Cell sut = new Cell(2, 2);
+
+        var neighbors = sut.Neighbors();
         
-        Assert.Equal(sut.Neighbors().Count, 8);
+        Assert.Equal(neighbors.Count, 8);
+        Assert.Contains(new Cell(1,1), neighbors);
+        Assert.Contains(new Cell(1,2), neighbors);
+        Assert.Contains(new Cell(1,3), neighbors);
     }
 
     [Fact]
