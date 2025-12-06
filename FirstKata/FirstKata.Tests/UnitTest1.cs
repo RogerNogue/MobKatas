@@ -198,6 +198,16 @@ public class UnitTest1
     }
 
     [Fact]
+    public void GetAllNeighbourDeadCells() {
+        var sut = new CellsAlive();
+
+        sut.Add(Cell.Origin());
+        sut.Add(new Cell(4, 4));
+
+        Assert.Equal(11, sut.GetDeadCellsWithAliveNeighbours().Count);
+    }
+
+    [Fact]
     public void GetAllNeighborsOfACell()
     {
         Cell sut = new Cell(2, 2);
