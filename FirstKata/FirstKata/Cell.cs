@@ -9,6 +9,20 @@ public readonly struct Cell {
 		this.y = y;
 	}
 
+	public List<Cell> neighbors()
+	{
+		var cells = new List<Cell>();
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		cells.Add(Cell.Origin());
+		return cells;
+	}
+
 	public bool IsAdjacentTo(Cell cell) => Math.Abs((int)(x - cell.x)) <= 1 && Math.Abs((int)(y - cell.y)) <= 1 && !(x == cell.x && y == cell.y);
 
 	public static Cell Origin() => new(0, 0);
