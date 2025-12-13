@@ -41,7 +41,8 @@ public class Tests
     }
 
     [Test]
-    public void TwoDifferentBooksApplyDiscount() {
+    public void TwoDifferentBooksApplyDiscount()
+    {
         var sut = new ShoppingCart();
         sut.Add("first book", "second book");
         Assert.That(sut.Price(), Is.EqualTo(15.2f));
@@ -53,6 +54,13 @@ public class Tests
         var sut = new ShoppingCart();
         sut.Add("first book", "second book", "third book");
         Assert.That(sut.Price(), Is.EqualTo(21.6f));
-        
+    }
+
+    [Test]
+    public void Dadfasdf()
+    {
+        var sut = new ShoppingCart();
+        sut.Add("first book", "third book");
+        Assert.That(sut.Price(), Is.EqualTo(15.2f));
     }
 }

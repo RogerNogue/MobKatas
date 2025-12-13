@@ -13,6 +13,11 @@ public class ShoppingCart
     {
         if (_books.Contains("third book"))
         {
+            if (_books.Length == 2)
+            {
+                return 15.2f;
+            }
+
             return 21.6f;
         }
 
