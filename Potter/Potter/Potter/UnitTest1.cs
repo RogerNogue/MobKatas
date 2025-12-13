@@ -22,14 +22,30 @@ public class Tests
 
         Assert.That(sut.Price(), Is.EqualTo(8));
     }
+
+    [Test]
+    public void Emptycart()
+    {
+        var sut = new ShoppingCart();
+        
+        Assert.That(sut.Price(), Is.EqualTo(0));
+    }
 }
 
-public class ShoppingCart {
-    public void Add(string firstBook) {
-
+public class ShoppingCart
+{
+    private int WasCalled = 0;
+    public void Add(string firstBook)
+    {
+        WasCalled += 1;
     }
 
     public float Price() {
-        return 8;
+        
+        if (WasCalled > 0)
+        {
+            return 8;
+        }
+        return 0;
     }
 }
