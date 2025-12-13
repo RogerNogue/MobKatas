@@ -11,6 +11,8 @@ public class ShoppingCart
 
     public float Price()
     {
+        PotterBook[] package = [];
+
         if (_books.Contains("third book"))
         {
             if (_books.Length == 2)
