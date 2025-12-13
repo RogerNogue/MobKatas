@@ -45,7 +45,7 @@ public class ShoppingCart
 {
     private int _bookAmount = 0;
 
-    public void Add(params string[] books)
+    public void Add(params PotterBook[] books)
     {
         _bookAmount += books.Length;
     }
@@ -64,4 +64,5 @@ public class PotterBook
     {
         _name = name;
     }
+    public static implicit operator PotterBook(string name) => new PotterBook(name);
 }
