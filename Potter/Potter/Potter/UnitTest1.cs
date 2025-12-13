@@ -55,3 +55,13 @@ public class ShoppingCart
         return 8 * _bookAmount;
     }
 }
+
+public class PotterBook
+{
+    private string _name;
+
+    public PotterBook(string name)
+    {
+        _name = name;
+    }
+}
