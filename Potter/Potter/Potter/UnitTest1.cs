@@ -40,29 +40,3 @@ public class Tests
         Assert.That(sut.Price(), Is.EqualTo(16));
     }
 }
-
-public class ShoppingCart
-{
-    private int _bookAmount = 0;
-
-    public void Add(params PotterBook[] books)
-    {
-        _bookAmount += books.Length;
-    }
-
-    public float Price()
-    {
-        return 8 * _bookAmount;
-    }
-}
-
-public class PotterBook
-{
-    private string _name;
-
-    public PotterBook(string name)
-    {
-        _name = name;
-    }
-    public static implicit operator PotterBook(string name) => new PotterBook(name);
-}
