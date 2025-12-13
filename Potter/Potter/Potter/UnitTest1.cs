@@ -15,7 +15,8 @@ namespace Potter;
 public class Tests
 {
     [Test]
-    public void Test1() {
+    public void Test1()
+    {
         var sut = new ShoppingCart();
 
         sut.Add("first book");
@@ -27,7 +28,7 @@ public class Tests
     public void Emptycart()
     {
         var sut = new ShoppingCart();
-        
+
         Assert.That(sut.Price(), Is.EqualTo(0));
     }
 
@@ -35,7 +36,7 @@ public class Tests
     public void TwoSameBooks()
     {
         var sut = new ShoppingCart();
-        sut.Add("first book","first book");
+        sut.Add("first book", "first book");
         Assert.That(sut.Price(), Is.EqualTo(16));
     }
 }
@@ -43,17 +44,19 @@ public class Tests
 public class ShoppingCart
 {
     private int WasCalled = 0;
-    public void Add(params string [] firstBook)
+
+    public void Add(params string[] firstBook)
     {
         WasCalled += 1;
     }
 
-    public float Price() {
-        
+    public float Price()
+    {
         if (WasCalled > 0)
         {
             return 8;
         }
+
         return 0;
     }
 }
