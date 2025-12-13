@@ -15,7 +15,7 @@ namespace Potter;
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void OneBookCosts8Euro()
     {
         var sut = new ShoppingCart();
 
