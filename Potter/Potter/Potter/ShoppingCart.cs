@@ -33,6 +33,11 @@ public class ShoppingCart
 
     public int Pack(params PotterBook[] books)
     {
+        if (books.Length > 2 && books[1] == books[0])
+        {
+            return 3;
+        }
+        
         if (books.Length > 1 && books[1] == books[0])
         {
             return 2;
