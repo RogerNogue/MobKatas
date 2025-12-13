@@ -39,4 +39,11 @@ public class Tests
         sut.Add("first book", "first book");
         Assert.That(sut.Price(), Is.EqualTo(16));
     }
+
+    [Test]
+    public void poasidfhjusaduiopf() {
+        var sut = new ShoppingCart();
+        sut.Add("first book", "second book");
+        Assert.That(sut.Price(), Is.EqualTo(15.2f));
+    }
 }

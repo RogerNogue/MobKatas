@@ -2,15 +2,15 @@ namespace Potter;
 
 public class ShoppingCart
 {
-    private int _bookAmount = 0;
+    private PotterBook[] _books = [];
 
     public void Add(params PotterBook[] books)
     {
-        _bookAmount += books.Length;
+        _books = books;
     }
 
     public float Price()
     {
-        return 8 * _bookAmount;
+        return 8 * _books.Length;
     }
 }
