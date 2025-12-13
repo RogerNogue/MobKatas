@@ -52,11 +52,6 @@ public class ShoppingCart
 
     public float Price()
     {
-        if (WasCalled > 0)
-        {
-            return 8 * WasCalled;
-        }
-
-        return 0;
+        return 8 * WasCalled;
     }
 }
