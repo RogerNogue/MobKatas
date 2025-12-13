@@ -41,11 +41,17 @@ public class ShoppingCart
             }
             return 1;
         }
-        if (books.Length > 2 && books[1] == books[0])
+        if (books.Length > 2)
         {
+            if (books[1] == books[0])
+            {
+                if (books[1] == books[2])
+                    return 3;
+                return 2; 
+            }
             if (books[1] == books[2])
-                return 3;
-            return 2;
+                return 2;
+            return 1;
         }
         
         if (books.Length > 1 && books[1] == books[0])
