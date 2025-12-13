@@ -1,6 +1,6 @@
 namespace Potter;
 
-public class PotterBook(string name)
+public struct PotterBook(string name)
 {
     private string _name = name;
 
