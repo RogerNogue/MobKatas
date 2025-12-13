@@ -47,14 +47,14 @@ public class ShoppingCart
 
     public void Add(params string[] firstBook)
     {
-        WasCalled += 1;
+        WasCalled += firstBook.Length;
     }
 
     public float Price()
     {
         if (WasCalled > 0)
         {
-            return 8;
+            return 8 * WasCalled;
         }
 
         return 0;
