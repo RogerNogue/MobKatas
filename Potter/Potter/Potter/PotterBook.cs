@@ -1,12 +1,8 @@
 namespace Potter;
 
-public class PotterBook
+public class PotterBook(string name)
 {
-    private string _name;
+    private string _name = name;
 
-    public PotterBook(string name)
-    {
-        _name = name;
-    }
     public static implicit operator PotterBook(string name) => new PotterBook(name);
 }
