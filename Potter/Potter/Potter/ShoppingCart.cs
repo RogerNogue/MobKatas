@@ -33,32 +33,11 @@ public class ShoppingCart
 
     public int Pack(params PotterBook[] books)
     {
-        if (books.Length == 4 )
-        {
-            if (books[1] == books[3])
-            {
-                return 2;
-            }
-            return 1;
+        Dictionary<PotterBook, int> bookCounts = new();
+        foreach (PotterBook book in books) {
+            bookCounts.TryAdd(book, 0);
+            bookCounts[book]++;
         }
-        if (books.Length > 2)
-        {
-            if (books[1] == books[0])
-            {
-                if (books[1] == books[2])
-                    return 3;
-                return 2; 
-            }
-            if (books[1] == books[2])
-                return 2;
-            return 1;
-        }
-        
-        if (books.Length > 1 && books[1] == books[0])
-        {
-            return 2;
-        }
-
-        return 1;
+        return bookCounts.Max(kvp => kvp.Value);
     }
 }
