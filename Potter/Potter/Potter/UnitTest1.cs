@@ -119,4 +119,13 @@ public class Tests
         int pack = sut.Pack("second book", "first book", "second book", "first book");
         Assert.That(pack, Is.EqualTo(2));
     }
+    [Test]
+    public void ThreeBooksSamePack()
+    {
+        var sut = new ShoppingCart();
+        int pack = sut.Pack("first book", "second book", "third book");
+        Assert.That(pack, Is.EqualTo(1));
+    }
+    
+    
 }
