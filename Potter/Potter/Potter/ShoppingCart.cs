@@ -35,7 +35,9 @@ public class ShoppingCart
     {
         if (books.Length > 2 && books[1] == books[0])
         {
-            return 3;
+            if (books[1] == books[2])
+                return 3;
+            return 2;
         }
         
         if (books.Length > 1 && books[1] == books[0])
