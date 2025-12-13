@@ -1,3 +1,5 @@
+using NUnit.Framework.Constraints;
+
 namespace Potter;
 
 // Copia: 8€
@@ -13,8 +15,21 @@ namespace Potter;
 public class Tests
 {
     [Test]
-    public void Test1()
-    {
-        Assert.Pass();
+    public void Test1() {
+        var sut = new ShoppingCart();
+
+        sut.Add("first book");
+
+        Assert.That(sut.Price(), Is.EqualTo(8));
+    }
+}
+
+public class ShoppingCart {
+    public void Add(string firstBook) {
+
+    }
+
+    public float Price() {
+        return 8;
     }
 }
