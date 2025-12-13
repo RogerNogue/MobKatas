@@ -68,7 +68,7 @@ public class Tests
     public void BookIsPacked()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("first book");
+        int pack = sut.GetAmountOfPacks("first book");
         Assert.That(pack, Is.EqualTo(1));
     }
 
@@ -76,7 +76,7 @@ public class Tests
     public void TwoBooksInSamePack()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("first book", "fifth book");
+        int pack = sut.GetAmountOfPacks("first book", "fifth book");
         Assert.That(pack, Is.EqualTo(1));
     }
 
@@ -84,7 +84,7 @@ public class Tests
     public void TwoBooksInDifferentPacks()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("first book", "first book");
+        int pack = sut.GetAmountOfPacks("first book", "first book");
         Assert.That(pack, Is.EqualTo(2));
     }
 
@@ -92,7 +92,7 @@ public class Tests
     public void METHOD()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("second book", "second book");
+        int pack = sut.GetAmountOfPacks("second book", "second book");
         Assert.That(pack, Is.EqualTo(2));
     }
 
@@ -100,7 +100,7 @@ public class Tests
     public void ThreeBooksInThreePacks()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("second book", "second book", "second book");
+        int pack = sut.GetAmountOfPacks("second book", "second book", "second book");
         Assert.That(pack, Is.EqualTo(3));
     }
 
@@ -108,7 +108,7 @@ public class Tests
     public void ThreeBooksInTwoPacks()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("second book", "second book", "first book");
+        int pack = sut.GetAmountOfPacks("second book", "second book", "first book");
         Assert.That(pack, Is.EqualTo(2));
     }
 
@@ -116,14 +116,14 @@ public class Tests
     public void TwoPacksOfTwoBooks()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("second book", "first book", "second book", "first book");
+        int pack = sut.GetAmountOfPacks("second book", "first book", "second book", "first book");
         Assert.That(pack, Is.EqualTo(2));
     }
     [Test]
     public void ThreeBooksSamePack()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("first book", "second book", "third book");
+        int pack = sut.GetAmountOfPacks("first book", "second book", "third book");
         Assert.That(pack, Is.EqualTo(1));
     }
     
@@ -131,14 +131,14 @@ public class Tests
     public void cccccccccc()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack("fifth book", "first book", "second book", "first book");
+        int pack = sut.GetAmountOfPacks("fifth book", "first book", "second book", "first book");
         Assert.That(pack, Is.EqualTo(2));
     }
     [Test]
     public void cccccccccch()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack( "first book", "second book", "fourth book", "third book");
+        int pack = sut.GetAmountOfPacks( "first book", "second book", "fourth book", "third book");
         Assert.That(pack, Is.EqualTo(1));
     }
 
@@ -146,7 +146,7 @@ public class Tests
     public void TestForThree()
     {
         var sut = new ShoppingCart();
-        int pack = sut.Pack( "first book", "third book", "third book");
+        int pack = sut.GetAmountOfPacks( "first book", "third book", "third book");
         Assert.That(pack, Is.EqualTo(2));
     }
 }

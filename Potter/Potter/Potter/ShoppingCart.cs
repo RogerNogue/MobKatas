@@ -31,7 +31,7 @@ public class ShoppingCart
         return 8 * _books.Length;
     }
 
-    public int Pack(params PotterBook[] books)
+    public int GetAmountOfPacks(params PotterBook[] books)
     {
         Dictionary<PotterBook, int> bookCounts = new();
         foreach (PotterBook book in books) {
