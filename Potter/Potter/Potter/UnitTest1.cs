@@ -45,9 +45,9 @@ public class ShoppingCart
 {
     private int _bookAmount = 0;
 
-    public void Add(params string[] firstBook)
+    public void Add(params string[] books)
     {
-        _bookAmount += firstBook.Length;
+        _bookAmount += books.Length;
     }
 
     public float Price()
