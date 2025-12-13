@@ -63,4 +63,12 @@ public class Tests
         sut.Add("first book", "third book");
         Assert.That(sut.Price(), Is.EqualTo(15.2f));
     }
+
+    [Test]
+    public void BookIsPacked()
+    {
+        var sut = new ShoppingCart();
+        int pack = sut.Pack("first book");
+        Assert.That(pack, Is.EqualTo(1));
+    }
 }
