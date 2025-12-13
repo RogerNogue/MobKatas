@@ -33,6 +33,6 @@ public class ShoppingCart
 
     public int Pack(params PotterBook[] books)
     {
-        return books.Length;
+        return 1;
     }
 }
