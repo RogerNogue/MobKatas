@@ -30,12 +30,20 @@ public class Tests
         
         Assert.That(sut.Price(), Is.EqualTo(0));
     }
+
+    [Test]
+    public void TwoSameBooks()
+    {
+        var sut = new ShoppingCart();
+        sut.Add("first book","first book");
+        Assert.That(sut.Price(), Is.EqualTo(16));
+    }
 }
 
 public class ShoppingCart
 {
     private int WasCalled = 0;
-    public void Add(string firstBook)
+    public void Add(params string [] firstBook)
     {
         WasCalled += 1;
     }
