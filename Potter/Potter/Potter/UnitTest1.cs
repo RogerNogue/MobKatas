@@ -127,5 +127,18 @@ public class Tests
         Assert.That(pack, Is.EqualTo(1));
     }
     
-    
+    [Test]
+    public void cccccccccc()
+    {
+        var sut = new ShoppingCart();
+        int pack = sut.Pack("fifth book", "first book", "second book", "first book");
+        Assert.That(pack, Is.EqualTo(2));
+    }
+    [Test]
+    public void cccccccccch()
+    {
+        var sut = new ShoppingCart();
+        int pack = sut.Pack( "first book", "second book", "fourth book", "third book");
+        Assert.That(pack, Is.EqualTo(1));
+    }
 }
