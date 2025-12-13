@@ -43,15 +43,15 @@ public class Tests
 
 public class ShoppingCart
 {
-    private int WasCalled = 0;
+    private int _bookAmount = 0;
 
     public void Add(params string[] firstBook)
     {
-        WasCalled += firstBook.Length;
+        _bookAmount += firstBook.Length;
     }
 
     public float Price()
     {
-        return 8 * WasCalled;
+        return 8 * _bookAmount;
     }
 }
