@@ -103,4 +103,19 @@ public class PackTests {
 		pack.Add("first book");
 		Assert.That(pack, Contains.Item(new PotterBook("first book")));
 	}
+
+	[Test]
+	public void OneBookCosts8Euros() {
+		var pack = new Pack();
+		pack.Add("first book");
+		Assert.That(pack.Price(), Is.EqualTo(8));
+	}
+
+	[Test]
+	public void TwoBooks() {
+		var pack = new Pack();
+		pack.Add("first book");
+		pack.Add("second book");
+		Assert.That(pack.Price(), Is.EqualTo(15.2f));
+	}
 }

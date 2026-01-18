@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework.Constraints;
 
 namespace Potter;
 
@@ -17,5 +18,9 @@ public class Pack : IEnumerable<PotterBook> {
 
     IEnumerator IEnumerable.GetEnumerator() {
         return GetEnumerator();
+    }
+
+    public float Price() {
+        return 8;
     }
 }
