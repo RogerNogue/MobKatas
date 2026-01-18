@@ -23,13 +23,13 @@ public class Pack : IEnumerable<PotterBook> {
     public float Price()
     {
         if (Books.Count == 5)
-            return 30f;
+            return (float)Math.Round(8 * 5 * 0.75f, 3);
         if (Books.Count == 4)
-            return 25.6f;
+            return (float)Math.Round(8 * 4 * 0.8f, 3);
         if (Books.Count == 3)
-            return 21.6f;
+            return (float)Math.Round(8 * 3 * .90f, 3);
         if (Books.Count == 2)
-            return 15.2f;
+            return (float)Math.Round(8 * 2 * .95f, 3);
         return 8;
     }
 }
