@@ -153,8 +153,9 @@ public class PackTests {
 	}
 
 	[Test]
-	public void CreatePacks() {
+	public void PackOfOneBook() {
 		var packs = Pack.CreateFrom(PotterBook.First);
 		Assert.That(packs.Count, Is.EqualTo(1));
+		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
 	}
 }

@@ -34,6 +34,6 @@ public class Pack : IEnumerable<PotterBook> {
     }
 
     public static List<Pack> CreateFrom(params PotterBook[] books) {
-        return new List<Pack> { new Pack() };
+        return new List<Pack> { new Pack() {books.First()} };
     }
 }
