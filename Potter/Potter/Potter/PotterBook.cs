@@ -8,4 +8,6 @@ public struct PotterBook(string name)
     
     public static bool operator ==(PotterBook left, PotterBook right) => left._name == right._name;
     public static bool operator !=(PotterBook left, PotterBook right) => left._name != right._name;
+    
+    public static PotterBook First => new PotterBook("first book");
 }

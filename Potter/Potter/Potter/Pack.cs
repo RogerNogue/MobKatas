@@ -32,4 +32,8 @@ public class Pack : IEnumerable<PotterBook> {
             return (float)Math.Round(8 * 2 * .95f, 3);
         return 8;
     }
+
+    public static List<Pack> CreateFrom(params PotterBook[] books) {
+        return new List<Pack> { new Pack() };
+    }
 }

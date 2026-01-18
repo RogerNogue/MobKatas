@@ -151,4 +151,10 @@ public class PackTests {
 		pack.Add("fifth book");
 		Assert.That(pack.Price(), Is.EqualTo(30f));
 	}
+
+	[Test]
+	public void CreatePacks() {
+		var packs = Pack.CreateFrom(PotterBook.First);
+		Assert.That(packs.Count, Is.EqualTo(1));
+	}
 }
