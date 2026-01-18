@@ -116,4 +116,15 @@ public class PackTests {
 		Assert.That(pack[0], Is.EqualTo(2));
 
 	}
+
+	[Test]
+	public void GetPackOfTwoBooks()
+	{
+		var sut = new ShoppingCart();
+		int[] pack = sut.GetPacks("first book", "second book", "first book");
+		Assert.That(pack.Length, Is.EqualTo(2));
+		Assert.That(pack, Contains.Item(2));
+		Assert.That(pack, Contains.Item(1));
+
+	}
 }
