@@ -154,8 +154,14 @@ public class PackTests {
 
 	[Test]
 	public void PackOfOneBook() {
-		var packs = Pack.CreateFrom(PotterBook.First);
+		var packs = Pack.CreateFrom(PotterBook.LaPiedraFilosofal);
 		Assert.That(packs.Count, Is.EqualTo(1));
-		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
+		Assert.That(packs.Single(), Contains.Item(PotterBook.LaPiedraFilosofal));
+	}
+
+	[Test]
+	public void PackOfTwoBooks() {
+		var packs = Pack.CreateFrom(PotterBook.LaPiedraFilosofal, PotterBook.LaPiedraFilosofal);
+		Assert.That(packs.Count, Is.EqualTo(2));
 	}
 }
