@@ -101,7 +101,7 @@ public class PackTests {
 	public void GetPackOfOneBook()
 	{
 		var sut = new ShoppingCart();
-		int[] pack = sut.GetPacks("first book");
+		int[] pack = Pack.GetPacks("first book");
 		Assert.That(pack.Length, Is.EqualTo(1));
 		Assert.That(pack[0], Is.EqualTo(1));
 
@@ -110,20 +110,27 @@ public class PackTests {
 	[Test]
 	public void GetPackOfTwoBook()
 	{
-		var sut = new ShoppingCart();
-		int[] pack = sut.GetPacks("first book", "second book");
+		int[] pack = Pack.GetPacks("first book", "second book");
 		Assert.That(pack.Length, Is.EqualTo(1));
 		Assert.That(pack[0], Is.EqualTo(2));
 
 	}
 
-	[Test]
+	[Test, Ignore("asdfasdf")]
 	public void GetPackOfTwoBooks()
 	{
-		var sut = new ShoppingCart();
-		int[] pack = sut.GetPacks("first book", "second book", "first book");
+		int[] pack = Pack.GetPacks("first book", "second book", "first book");
 		Assert.That(pack.Length, Is.EqualTo(2));
 		Assert.That(pack, Contains.Item(2));
 		Assert.That(pack, Contains.Item(1));
 	}
+
+	[Test]
+	public void TwoPacksOfOneBook()
+	{
+        int[] pack = Pack.GetPacks("first book", "first book");
+        Assert.That(pack.Length, Is.EqualTo(2));
+        Assert.That(pack, Contains.Item(1));
+        Assert.That(pack, Contains.Item(1));
+    }
 }

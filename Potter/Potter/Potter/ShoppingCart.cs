@@ -41,13 +41,16 @@ public class ShoppingCart
         return bookCounts.Max(kvp => kvp.Value);
     }
 
-    public int[] GetPacks(params PotterBook[] books) {
-        var listOfPacks = new List<Pack>();
-        
-        return new[] { books.Length };
-    }
+    
 }
 
 public class Pack {
     public List<PotterBook> Books = [];
+
+    public static int[] GetPacks(params PotterBook[] books)
+    {
+        var listOfPacks = new List<Pack>();
+
+        return new[] { books.Length };
+    }
 }
