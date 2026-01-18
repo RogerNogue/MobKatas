@@ -96,4 +96,13 @@ public class PackTests {
         int pack = sut.GetAmountOfPacks("first book", "third book", "fourth book", "second book", "fifth book");
         Assert.That(pack, Is.EqualTo(1));
     }
+
+	[Test]
+	public void asdfbgji()
+	{
+		var sut = new ShoppingCart();
+		int[] pack = sut.GetPacks("first book", "third book", "fourth book", "second book", "fifth book");
+		Assert.That(pack[0], Is.EqualTo(5));
+		
+	}
 }

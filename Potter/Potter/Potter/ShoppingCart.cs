@@ -40,4 +40,14 @@ public class ShoppingCart
         }
         return bookCounts.Max(kvp => kvp.Value);
     }
+
+    public int[] GetPacks(params PotterBook[] books)
+    {
+        Dictionary<PotterBook, int> bookCounts = new();
+        foreach (PotterBook book in books) {
+            bookCounts.TryAdd(book, 0);
+            bookCounts[book]++;
+        }
+        return bookCounts.Values.ToArray();
+    }
 }
