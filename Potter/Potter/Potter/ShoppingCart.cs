@@ -11,24 +11,7 @@ public class ShoppingCart
 
     public float Price()
     {
-        PotterBook[] package = [];
-
-        if (_books.Contains("third book"))
-        {
-            if (_books.Length == 2)
-            {
-                return 15.2f;
-            }
-
-            return 21.6f;
-        }
-
-        if (_books.Contains("second book"))
-        {
-            return 15.2f;
-        }
-
-        return 8 * _books.Length;
+        return Pack.Split(_books).Sum(book => book.Price());
     }
 
     public int GetAmountOfPacks(params PotterBook[] books)
