@@ -33,7 +33,15 @@ public class Pack : IEnumerable<PotterBook> {
         return 8;
     }
 
-    public static List<Pack> CreateFrom(params PotterBook[] books) {
+    public static Pack From(params PotterBook[] books) {
+        var pack = new Pack();
+        foreach (var book in books) {
+            pack.Add(book);
+        }
+        return pack;
+    }
+
+    public static List<Pack> Split(params PotterBook[] books) {
         var packs = new List<Pack>();
         foreach (var book in books) {
             var pack = packs.FirstOrDefault(p => !p.Books.Contains(book));
@@ -45,6 +53,7 @@ public class Pack : IEnumerable<PotterBook> {
         }
         return packs;
     }
+
     protected bool Equals(Pack other) {
         return Books.SequenceEqual(other.Books);
     }

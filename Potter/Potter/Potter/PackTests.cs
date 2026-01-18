@@ -154,20 +154,20 @@ public class PackTests {
 
 	[Test]
 	public void PackOfOneBook() {
-		var packs = Pack.CreateFrom(PotterBook.First);
+		var packs = Pack.Split(PotterBook.First);
 		Assert.That(packs.Count, Is.EqualTo(1));
 		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
 	}
 
 	[Test]
 	public void TwoPacksOfSameBook() {
-		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.First);
+		var packs = Pack.Split(PotterBook.First, PotterBook.First);
 		Assert.That(packs.Count, Is.EqualTo(2));
 	}
 
 	[Test]
 	public void PackOfTwo() {
-		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.Second);
+		var packs = Pack.Split(PotterBook.First, PotterBook.Second);
 		Assert.That(packs.Count, Is.EqualTo(1));
 		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
 		Assert.That(packs.Single(), Contains.Item(PotterBook.Second));
@@ -175,9 +175,9 @@ public class PackTests {
 
 	[Test]
 	public void PackOfTwoAndPackOfOne() {
-		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.First, PotterBook.Second);
+		var packs = Pack.Split(PotterBook.First, PotterBook.First, PotterBook.Second);
 		Assert.That(packs.Count, Is.EqualTo(2));
-		Assert.That(packs, Contains.Item(new [] { PotterBook.First, PotterBook.Second }));
-		Assert.That(packs, Contains.Item(new [] { PotterBook.First }));
+		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First, PotterBook.Second)));
+		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First)));
 	}
 }
