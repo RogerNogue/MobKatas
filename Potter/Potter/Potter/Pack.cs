@@ -45,4 +45,18 @@ public class Pack : IEnumerable<PotterBook> {
         }
         return packs;
     }
+    protected bool Equals(Pack other) {
+        return Books.SequenceEqual(other.Books);
+    }
+
+    public override bool Equals(object? obj) {
+        if (obj is null) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((Pack)obj);
+    }
+
+    public override int GetHashCode() {
+        return Books.GetHashCode();
+    }
 }

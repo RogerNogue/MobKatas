@@ -177,8 +177,7 @@ public class PackTests {
 	public void PackOfTwoAndPackOfOne() {
 		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.First, PotterBook.Second);
 		Assert.That(packs.Count, Is.EqualTo(2));
-		Assert.That(packs[0], Contains.Item(PotterBook.First));
-		Assert.That(packs[0], Contains.Item(PotterBook.Second));
-		Assert.That(packs[1], Contains.Item(PotterBook.First));
+		Assert.That(packs, Contains.Item(new [] { PotterBook.First, PotterBook.Second }));
+		Assert.That(packs, Contains.Item(new [] { PotterBook.First }));
 	}
 }
