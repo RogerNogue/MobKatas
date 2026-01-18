@@ -98,39 +98,9 @@ public class PackTests {
     }
 
 	[Test]
-	public void GetPackOfOneBook()
-	{
-		var sut = new ShoppingCart();
-		int[] pack = Pack.GetPacks("first book");
-		Assert.That(pack.Length, Is.EqualTo(1));
-		Assert.That(pack[0], Is.EqualTo(1));
-
+	public void CreatePackOfOneBook() {
+		var pack = new Pack();
+		pack.Add("first book");
+		Assert.That(pack, Contains.Item(new PotterBook("first book")));
 	}
-
-	[Test]
-	public void GetPackOfTwoBook()
-	{
-		int[] pack = Pack.GetPacks("first book", "second book");
-		Assert.That(pack.Length, Is.EqualTo(1));
-		Assert.That(pack[0], Is.EqualTo(2));
-
-	}
-
-	[Test, Ignore("asdfasdf")]
-	public void GetPackOfTwoBooks()
-	{
-		int[] pack = Pack.GetPacks("first book", "second book", "first book");
-		Assert.That(pack.Length, Is.EqualTo(2));
-		Assert.That(pack, Contains.Item(2));
-		Assert.That(pack, Contains.Item(1));
-	}
-
-	[Test]
-	public void TwoPacksOfOneBook()
-	{
-        int[] pack = Pack.GetPacks("first book", "first book");
-        Assert.That(pack.Length, Is.EqualTo(2));
-        Assert.That(pack, Contains.Item(1));
-        Assert.That(pack, Contains.Item(1));
-    }
 }
