@@ -154,14 +154,22 @@ public class PackTests {
 
 	[Test]
 	public void PackOfOneBook() {
-		var packs = Pack.CreateFrom(PotterBook.LaPiedraFilosofal);
+		var packs = Pack.CreateFrom(PotterBook.First);
 		Assert.That(packs.Count, Is.EqualTo(1));
-		Assert.That(packs.Single(), Contains.Item(PotterBook.LaPiedraFilosofal));
+		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
 	}
 
 	[Test]
-	public void PackOfTwoBooks() {
-		var packs = Pack.CreateFrom(PotterBook.LaPiedraFilosofal, PotterBook.LaPiedraFilosofal);
+	public void TwoPacksOfSameBook() {
+		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.First);
 		Assert.That(packs.Count, Is.EqualTo(2));
+	}
+
+	[Test]
+	public void PackOfTwo() {
+		var packs = Pack.CreateFrom(PotterBook.First, PotterBook.Second);
+		Assert.That(packs.Count, Is.EqualTo(1));
+		Assert.That(packs.Single(), Contains.Item(PotterBook.First));
+		Assert.That(packs.Single(), Contains.Item(PotterBook.Second));
 	}
 }

@@ -34,6 +34,15 @@ public class Pack : IEnumerable<PotterBook> {
     }
 
     public static List<Pack> CreateFrom(params PotterBook[] books) {
-        return books.Select(x => new Pack() { x }).ToList();
+        var packs = new List<Pack>();
+        foreach (var book in books) {
+            var pack = packs.FirstOrDefault(p => !p.Books.Contains(book));
+            if (pack == null) {
+                pack = new Pack();
+                packs.Add(pack);
+            }
+            pack.Add(book);
+        }
+        return packs;
     }
 }
