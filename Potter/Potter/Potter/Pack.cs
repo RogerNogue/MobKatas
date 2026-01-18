@@ -33,7 +33,7 @@ public class Pack : IEnumerable<PotterBook> {
         return 8;
     }
 
-    public static Pack From(params PotterBook[] books) {
+    public static Pack Of(params PotterBook[] books) {
         var pack = new Pack();
         foreach (var book in books) {
             pack.Add(book);
