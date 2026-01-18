@@ -42,6 +42,12 @@ public class ShoppingCart
     }
 
     public int[] GetPacks(params PotterBook[] books) {
+        var listOfPacks = new List<Pack>();
+        
         return new[] { books.Length };
     }
+}
+
+public class Pack {
+    public List<PotterBook> Books = [];
 }
