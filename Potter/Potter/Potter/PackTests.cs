@@ -180,4 +180,13 @@ public class PackTests {
 		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First, PotterBook.Second)));
 		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First)));
 	}
+
+	[Test]
+	public void aopsdifjasdpfoj() {
+		var packs = Pack.Split(PotterBook.First, PotterBook.First, PotterBook.Second, PotterBook.Second, PotterBook.Second, PotterBook.Fourth, PotterBook.Fifth);
+		Assert.That(packs.Count, Is.EqualTo(3));
+		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First, PotterBook.Second, PotterBook.Fourth, PotterBook.Fifth)));
+		Assert.That(packs, Contains.Item(Pack.From(PotterBook.First, PotterBook.Second)));
+		Assert.That(packs, Contains.Item(Pack.From(PotterBook.Second)));
+	}
 }

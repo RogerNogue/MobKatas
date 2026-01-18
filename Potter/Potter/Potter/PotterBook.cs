@@ -11,4 +11,7 @@ public struct PotterBook(string name)
     
     public static PotterBook First => new PotterBook("first book");
     public static PotterBook Second => new PotterBook("second book");
+    public static PotterBook Third => new PotterBook("third book");
+    public static PotterBook Fourth => new PotterBook("fourth book");
+    public static PotterBook Fifth => new PotterBook("fifth book");
 }
