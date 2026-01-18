@@ -118,4 +118,37 @@ public class PackTests {
 		pack.Add("second book");
 		Assert.That(pack.Price(), Is.EqualTo(15.2f));
 	}
+
+	[Test]
+	public void ThreeBooks()
+	{
+		var pack = new Pack();
+		pack.Add("first book");
+		pack.Add("second book");
+		pack.Add("third book");
+		Assert.That(pack.Price(), Is.EqualTo(21.6f));
+	}
+
+	[Test]
+	public void FourBooks()
+	{
+		var pack = new Pack();
+		pack.Add("first book");
+		pack.Add("second book");
+		pack.Add("third book");
+		pack.Add("fourth book");
+		Assert.That(pack.Price(), Is.EqualTo(25.6f));
+	}
+	
+	[Test]
+	public void FiveBooks()
+	{
+		var pack = new Pack();
+		pack.Add("first book");
+		pack.Add("second book");
+		pack.Add("third book");
+		pack.Add("fourth book");
+		pack.Add("fifth book");
+		Assert.That(pack.Price(), Is.EqualTo(30f));
+	}
 }

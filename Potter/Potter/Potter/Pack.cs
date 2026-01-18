@@ -20,7 +20,16 @@ public class Pack : IEnumerable<PotterBook> {
         return GetEnumerator();
     }
 
-    public float Price() {
+    public float Price()
+    {
+        if (Books.Count == 5)
+            return 30f;
+        if (Books.Count == 4)
+            return 25.6f;
+        if (Books.Count == 3)
+            return 21.6f;
+        if (Books.Count == 2)
+            return 15.2f;
         return 8;
     }
 }
