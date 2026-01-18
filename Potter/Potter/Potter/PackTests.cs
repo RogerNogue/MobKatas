@@ -88,4 +88,12 @@ public class PackTests {
 		int pack = sut.GetAmountOfPacks( "first book", "third book", "third book");
 		Assert.That(pack, Is.EqualTo(2));
 	}
+
+	[Test]
+	public void FullPack()
+	{
+        var sut = new ShoppingCart();
+        int pack = sut.GetAmountOfPacks("first book", "third book", "fourth book", "second book", "fifth book");
+        Assert.That(pack, Is.EqualTo(1));
+    }
 }
