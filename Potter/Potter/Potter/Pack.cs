@@ -3,8 +3,22 @@ using NUnit.Framework.Constraints;
 
 namespace Potter;
 
+public class Discounts
+{
+    public static List<float> discounts = new List<float>()
+    {
+        0,1,0.95f, 0.90f, 0.80f, 0.75f,  
+    };
+
+    public float Discount(List<PotterBook> books)
+    {
+        return discounts[books.Count];
+    }
+}
+
 public class Pack : IEnumerable<PotterBook> {
     public List<PotterBook> Books = [];
+    private readonly Discounts _discounts = new Discounts();
 
     public void Add(PotterBook book) {
         if (Books.Contains(book))
@@ -22,15 +36,7 @@ public class Pack : IEnumerable<PotterBook> {
 
     public float Price()
     {
-        if (Books.Count == 5)
-            return (float)Math.Round(8 * 5 * 0.75f, 3);
-        if (Books.Count == 4)
-            return (float)Math.Round(8 * 4 * 0.8f, 3);
-        if (Books.Count == 3)
-            return (float)Math.Round(8 * 3 * .90f, 3);
-        if (Books.Count == 2)
-            return (float)Math.Round(8 * 2 * .95f, 3);
-        return 8;
+        return (float)Math.Round(8 * Books.Count * _discounts.Discount(Books), 3);
     }
 
     public static Pack Of(params PotterBook[] books) {
