@@ -36,7 +36,7 @@ public class Pack : IEnumerable<PotterBook> {
 
     public float Price()
     {
-        return (float)Math.Round(8 * Books.Count * _discounts.Discount(Books), 3);
+        return (float)Math.Round(PotterBook.Price * Books.Count * _discounts.Discount(Books), 3);
     }
 
     public static Pack Of(params PotterBook[] books) {

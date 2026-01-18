@@ -3,6 +3,7 @@ namespace Potter;
 public struct PotterBook(string name)
 {
     private string _name = name;
+    public const float Price = 8;
 
     public static implicit operator PotterBook(string name) => new PotterBook(name);
     
