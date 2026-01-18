@@ -42,6 +42,6 @@ public class ShoppingCart
     }
 
     public int[] GetPacks(params PotterBook[] books) {
-        return new[] { 1 };
+        return new[] { books.Length };
     }
 }

@@ -98,12 +98,22 @@ public class PackTests {
     }
 
 	[Test]
-	public void asdfbgji()
+	public void GetPackOfOneBook()
 	{
 		var sut = new ShoppingCart();
 		int[] pack = sut.GetPacks("first book");
 		Assert.That(pack.Length, Is.EqualTo(1));
 		Assert.That(pack[0], Is.EqualTo(1));
+
+	}
+
+	[Test]
+	public void GetPackOfTwoBook()
+	{
+		var sut = new ShoppingCart();
+		int[] pack = sut.GetPacks("first book", "second book");
+		Assert.That(pack.Length, Is.EqualTo(1));
+		Assert.That(pack[0], Is.EqualTo(2));
 
 	}
 }
