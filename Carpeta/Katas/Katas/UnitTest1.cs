@@ -88,7 +88,7 @@ public class Tests
 
 public static class RomanMatematician
 {
-    static Dictionary<int, RomanNumber> numbers = new Dictionary<int, RomanNumber>()
+    static Dictionary<int, RomanNumber> conversions = new Dictionary<int, RomanNumber>()
     {
         {1, I},
         {2, I.Concat(I)},
@@ -104,6 +104,6 @@ public static class RomanMatematician
     
     public static RomanNumber Convert(int arabicNumber)
     {
-        return numbers[arabicNumber];
+        return conversions[arabicNumber];
     }
 }
