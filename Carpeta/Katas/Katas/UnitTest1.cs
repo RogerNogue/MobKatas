@@ -24,25 +24,39 @@ public class Tests
     [Test]
     public void Convert1ShouldReturnI()
     {
-        Assert.That(RomanMatematician.Convert(1), Is.EqualTo("I"));
+        Assert.That(RomanMatematician.Convert(1), Is.EqualTo(RomanNumber.I));
     }
 
     [Test]
     public void Convert2ShouldReturnII()
     {
-        Assert.That(RomanMatematician.Convert(2), Is.EqualTo("II"));
+        Assert.That(RomanMatematician.Convert(2), Is.EqualTo(new RomanNumber("II")));
     }
+}
+
+public struct RomanNumber
+{
+    private readonly string value;
+
+    public RomanNumber(string value)
+    {
+        this.value = value;
+    }
+
+    public static RomanNumber I => new RomanNumber("I");
 }
 
 public static class RomanMatematician
 {
-    public static string Convert(int arabicNumber)
+    private static RomanNumber I = RomanNumber.I;
+
+    public static RomanNumber Convert(int arabicNumber)
     {
         if (arabicNumber == 2)
         {
-            return "I" + "I";
+            return new RomanNumber("II");
         }
 
-        return "I";
+        return I;
     }
 }
