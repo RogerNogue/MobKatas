@@ -53,8 +53,6 @@ public class Tests
 
 public static class RomanMatematician
 {
-    private static RomanNumber I = RomanNumber.I;
-
     public static RomanNumber Convert(int arabicNumber)
     {
         if (arabicNumber == 4) {
