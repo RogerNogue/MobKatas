@@ -23,6 +23,18 @@ public class Tests
     [Test]
     public void Test1()
     {
-        Assert.Pass();
+        var sut = new RomanMatematician();
+
+        var conversion = sut.Convert(1);
+        
+        Assert.AreEqual("I", conversion);
+    }
+}
+
+public class RomanMatematician
+{
+    public string Convert(int i)
+    {
+        return "I";
     }
 }
