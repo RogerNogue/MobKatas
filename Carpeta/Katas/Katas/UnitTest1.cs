@@ -88,50 +88,22 @@ public class Tests
 
 public static class RomanMatematician
 {
+    static Dictionary<int, RomanNumber> numbers = new Dictionary<int, RomanNumber>()
+    {
+        {1, I},
+        {2, I.Concat(I)},
+        {3, I.Concat(I).Concat(I)},
+        {4, I.Concat(V)},
+        {5, V},
+        {6, V.Concat(I)},
+        {7, V.Concat(I).Concat(I)},
+        {8, V.Concat(I).Concat(I).Concat(I)},
+        {9, I.Concat(X)},
+        {10, X}
+    };
+    
     public static RomanNumber Convert(int arabicNumber)
     {
-        if (arabicNumber == 1) {
-            return I;
-        }
-        
-        if (arabicNumber == 2)
-        {
-            return I.Concat(I);
-        }
-        
-        if (arabicNumber == 3) 
-        {
-            return I.Concat(I).Concat(I);
-        }
-        
-        if (arabicNumber == 4) {
-            return I.Concat(V);
-        }
-        
-        if (arabicNumber == 5) {
-            return V;
-        }
-        
-        if (arabicNumber == 6) {
-            return V.Concat(I);
-        }
-        
-        if (arabicNumber == 7) {
-            return V.Concat(I).Concat(I);
-        }
-        
-        if (arabicNumber == 8) {
-            return V.Concat(I).Concat(I).Concat(I);
-        }
-        
-        if (arabicNumber == 9) {
-            return I.Concat(X);
-        }
-        
-        if (arabicNumber == 10) {
-            return X;
-        }
-
-        throw new NotImplementedException();
+        return numbers[arabicNumber];
     }
 }
