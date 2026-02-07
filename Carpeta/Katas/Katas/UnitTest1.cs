@@ -30,7 +30,7 @@ public class Tests
     [Test]
     public void Convert2ShouldReturnII()
     {
-        Assert.That(RomanMatematician.Convert(2), Is.EqualTo(new RomanNumber("II")));
+        Assert.That(RomanMatematician.Convert(2), Is.EqualTo(RomanNumber.I.Combine(RomanNumber.I)));
     }
 }
 
@@ -41,6 +41,11 @@ public struct RomanNumber
     public RomanNumber(string value)
     {
         this.value = value;
+    }
+
+    public RomanNumber Combine(RomanNumber other)
+    {
+        return new RomanNumber(value + other.value);
     }
 
     public static RomanNumber I => new RomanNumber("I");
@@ -54,7 +59,7 @@ public static class RomanMatematician
     {
         if (arabicNumber == 2)
         {
-            return new RomanNumber("II");
+            return I.Combine(I);
         }
 
         return I;
