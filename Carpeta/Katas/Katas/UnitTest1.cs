@@ -25,12 +25,25 @@ public class Tests
     {
         Assert.That(RomanMatematician.Convert(1), Is.EqualTo("I"));
     }
+
+    [Test]
+    public void Convert2ShouldReturnII()
+    {
+        Assert.That(RomanMatematician.Convert(2), Is.EqualTo("II"));
+        
+    }
 }
+
 
 public static class RomanMatematician
 {
     public static string Convert(int arabicNumber)
     {
+        if (arabicNumber == 2)
+        {
+            return "II";
+        }
         return "I";
+        
     }
 }
