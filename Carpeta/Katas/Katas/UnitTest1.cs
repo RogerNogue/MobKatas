@@ -54,6 +54,36 @@ public class Tests
     public void Convert5ShouldReturnV() {
         Assert.That(RomanMatematician.Convert(5), Is.EqualTo(V));
     }
+
+    [Test]
+    public void Convert6ShouldReturnVI()
+    {
+        Assert.That(RomanMatematician.Convert(6), Is.EqualTo(V.Concat(I)));
+    }
+
+    [Test]
+    public void Convert7ShouldReturnVII()
+    {
+        Assert.That(RomanMatematician.Convert(7), Is.EqualTo(V.Concat(I).Concat(I)));
+    }
+
+    [Test]
+    public void Convert8ShouldReturnVIII()
+    {
+        Assert.That(RomanMatematician.Convert(8), Is.EqualTo(V.Concat(I).Concat(I).Concat(I)));
+    }
+
+    [Test]
+    public void Convert9ShouldReturnIX()
+    {
+        Assert.That(RomanMatematician.Convert(9), Is.EqualTo(I.Concat(X)));
+    }
+
+    [Test]
+    public void Convert10ShouldReturnX()
+    {
+        Assert.That(RomanMatematician.Convert(10), Is.EqualTo(X));
+    }
 }
 
 public static class RomanMatematician
@@ -80,6 +110,26 @@ public static class RomanMatematician
         
         if (arabicNumber == 5) {
             return V;
+        }
+        
+        if (arabicNumber == 6) {
+            return V.Concat(I);
+        }
+        
+        if (arabicNumber == 7) {
+            return V.Concat(I).Concat(I);
+        }
+        
+        if (arabicNumber == 8) {
+            return V.Concat(I).Concat(I).Concat(I);
+        }
+        
+        if (arabicNumber == 9) {
+            return I.Concat(X);
+        }
+        
+        if (arabicNumber == 10) {
+            return X;
         }
 
         throw new NotImplementedException();

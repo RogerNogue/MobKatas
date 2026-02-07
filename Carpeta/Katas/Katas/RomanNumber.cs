@@ -20,4 +20,5 @@ public readonly struct RomanNumber
 
     public static readonly RomanNumber I = new RomanNumber("I");
     public static readonly RomanNumber V = new RomanNumber("V");
+    public static readonly RomanNumber X = new RomanNumber("X");
 }
