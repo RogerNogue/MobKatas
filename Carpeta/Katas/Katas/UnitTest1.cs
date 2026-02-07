@@ -31,7 +31,7 @@ public class Tests
 
 public static class RomanMatematician
 {
-    public static string Convert(int i)
+    public static string Convert(int arabicNumber)
     {
         return "I";
     }
