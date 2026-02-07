@@ -23,9 +23,7 @@ public class Tests
     [Test]
     public void Convert1ShouldReturnI()
     {
-        var conversion = RomanMatematician.Convert(1);
-        
-        Assert.AreEqual("I", conversion);
+        Assert.That(RomanMatematician.Convert(1), Is.EqualTo("I"));
     }
 }
 
