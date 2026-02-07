@@ -1,6 +1,7 @@
 namespace Katas;
+
 /*
- * 
+ *
 Number	Numeral
 1	I
 5	V
@@ -30,10 +31,8 @@ public class Tests
     public void Convert2ShouldReturnII()
     {
         Assert.That(RomanMatematician.Convert(2), Is.EqualTo("II"));
-        
     }
 }
-
 
 public static class RomanMatematician
 {
@@ -41,9 +40,9 @@ public static class RomanMatematician
     {
         if (arabicNumber == 2)
         {
-            return "II";
+            return "I" + "I";
         }
+
         return "I";
-        
     }
 }
