@@ -71,6 +71,10 @@ public static class RomanMatematician
             return I.Concat(I);
         }
 
-        return I;
+        if (arabicNumber == 1) {
+            return I;
+        }
+
+        throw new NotImplementedException();
     }
 }
