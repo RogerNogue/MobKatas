@@ -21,7 +21,7 @@ Number	Numeral
 public class Tests
 {
     [Test]
-    public void Test1()
+    public void Convert1ShouldReturnI()
     {
         var conversion = RomanMatematician.Convert(1);
         
