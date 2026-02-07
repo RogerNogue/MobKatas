@@ -49,12 +49,21 @@ public class Tests
     public void Convert4ShouldReturnIV() {
         Assert.That(RomanMatematician.Convert(4), Is.EqualTo(I.Concat(V)));
     }
+
+    [Test]
+    public void Convert5ShouldReturnV() {
+        Assert.That(RomanMatematician.Convert(5), Is.EqualTo(V));
+    }
 }
 
 public static class RomanMatematician
 {
     public static RomanNumber Convert(int arabicNumber)
     {
+        if (arabicNumber == 5) {
+            return V;
+        }
+        
         if (arabicNumber == 4) {
             return I.Concat(V);
         }
