@@ -1,3 +1,5 @@
+using static Katas.RomanNumber;
+
 namespace Katas;
 
 /*
@@ -24,13 +26,13 @@ public class Tests
     [Test]
     public void Convert1ShouldReturnI()
     {
-        Assert.That(RomanMatematician.Convert(1), Is.EqualTo(RomanNumber.I));
+        Assert.That(RomanMatematician.Convert(1), Is.EqualTo(I));
     }
 
     [Test]
     public void Convert2ShouldReturnII()
     {
-        Assert.That(RomanMatematician.Convert(2), Is.EqualTo(RomanNumber.I.Concat(RomanNumber.I)));
+        Assert.That(RomanMatematician.Convert(2), Is.EqualTo(I.Concat(I)));
     }
 }
 
