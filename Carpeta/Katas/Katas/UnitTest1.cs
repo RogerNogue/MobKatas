@@ -23,17 +23,15 @@ public class Tests
     [Test]
     public void Test1()
     {
-        var sut = new RomanMatematician();
-
-        var conversion = sut.Convert(1);
+        var conversion = RomanMatematician.Convert(1);
         
         Assert.AreEqual("I", conversion);
     }
 }
 
-public class RomanMatematician
+public static class RomanMatematician
 {
-    public string Convert(int i)
+    public static string Convert(int i)
     {
         return "I";
     }
