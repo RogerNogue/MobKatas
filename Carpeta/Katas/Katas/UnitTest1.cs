@@ -60,12 +60,13 @@ public static class RomanMatematician
 {
     public static RomanNumber Convert(int arabicNumber)
     {
-        if (arabicNumber == 5) {
-            return V;
+        if (arabicNumber == 1) {
+            return I;
         }
         
-        if (arabicNumber == 4) {
-            return I.Concat(V);
+        if (arabicNumber == 2)
+        {
+            return I.Concat(I);
         }
         
         if (arabicNumber == 3) 
@@ -73,13 +74,12 @@ public static class RomanMatematician
             return I.Concat(I).Concat(I);
         }
         
-        if (arabicNumber == 2)
-        {
-            return I.Concat(I);
+        if (arabicNumber == 4) {
+            return I.Concat(V);
         }
-
-        if (arabicNumber == 1) {
-            return I;
+        
+        if (arabicNumber == 5) {
+            return V;
         }
 
         throw new NotImplementedException();
