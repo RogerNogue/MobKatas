@@ -1,10 +1,10 @@
 namespace Katas;
 
-public struct RomanNumber
+public readonly struct RomanNumber
 {
     private readonly string value;
 
-    public RomanNumber(string value)
+    RomanNumber(string value)
     {
         this.value = value;
     }
