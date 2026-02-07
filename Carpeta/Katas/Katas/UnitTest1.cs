@@ -44,6 +44,11 @@ public class Tests
     {
         Assert.That(RomanMatematician.Convert(3), Is.EqualTo(I.Concat(I).Concat(I)));    
     }
+
+    [Test]
+    public void Convert4ShouldReturnIV() {
+        Assert.That(RomanMatematician.Convert(4), Is.EqualTo(I.Concat(V)));
+    }
 }
 
 public static class RomanMatematician
@@ -52,6 +57,10 @@ public static class RomanMatematician
 
     public static RomanNumber Convert(int arabicNumber)
     {
+        if (arabicNumber == 4) {
+            return I.Concat(V);
+        }
+        
         if (arabicNumber == 3) 
         {
             return I.Concat(I).Concat(I);

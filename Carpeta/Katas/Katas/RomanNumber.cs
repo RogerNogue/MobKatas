@@ -13,6 +13,11 @@ public readonly struct RomanNumber
     {
         return new RomanNumber(value + other.value);
     }
+    
+    public override string ToString() {
+        return value;
+    }
 
     public static RomanNumber I => new RomanNumber("I");
+    public static RomanNumber V => new RomanNumber("V");
 }
