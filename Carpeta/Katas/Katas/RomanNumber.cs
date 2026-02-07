@@ -18,6 +18,6 @@ public readonly struct RomanNumber
         return value;
     }
 
-    public static RomanNumber I => new RomanNumber("I");
-    public static RomanNumber V => new RomanNumber("V");
+    public static readonly RomanNumber I = new RomanNumber("I");
+    public static readonly RomanNumber V = new RomanNumber("V");
 }
