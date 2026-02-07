@@ -21,6 +21,10 @@ Number	Numeral
 4	    IV
 
  */
+
+// TODO
+// - Precondition of invalid roman numbers concatenation
+
 public class Tests
 {
     [Test]
