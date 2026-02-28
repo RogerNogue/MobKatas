@@ -14,7 +14,11 @@ namespace FirstKata.Tests.Stack;
 
 public class StackTests {
     [Fact]
-    public void Adfas() {
-        
+    public void Stack_IsEmpty_ByDefault() {
+        Assert.True(new MyStack<string>().IsEmpty);
     }
+}
+
+public class MyStack<T> {
+    public bool IsEmpty { get; set; } = true;
 }
