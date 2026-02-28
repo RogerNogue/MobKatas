@@ -40,4 +40,19 @@ public class StackTests {
         
         Assert.Equal(2, sut.Size);
     }
+
+    [Fact]
+    public void PushTo_FullStack_ThrowsOverflow() {
+        var sut = new MyStack<string>(capacity: 1);
+        
+        sut.Push("1");
+        
+        Assert.Throws<MyStackOverflowException>(() => sut.Push("Anything"));
+    }
+}
+
+public class MyStackOverflowException : Exception {
+    public MyStackOverflowException() : base("Tried to add more elements than allowed to the stack") {
+        
+    }
 }
