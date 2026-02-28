@@ -7,7 +7,10 @@ public class MyStack<T> {
         this.capacity = capacity;
     }
 
-    public bool IsEmpty { get; set; } = true;
+    public bool IsEmpty {
+        get => Size == 0;
+        set { }
+    }
 
     public int Size { get; set; }
 
