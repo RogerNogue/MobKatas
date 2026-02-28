@@ -36,7 +36,11 @@ public class MyStack<T> {
     }
 
     public T Peek() {
-        throw new MyStackUnderflowException();
+        if (IsEmpty) {
+            throw new MyStackUnderflowException();
+        }
+        
+        return elements[^1];
     }
 
     public static MyStack<T> Limitless() {

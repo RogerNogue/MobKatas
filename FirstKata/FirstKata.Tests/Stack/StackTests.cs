@@ -98,4 +98,16 @@ public class StackTests {
     public void Peek_ThrowsException_WhenStackIsEmpty() {
         Assert.Throws<MyStackUnderflowException>(() => sut.Peek());
     }
+
+    [Fact]
+    public void Peek_ReturnsLastAddedElement() {
+        const string firstElement = "4";
+        const string lastElement = "1";
+        sut.Push(firstElement);
+        sut.Push(lastElement);
+
+        var result = sut.Peek();
+        
+        Assert.Equal(lastElement, result);
+    }
 }
