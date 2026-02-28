@@ -3,9 +3,6 @@ namespace FirstKata.Tests.Stack;
 public class MyStack<T> {
     readonly int capacity;
 
-    public MyStack() : this(int.MaxValue) {
-    }
-
     MyStack(int capacity) {
         this.capacity = capacity;
     }
@@ -21,6 +18,10 @@ public class MyStack<T> {
         
         IsEmpty = false;
         Size++;
+    }
+
+    public static MyStack<T> Limitless() {
+        return LimitedTo(int.MaxValue);
     }
 
     public static MyStack<T> LimitedTo(int capacity) {

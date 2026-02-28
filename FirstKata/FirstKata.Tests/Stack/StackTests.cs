@@ -13,7 +13,7 @@ namespace FirstKata.Tests.Stack;
 // Handle attempts to create a stack with an invalid capacity (negative numbers)
 
 public class StackTests {
-    readonly MyStack<string> sut = new();
+    readonly MyStack<string> sut = MyStack<string>.Limitless();
 
     [Fact]
     public void Stack_IsEmpty_ByDefault() {
