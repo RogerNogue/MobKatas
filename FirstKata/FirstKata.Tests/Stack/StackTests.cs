@@ -76,16 +76,11 @@ public class StackTests {
 
     [Fact]
     public void Pop_ReturnsLastAddedElement() {
-        const string element1 = "1";
-        const string element2 = "2";
-        sut.Push(element1);
-        sut.Push(element2);
+        sut.Push("first");
+        sut.Push("last");
 
-        var retrievedResult1 = sut.Pop();
-        var retrievedResult2 = sut.Pop();
-        
-        Assert.Equal(element2, retrievedResult1);
-        Assert.Equal(element1, retrievedResult2);
+        Assert.Equal("last", sut.Pop());
+        Assert.Equal("first", sut.Pop());
     }
 
     [Fact]
@@ -101,27 +96,23 @@ public class StackTests {
 
     [Fact]
     public void Peek_ReturnsLastAddedElement() {
-        const string firstElement = "4";
-        const string lastElement = "1";
-        sut.Push(firstElement);
-        sut.Push(lastElement);
+        sut.Push("first");
+        sut.Push("last");
 
         var result = sut.Peek();
         
-        Assert.Equal(lastElement, result);
+        Assert.Equal("last", result);
     }
 
     [Fact]
     public void Peek_DoesNotRemove_LastElement() {
-        const string firstElement = "4";
-        const string lastElement = "1";
-        sut.Push(firstElement);
-        sut.Push(lastElement);
+        sut.Push("first");
+        sut.Push("last");
         
         var firstResult = sut.Peek();
         var secondResult = sut.Peek();
         
-        Assert.Equal(lastElement, firstResult);
-        Assert.Equal(lastElement, secondResult);
+        Assert.Equal("last", firstResult);
+        Assert.Equal("last", secondResult);
     }
 }
