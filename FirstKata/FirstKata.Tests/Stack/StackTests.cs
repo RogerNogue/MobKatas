@@ -93,4 +93,9 @@ public class StackTests {
         Assert.Throws<MyStackInvalidCapacityException>(() => MyStack<int>.LimitedTo(-1));
         Assert.Throws<MyStackInvalidCapacityException>(() => MyStack<int>.LimitedTo(0));
     }
+
+    [Fact]
+    public void Peek_ThrowsException_WhenStackIsEmpty() {
+        Assert.Throws<MyStackUnderflowException>(() => sut.Peek());
+    }
 }

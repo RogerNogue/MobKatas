@@ -35,6 +35,10 @@ public class MyStack<T> {
         return lastAddedElement;
     }
 
+    public T Peek() {
+        throw new MyStackUnderflowException();
+    }
+
     public static MyStack<T> Limitless() {
         return LimitedTo(int.MaxValue);
     }
