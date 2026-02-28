@@ -110,4 +110,18 @@ public class StackTests {
         
         Assert.Equal(lastElement, result);
     }
+
+    [Fact]
+    public void Peek_DoesNotRemove_LastElement() {
+        const string firstElement = "4";
+        const string lastElement = "1";
+        sut.Push(firstElement);
+        sut.Push(lastElement);
+        
+        var firstResult = sut.Peek();
+        var secondResult = sut.Peek();
+        
+        Assert.Equal(lastElement, firstResult);
+        Assert.Equal(lastElement, secondResult);
+    }
 }
