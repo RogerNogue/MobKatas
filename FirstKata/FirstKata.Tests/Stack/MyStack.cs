@@ -9,7 +9,7 @@ public class MyStack<T> {
     
     MyStack(int capacity) {
         if (capacity <= 0) {
-            throw new InvalidMyStackCapacityException();
+            throw new MyStackInvalidCapacityException();
         }
         
         this.capacity = capacity;

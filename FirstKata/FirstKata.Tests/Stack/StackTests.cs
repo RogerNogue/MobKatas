@@ -90,7 +90,7 @@ public class StackTests {
 
     [Fact]
     public void Throws_InvalidCapacityException_WhenInvalidCapacityIsAdded() {
-        Assert.Throws<InvalidMyStackCapacityException>(() => MyStack<int>.LimitedTo(-1));
-        Assert.Throws<InvalidMyStackCapacityException>(() => MyStack<int>.LimitedTo(0));
+        Assert.Throws<MyStackInvalidCapacityException>(() => MyStack<int>.LimitedTo(-1));
+        Assert.Throws<MyStackInvalidCapacityException>(() => MyStack<int>.LimitedTo(0));
     }
 }
