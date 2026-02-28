@@ -2,14 +2,14 @@ namespace FirstKata.Tests.Stack;
 
 public class MyStack<T> {
     readonly int capacity;
-
+    
+    public int Size { get; set; }
+    public bool IsEmpty => Size == 0;
+    
     MyStack(int capacity) {
         this.capacity = capacity;
     }
-
-    public int Size { get; set; }
-    public bool IsEmpty => Size == 0;
-
+    
     public void Push(T element) {
         if (Size >= capacity) {
             throw new MyStackOverflowException();
