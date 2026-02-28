@@ -20,14 +20,14 @@ public class StackTests {
     
     [Fact]
     public void Stack_HasSizeOfZero_ByDefault() {
-        Assert.Equal(0, new MyStack<int>().Size);
+        Assert.Equal(0, new MyStack<string>().Size);
     }
 
     [Fact]
     public void PushToStack_MakesIt_NonEmpty() {
-        var sut = new MyStack<int>();
+        var sut = new MyStack<string>();
 
-        sut.Push(1);
+        sut.Push("1");
         
         Assert.False(sut.IsEmpty);
     }
