@@ -17,8 +17,14 @@ public class StackTests {
     public void Stack_IsEmpty_ByDefault() {
         Assert.True(new MyStack<string>().IsEmpty);
     }
+    
+    [Fact]
+    public void Stack_HasSizeOfZero_ByDefault() {
+        Assert.Equal(0, new MyStack<int>().Size);
+    }
 }
 
 public class MyStack<T> {
     public bool IsEmpty { get; set; } = true;
+    public int Size { get; set; }
 }
