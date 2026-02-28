@@ -22,9 +22,22 @@ public class StackTests {
     public void Stack_HasSizeOfZero_ByDefault() {
         Assert.Equal(0, new MyStack<int>().Size);
     }
+
+    [Fact]
+    public void PushToStack_MakesIt_NonEmpty() {
+        var sut = new MyStack<int>();
+
+        sut.Push(1);
+        
+        Assert.False(sut.IsEmpty);
+    }
 }
 
 public class MyStack<T> {
     public bool IsEmpty { get; set; } = true;
     public int Size { get; set; }
+
+    public void Push(T element) {
+        IsEmpty = false;
+    }
 }
