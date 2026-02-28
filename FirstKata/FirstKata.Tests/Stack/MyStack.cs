@@ -4,7 +4,7 @@ public class MyStack<T> {
     readonly int capacity;
     readonly List<T> elements = new();
     
-    public int Size { get; set; }
+    public int Size => elements.Count;
     public bool IsEmpty => Size == 0;
     
     MyStack(int capacity) {
@@ -20,13 +20,11 @@ public class MyStack<T> {
             throw new MyStackOverflowException();
         }
         
-        Size++;
         elements.Add(element);
     }
 
     public T Pop() {
         var lastAddedElement = Peek();
-        Size--;
         elements.Remove(lastAddedElement);
         return lastAddedElement;
     }
