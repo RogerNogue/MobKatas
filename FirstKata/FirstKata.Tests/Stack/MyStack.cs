@@ -25,10 +25,6 @@ public class MyStack<T> {
     }
 
     public T Pop() {
-        if (IsEmpty) {
-            throw new MyStackUnderflowException();
-        }
-
         var lastAddedElement = Peek();
         Size--;
         elements.Remove(lastAddedElement);
