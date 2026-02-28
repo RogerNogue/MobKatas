@@ -99,20 +99,15 @@ public class StackTests {
         sut.Push("first");
         sut.Push("last");
 
-        var result = sut.Peek();
-        
-        Assert.Equal("last", result);
+        Assert.Equal("last", sut.Peek());
     }
 
     [Fact]
     public void Peek_DoesNotRemove_LastElement() {
         sut.Push("first");
         sut.Push("last");
-        
-        var firstResult = sut.Peek();
-        var secondResult = sut.Peek();
-        
-        Assert.Equal("last", firstResult);
-        Assert.Equal("last", secondResult);
+
+        Assert.Equal("last", sut.Peek());
+        Assert.Equal("last", sut.Peek());
     }
 }
