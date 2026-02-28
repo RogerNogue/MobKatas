@@ -43,7 +43,7 @@ public class StackTests {
 
     [Fact]
     public void PushTo_FullStack_ThrowsOverflow() {
-        var sut = new MyStack<string>(capacity: 1);
+        var sut = MyStack<string>.LimitedTo(capacity: 1);
         
         sut.Push("1");
         
