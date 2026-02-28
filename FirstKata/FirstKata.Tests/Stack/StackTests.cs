@@ -87,4 +87,10 @@ public class StackTests {
         Assert.Equal(element2, retrievedResult1);
         Assert.Equal(element1, retrievedResult2);
     }
+
+    [Fact]
+    public void Throws_InvalidCapacityException_WhenInvalidCapacityIsAdded() {
+        Assert.Throws<InvalidMyStackCapacityException>(() => MyStack<int>.LimitedTo(-1));
+        Assert.Throws<InvalidMyStackCapacityException>(() => MyStack<int>.LimitedTo(0));
+    }
 }

@@ -8,6 +8,10 @@ public class MyStack<T> {
     public bool IsEmpty => Size == 0;
     
     MyStack(int capacity) {
+        if (capacity <= 0) {
+            throw new InvalidMyStackCapacityException();
+        }
+        
         this.capacity = capacity;
     }
     
