@@ -29,8 +29,8 @@ public class MyStack<T> {
             throw new MyStackUnderflowException();
         }
 
+        var lastAddedElement = Peek();
         Size--;
-        var lastAddedElement = elements[^1];
         elements.Remove(lastAddedElement);
         return lastAddedElement;
     }
