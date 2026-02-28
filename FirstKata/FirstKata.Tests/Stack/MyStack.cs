@@ -2,6 +2,7 @@ namespace FirstKata.Tests.Stack;
 
 public class MyStack<T> {
     readonly int capacity;
+    readonly List<T> elements = new();
     
     public int Size { get; set; }
     public bool IsEmpty => Size == 0;
@@ -16,6 +17,7 @@ public class MyStack<T> {
         }
         
         Size++;
+        elements.Add(element);
     }
 
     public T Pop() {
@@ -24,7 +26,9 @@ public class MyStack<T> {
         }
 
         Size--;
-        return default;
+        var lastAddedElement = elements[^1];
+        elements.Remove(lastAddedElement);
+        return lastAddedElement;
     }
 
     public static MyStack<T> Limitless() {

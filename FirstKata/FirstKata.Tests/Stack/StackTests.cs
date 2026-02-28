@@ -73,4 +73,18 @@ public class StackTests {
         
         Assert.True(sut.IsEmpty);
     }
+
+    [Fact]
+    public void Pop_ReturnsLastAddedElement() {
+        const string element1 = "1";
+        const string element2 = "2";
+        sut.Push(element1);
+        sut.Push(element2);
+
+        var retrievedResult1 = sut.Pop();
+        var retrievedResult2 = sut.Pop();
+        
+        Assert.Equal(element2, retrievedResult1);
+        Assert.Equal(element1, retrievedResult2);
+    }
 }
