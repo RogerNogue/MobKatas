@@ -7,19 +7,14 @@ public class MyStack<T> {
         this.capacity = capacity;
     }
 
-    public bool IsEmpty {
-        get => Size == 0;
-        set { }
-    }
-
     public int Size { get; set; }
+    public bool IsEmpty => Size == 0;
 
     public void Push(T element) {
         if (Size >= capacity) {
             throw new MyStackOverflowException();
         }
         
-        IsEmpty = false;
         Size++;
     }
 
@@ -29,9 +24,6 @@ public class MyStack<T> {
         }
 
         Size--;
-        if (Size == 0)
-            IsEmpty = true;
-        
         return default;
     }
 
