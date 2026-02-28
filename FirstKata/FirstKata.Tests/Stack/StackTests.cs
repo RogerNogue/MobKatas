@@ -38,4 +38,12 @@ public class StackTests {
         
         Assert.Equal(1, sut.Size);
     }
+
+    [Fact]
+    public void PushToStack_AccumulatesSize() {
+        sut.Push("1");
+        sut.Push("2");
+        
+        Assert.Equal(2, sut.Size);
+    }
 }

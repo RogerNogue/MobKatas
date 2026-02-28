@@ -6,6 +6,6 @@ public class MyStack<T> {
 
     public void Push(T element) {
         IsEmpty = false;
-        Size = 1;
+        Size++;
     }
 }
