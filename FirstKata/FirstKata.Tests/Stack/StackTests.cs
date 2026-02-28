@@ -5,12 +5,12 @@ namespace FirstKata.Tests.Stack;
 // [x] Pop - Remove an element from the top of the stack, returning it
 // [x] Empty check - Check if the stack is empty or not
 // [x] Size - Count of the elements in the stack
-// Peek - Check the top of the stack without popping
+// [x] Peek - Check the top of the stack without popping
 
 // [x] Handle overflows when too many elements are pushed to the stack
 // [x] Handle underflows when too many elements are popped off the stack
-// Handle underflows when there are no elements to peek on the stack
-// Handle attempts to create a stack with an invalid capacity (negative numbers)
+// [x] Handle underflows when there are no elements to peek on the stack
+// [x] Handle attempts to create a stack with an invalid capacity (negative numbers)
 
 public class StackTests {
     readonly MyStack<string> sut = MyStack<string>.Limitless();
