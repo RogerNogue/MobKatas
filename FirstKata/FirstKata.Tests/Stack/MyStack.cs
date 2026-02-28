@@ -20,6 +20,15 @@ public class MyStack<T> {
         Size++;
     }
 
+    public T Pop() {
+        if (IsEmpty) {
+            throw new MyStackUnderflowException();
+        }
+
+        Size--;
+        return default;
+    }
+
     public static MyStack<T> Limitless() {
         return LimitedTo(int.MaxValue);
     }

@@ -49,4 +49,19 @@ public class StackTests {
         
         Assert.Throws<MyStackOverflowException>(() => sut.Push("Anything"));
     }
+
+    [Fact]
+    public void PopFromStack_ThrowsUnderflow_WhenEmpty() {
+        Assert.Throws<MyStackUnderflowException>(() => sut.Pop());
+    }
+
+    [Fact]
+    public void PopFromStack_DecreasesSize() {
+        sut.Push("1");
+        sut.Push("2");
+        
+        sut.Pop();
+        
+        Assert.Equal(1, sut.Size);
+    }
 }
