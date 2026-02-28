@@ -30,12 +30,6 @@ public class StackTests {
         sut.Push("1");
         
         Assert.False(sut.IsEmpty);
-    }
-
-    [Fact]
-    public void PushToStack_IncreasesItSize() {
-        sut.Push("1");
-        
         Assert.Equal(1, sut.Size);
     }
 
