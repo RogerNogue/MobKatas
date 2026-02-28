@@ -26,6 +26,9 @@ public class MyStack<T> {
         }
 
         Size--;
+        if (Size == 0)
+            IsEmpty = true;
+        
         return default;
     }
 

@@ -64,4 +64,13 @@ public class StackTests {
         
         Assert.Equal(1, sut.Size);
     }
+    
+    [Fact]
+    public void CanPop_UntilEmpty() {
+        sut.Push("1");
+        
+        sut.Pop();
+        
+        Assert.True(sut.IsEmpty);
+    }
 }
