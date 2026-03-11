@@ -17,11 +17,18 @@ public static class ArabicToRoman
         {9, I.Concat(X)},
         {10, X}
     };
+
+    private static int LowerClosestArabicNumber(int number)
+    {
+        return 10;
+    }
     
     public static RomanNumber Convert(int arabicNumber)
     {
         if (arabicNumber == 11) {
-            return conversions[10].Concat(conversions[1]);
+            var firstNumber = LowerClosestArabicNumber(arabicNumber);
+            var secondNumber = arabicNumber - firstNumber;
+            return conversions[firstNumber].Concat(conversions[secondNumber]);
         }
         if (arabicNumber == 12) {
             return conversions[10].Concat(conversions[1]).Concat(conversions[1]);
