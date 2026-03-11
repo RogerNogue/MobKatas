@@ -33,26 +33,13 @@ public static class ArabicToRoman
     
     public static RomanNumber Convert(int arabicNumber)
     {
-        if (arabicNumber == 11) {
-            var firstNumber = LowerClosestArabicPrimitive(arabicNumber);
-            var secondNumber = arabicNumber - firstNumber;
-            return conversions[firstNumber].Concat(conversions[secondNumber]);
-        }
-        if (arabicNumber == 12)
+        var result = string.Empty;
+        while (arabicNumber > 0)
         {
-            var result = string.Empty;
-            while (arabicNumber > 0)
-            {
-                var closestNumber = LowerClosestArabicPrimitive(arabicNumber);
-                arabicNumber -= closestNumber;
-                result = result + primitives[closestNumber];
-            }
-            return new RomanNumber(result);
+            var closestNumber = LowerClosestArabicPrimitive(arabicNumber);
+            arabicNumber -= closestNumber;
+            result = result + primitives[closestNumber];
         }
-        if (arabicNumber == 13) {
-            return conversions[10].Concat(conversions[1]).Concat(conversions[1]).Concat(conversions[1]);
-        }
-        
-        return conversions[arabicNumber];
+        return new RomanNumber(result);
     }
 }
