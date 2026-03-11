@@ -4,7 +4,7 @@ public readonly struct RomanNumber
 {
     private readonly string value;
 
-    RomanNumber(string value)
+    public RomanNumber(string value)
     {
         this.value = value;
     }
