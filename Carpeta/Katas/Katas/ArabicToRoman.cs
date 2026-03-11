@@ -18,20 +18,26 @@ public static class ArabicToRoman
         {10, X}
     };
 
-    private static int LowerClosestArabicNumber(int number)
+    private static int LowerClosestArabicPrimitive(int arabicNumber)
     {
-        return 10;
+        if (arabicNumber >= 10)
+            return 10;
+
+        return 1;
     }
     
     public static RomanNumber Convert(int arabicNumber)
     {
         if (arabicNumber == 11) {
-            var firstNumber = LowerClosestArabicNumber(arabicNumber);
+            var firstNumber = LowerClosestArabicPrimitive(arabicNumber);
             var secondNumber = arabicNumber - firstNumber;
             return conversions[firstNumber].Concat(conversions[secondNumber]);
         }
         if (arabicNumber == 12) {
-            return conversions[10].Concat(conversions[1]).Concat(conversions[1]);
+            var firstNumber = LowerClosestArabicPrimitive(arabicNumber); // 10
+            var secondNumber = LowerClosestArabicPrimitive(arabicNumber - firstNumber); // 12 - 10 = 1
+            var thirdNumber = LowerClosestArabicPrimitive(arabicNumber - firstNumber - secondNumber); // 12 - 10 - 1
+            return conversions[firstNumber].Concat(conversions[secondNumber]).Concat(conversions[thirdNumber]);
         }
         if (arabicNumber == 13) {
             return conversions[10].Concat(conversions[1]).Concat(conversions[1]).Concat(conversions[1]);
