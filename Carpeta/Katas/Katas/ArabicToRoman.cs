@@ -17,13 +17,22 @@ public static class ArabicToRoman
         {9, I.Concat(X)},
         {10, X}
     };
-
-    private static int LowerClosestArabicPrimitive(int arabicNumber)
+    
+    static Dictionary<int, RomanNumber> primitives = new Dictionary<int, RomanNumber>()
     {
-        if (arabicNumber >= 10)
-            return 10;
+        {1, I},
+        {3, I.Concat(I).Concat(I)},
+        {4, I.Concat(V)},
+        {5, V},
+        {6, V.Concat(I)},
+        {7, V.Concat(I).Concat(I)},
+        {8, V.Concat(I).Concat(I).Concat(I)},
+        {9, I.Concat(X)},
+        {10, X}
+    };
 
-        return 1;
+    private static int LowerClosestArabicPrimitive(int arabicNumber) {
+        return primitives.Keys.Last(x => x <= arabicNumber);
     }
     
     public static RomanNumber Convert(int arabicNumber)
