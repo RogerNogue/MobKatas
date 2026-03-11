@@ -2,7 +2,7 @@ using static Katas.RomanNumber;
 
 namespace Katas;
 
-public static class RomanMatematician
+public static class ArabicToRoman
 {
     static Dictionary<int, RomanNumber> conversions = new Dictionary<int, RomanNumber>()
     {

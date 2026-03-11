@@ -42,6 +42,6 @@ public class Tests
 
     [TestCaseSource(nameof(testCases))]
     public void ConvertArabicToRoman((int arabic, RomanNumber expected) testCase) {
-        Assert.That(RomanMatematician.Convert(testCase.arabic), Is.EqualTo(testCase.expected));
+        Assert.That(ArabicToRoman.Convert(testCase.arabic), Is.EqualTo(testCase.expected));
     }
 }
