@@ -4,7 +4,7 @@ public readonly struct RomanNumber
 {
     private readonly string value;
 
-    public RomanNumber(string value)
+    RomanNumber(string value)
     {
         this.value = value;
     }
@@ -22,4 +22,6 @@ public readonly struct RomanNumber
     public static readonly RomanNumber I = new RomanNumber("I");
     public static readonly RomanNumber V = new RomanNumber("V");
     public static readonly RomanNumber X = new RomanNumber("X");
+    //todo: consider not having Nothing as it did not exist in roman numbers
+    public static readonly RomanNumber Nothing = new RomanNumber("");
 }

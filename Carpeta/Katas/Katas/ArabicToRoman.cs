@@ -12,20 +12,19 @@ public static class ArabicToRoman
         {9, I.Concat(X)},
         {10, X}
     };
-
-    private static int LowerClosestArabicPrimitive(int arabicNumber) {
-        return primitives.Keys.Last(x => x <= arabicNumber);
-    }
     
     public static RomanNumber Convert(int arabicNumber)
     {
-        var result = string.Empty;
-        while (arabicNumber > 0)
+        //alternative: dictionary lookup instead of comparison
+        if (arabicNumber == 0)
         {
-            var closestNumber = LowerClosestArabicPrimitive(arabicNumber);
-            arabicNumber -= closestNumber;
-            result = result + primitives[closestNumber];
+            return Nothing;
         }
-        return new RomanNumber(result);
+        var closestNumber = LowerClosestArabicPrimitive(arabicNumber);
+        return primitives[closestNumber].Concat(Convert(arabicNumber - closestNumber));
+    }
+    
+    private static int LowerClosestArabicPrimitive(int arabicNumber) {
+        return primitives.Keys.Last(x => x <= arabicNumber);
     }
 }
