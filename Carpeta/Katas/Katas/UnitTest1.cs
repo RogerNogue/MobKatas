@@ -39,6 +39,7 @@ public class Tests
         (9, I.Concat(X)),
         (10, X),
         (11, X.Concat(I)),
+        (12, X.Concat(I).Concat(I)),
     };
 
     [TestCaseSource(nameof(testCases))]

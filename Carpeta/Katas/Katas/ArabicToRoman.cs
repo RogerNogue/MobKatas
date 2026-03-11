@@ -23,6 +23,9 @@ public static class ArabicToRoman
         if (arabicNumber == 11) {
             return conversions[10].Concat(conversions[1]);
         }
+        if (arabicNumber == 12) {
+            return conversions[10].Concat(conversions[1]).Concat(conversions[1]);
+        }
         
         return conversions[arabicNumber];
     }
