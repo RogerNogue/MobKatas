@@ -20,6 +20,10 @@ public static class ArabicToRoman
     
     public static RomanNumber Convert(int arabicNumber)
     {
+        if (arabicNumber == 11) {
+            return conversions[10].Concat(conversions[1]);
+        }
+        
         return conversions[arabicNumber];
     }
 }
