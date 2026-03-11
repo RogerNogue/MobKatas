@@ -11,6 +11,7 @@ public readonly struct RomanNumber
 
     public RomanNumber Concat(RomanNumber other)
     {
+        //todo: consider converting into sum operator
         return new RomanNumber(value + other.value);
     }
     
