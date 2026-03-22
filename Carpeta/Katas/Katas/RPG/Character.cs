@@ -37,10 +37,10 @@ public class Character {
     }
 
     public void Heal(Character other) {
-        if (!CanHeal(other)) 
+        if (!CanHeal(this)) 
             throw new InvalidOperationException("Cannot heal a character");
         
-        other.Health = int.Min(other.Health + healing, maxHealth);
+        Health = int.Min(Health + healing, maxHealth);
     }
 
     public bool CanHeal(Character other) => other.IsAlive;
