@@ -20,6 +20,8 @@ public class Character {
     {
         if(!IsAlive)
             throw new InvalidOperationException("A dead character cannot attack");
+        if (victim == this)
+            throw new InvalidOperationException("Cannot deal damage to itself");
         
         victim.ReceiveDamage(damage);
     }
