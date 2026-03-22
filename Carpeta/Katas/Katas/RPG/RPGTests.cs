@@ -78,8 +78,12 @@ public class Character {
 
     public void Attack(Character victim)
     {
-        victim.Health -= damage;
-        victim.IsAlive = victim.Health > 0;
+        victim.ReceiveDamage(damage);
+    }
+
+    void ReceiveDamage(int damage) {
+        Health -= damage;
+        IsAlive = Health > 0;
     }
 
     public static Character Create(int health = 1000, int damage = 1) {
