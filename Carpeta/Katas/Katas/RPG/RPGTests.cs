@@ -30,12 +30,12 @@ public class RPGTests {
     }
 
     [Test]
-    public void CharacterCanDamageaCharacter()
+    public void DealDamage()
     {
-        var attacker = new Character();
+        var sut = new Character();
         var victim = new Character();
 
-        attacker.Attack(victim);
+        sut.Attack(victim);
         
         Assert.That(victim.Health, Is.LessThan(1000));
     }
