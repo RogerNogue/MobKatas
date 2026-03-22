@@ -3,7 +3,7 @@ namespace Katas.RPG;
 public class Character {
     public bool IsAlive => Health > 0;
     public int Health { get; private set; }
-    readonly int MaxHealth;
+    readonly int maxHealth;
     readonly int damage;
     readonly int healing;
 
@@ -11,7 +11,7 @@ public class Character {
         if(health <= 0)
             throw new ArgumentException("Health cannot be less than zero");
         
-        Health = MaxHealth = health;
+        Health = maxHealth = health;
         this.damage = damage;
         this.healing = healing;
     }
@@ -35,7 +35,7 @@ public class Character {
         if (!CanHeal(other)) 
             throw new InvalidOperationException("Cannot heal a character");
         
-        other.Health = int.Min(other.Health + healing, MaxHealth);
+        other.Health = int.Min(other.Health + healing, maxHealth);
     }
 
     public bool CanHeal(Character other) => other.IsAlive;
