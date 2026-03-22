@@ -15,7 +15,8 @@ namespace Katas.RPG;
 //   x Is alive by default
 //   - Starts at level 1?
 //   x Deal damage
-//   - Kill
+//   - Damage is accumulative
+//   x Kill
 //   - Heal
 //   - Dead characters cannot be healed
 //   - Healing capped to max health (1000)
@@ -25,6 +26,7 @@ namespace Katas.RPG;
 public class RPGTests {
     const int initialHealth = 1000;
     const int damage = 5;
+    
     [Test]
     public void CharacterIsAlive_ByDefault() {
         var sut = Character.Create();
