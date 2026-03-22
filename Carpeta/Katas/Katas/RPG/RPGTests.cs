@@ -14,7 +14,7 @@ namespace Katas.RPG;
 // Character
 //   x Is alive by default
 //   - Starts at level 1?
-//   - Deal damage
+//   x Deal damage
 //   - Kill
 //   - Heal
 //   - Dead characters cannot be healed
@@ -24,16 +24,18 @@ namespace Katas.RPG;
 public class RPGTests {
     [Test]
     public void CharacterIsAlive_ByDefault() {
-        var sut = new Character();
+        var sut = Character.Create();
 
         Assert.That(sut.IsAlive, Is.True);
     }
 
     [Test]
+    // TODO: Parametrizar daño
+    // TODO: Parametrizar vida
     public void DealDamage()
     {
-        var sut = new Character();
-        var victim = new Character();
+        var sut = Character.Create();
+        var victim = Character.Create();
 
         sut.Attack(victim);
         
@@ -43,10 +45,15 @@ public class RPGTests {
 
 public class Character {
     public bool IsAlive { get; set; } = true;
-    public int Health { get; set; } = 1000;
+
+    public int Health { get; set; } = 1000; // Magic number
 
     public void Attack(Character victim)
     {
         victim.Health -= 1;
+    }
+
+    public static Character Create() {
+        return new Character();
     }
 }
