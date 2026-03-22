@@ -34,7 +34,7 @@ public class Character {
     }
 
     float LevelMultiplier(Character victim) {
-        if (Level > victim.Level)
+        if (Level >= victim.Level + 5)
             return 1.5f;
 
         return 1;

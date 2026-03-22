@@ -79,7 +79,7 @@ public class AttackTests {
         Assert.That(victim.Health, Is.EqualTo(0));
     }
 
-   [Test]
+    [Test]
     public void Character5LevelsAboveDealsExtraDamage()
     {
         var sut = Character.Create(damage: damage, level: 6);
@@ -88,5 +88,16 @@ public class AttackTests {
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(initialHealth - damage * 1.5f));
+    }
+    
+    [Test]
+    public void DoNotDealExtraDamageUntil5LevelsOrAbove()
+    {
+        var sut = Character.Create(damage: damage, level: 5);
+        var victim = Character.Create(health: initialHealth, level: 1);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage));
     }
 }
