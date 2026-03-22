@@ -34,7 +34,7 @@ public class HealingTests
         
         attacker.Attack(sut);
         
-        Assert.That(sut.CanHeal(sut), Is.False);
+        Assert.That(sut.CanHeal(), Is.False);
     }
 
     [Test]
@@ -44,7 +44,7 @@ public class HealingTests
         
         attacker.Attack(sut);
         
-        Assert.That(sut.CanHeal(sut), Is.True);
+        Assert.That(sut.CanHeal(), Is.True);
     }
 
     [Test]
