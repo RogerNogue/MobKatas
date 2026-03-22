@@ -1,30 +1,9 @@
 namespace Katas.RPG;
-
-// - Health, starting at 1000
-//     - Level, starting at 1
-//     - May be Alive or Dead, starting Alive (Alive may be a true/false)
-
-// - Damage is subtracted from Health
-//     - When damage received exceeds current Health, Health becomes 0 and the character dies
-
-// A Character can Heal a Character.
-//     - Dead characters cannot be healed
-//     - Healing cannot raise health above 1000
-
-// Character
-//   x Is alive by default
-//   - Starts at level 1?
-//   x Deal damage
-//   x Damage is accumulative
-//   x Health cannot be negative
-//   x Kill
-//   x Heal
-//   x Dead characters cannot be healed
-//   x Healing capped to max health (1000)
-//   x Character factory
-//   x Character with less than 0 health can not be created
-//   x Split tests
-
+/*
+    - A Character cannot Deal Damage to itself.
+    - A Character can only Heal itself.
+    - When dealing damage: - If the target is 5 or more Levels above the attacker, Damage is reduced by 50% - If the target is 5 or more Levels below the attacker, Damage is increased by 50%
+ */
 public class RPGTests {
     const int initialHealth = 1000;
     const int damage = 5;
