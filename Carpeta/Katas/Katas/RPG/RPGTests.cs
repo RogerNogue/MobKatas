@@ -11,9 +11,18 @@ namespace Katas.RPG;
 //     - Dead characters cannot be healed
 //     - Healing cannot raise health above 1000
 
+// Character
+//   - Is alive by default
+//   - Starts at level 1
+//   - Deal damage
+//   - Kill
+//   - Heal
+//   - Dead characters cannot be healed
+//   - Healing capped to max health (1000)
+
 public class RPGTests {
     [Test]
     public void METHOD() {
         
-    }    
+    } 
 }
