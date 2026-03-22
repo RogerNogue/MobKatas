@@ -13,7 +13,7 @@ namespace Katas.RPG;
 
 // Character
 //   x Is alive by default
-//   - Starts at level 1
+//   - Starts at level 1?
 //   - Deal damage
 //   - Kill
 //   - Heal
@@ -27,9 +27,26 @@ public class RPGTests {
         var sut = new Character();
 
         Assert.That(sut.IsAlive, Is.True);
-    } 
+    }
+
+    [Test]
+    public void CharacterCanDamageaCharacter()
+    {
+        var attacker = new Character();
+        var victim = new Character();
+
+        attacker.Attack(victim);
+        
+        Assert.That(victim.Health, Is.LessThan(1000));
+    }
 }
 
 public class Character {
     public bool IsAlive { get; set; } = true;
+    public int Health { get; set; } = 1000;
+
+    public void Attack(Character victim)
+    {
+        victim.Health -= 1;
+    }
 }
