@@ -1,5 +1,3 @@
-using NUnit.Framework.Constraints;
-
 namespace Katas.RPG;
 
 public class Character {
@@ -10,6 +8,9 @@ public class Character {
     readonly int healing;
 
     Character(int health, int damage, int healing) {
+        if(health <= 0)
+            throw new ArgumentException("Health cannot be less than zero");
+        
         Health = MaxHealth = health;
         this.damage = damage;
         this.healing = healing;
