@@ -15,7 +15,12 @@ public class Character {
         victim.ReceiveDamage(damage);
     }
 
-    void ReceiveDamage(int howMuch) {
+    void ReceiveDamage(int howMuch)
+    {
+        if (howMuch <= 0)
+            throw new ArgumentException("Damage must be greater than 0");
+        if (!IsAlive)
+            throw new InvalidOperationException("Character is not alive");
         Health = int.Max(Health - howMuch, 0);
         IsAlive = Health > 0;
     }
