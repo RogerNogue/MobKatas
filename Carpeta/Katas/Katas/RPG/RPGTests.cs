@@ -19,7 +19,7 @@ namespace Katas.RPG;
 //   - Heal
 //   - Dead characters cannot be healed
 //   - Healing capped to max health (1000)
-//   - Character factory
+//   x Character factory
 
 public class RPGTests {
     [Test]
@@ -45,7 +45,7 @@ public class RPGTests {
 
 public class Character {
     public bool IsAlive { get; set; } = true;
-    public int Health { get; set; }
+    public int Health { get; private set; }
     readonly int damage;
 
     Character(int health, int damage) {
