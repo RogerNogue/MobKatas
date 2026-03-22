@@ -22,7 +22,13 @@ namespace Katas.RPG;
 
 public class RPGTests {
     [Test]
-    public void METHOD() {
-        
+    public void CharacterIsAlive_ByDefault() {
+        var sut = new Character();
+
+        Assert.That(sut.IsAlive, Is.True);
     } 
+}
+
+public class Character {
+    public bool IsAlive { get; set; } = true;
 }
