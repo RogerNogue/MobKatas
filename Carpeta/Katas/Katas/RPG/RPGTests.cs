@@ -19,10 +19,11 @@ namespace Katas.RPG;
 //   x Health cannot be negative
 //   x Kill
 //   x Heal
-//   - Dead characters cannot be healed
+//   x Dead characters cannot be healed
 //   x Healing capped to max health (1000)
 //   x Character factory
 //   - Character with less than 0 health can not be created
+//   - Split tests
 
 public class RPGTests {
     const int initialHealth = 1000;
