@@ -23,6 +23,8 @@ namespace Katas.RPG;
 //   - Character with less than 0 health can not be created
 
 public class RPGTests {
+    const int initialHealth = 1000;
+    const int damage = 5;
     [Test]
     public void CharacterIsAlive_ByDefault() {
         var sut = Character.Create();
@@ -33,8 +35,6 @@ public class RPGTests {
     [Test]
     public void DealDamage()
     {
-        const int initialHealth = 1000;
-        const int damage = 5;
         var sut = Character.Create(damage: damage);
         var victim = Character.Create(health: initialHealth);
 
@@ -46,7 +46,6 @@ public class RPGTests {
     [Test]
     public void Kill()
     {
-        const int initialHealth = 5;
         var sut = Character.Create(damage: initialHealth);
         var victim = Character.Create(health: initialHealth);
         
@@ -58,8 +57,6 @@ public class RPGTests {
     [Test]
     public void DealsDamageButDoesNotKill()
     {
-        const int initialHealth = 1000;
-        const int damage = 5;
         var sut = Character.Create(damage: damage);
         var victim = Character.Create(health: initialHealth);
         
