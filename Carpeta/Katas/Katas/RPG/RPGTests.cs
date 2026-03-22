@@ -16,6 +16,7 @@ namespace Katas.RPG;
 //   - Starts at level 1?
 //   x Deal damage
 //   - Damage is accumulative
+//   - Health cannot be negative
 //   x Kill
 //   - Heal
 //   - Dead characters cannot be healed
@@ -59,7 +60,7 @@ public class RPGTests {
     [Test]
     public void DealsDamageButDoesNotKill()
     {
-        var sut = Character.Create(damage: damage);
+        var sut = Character.Create(damage: initialHealth - 1);
         var victim = Character.Create(health: initialHealth);
         
         sut.Attack(victim);
