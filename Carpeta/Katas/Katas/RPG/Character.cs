@@ -1,3 +1,5 @@
+using NUnit.Framework.Constraints;
+
 namespace Katas.RPG;
 
 public class Character {
@@ -26,6 +28,10 @@ public class Character {
             throw new InvalidOperationException("Character is not alive");
         
         Health = int.Max(Health - howMuch, 0);
+    }
+
+    public bool CanHeal(Character victim) {
+        return false;
     }
 
     public void Heal(Character other) {
