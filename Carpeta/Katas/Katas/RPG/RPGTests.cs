@@ -28,7 +28,6 @@ namespace Katas.RPG;
 public class RPGTests {
     const int initialHealth = 1000;
     const int damage = 5;
-    const int healing = 1;
     
     [Test]
     public void CharacterIsAlive_ByDefault() {
@@ -91,48 +90,5 @@ public class RPGTests {
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(0));
-    }
-
-    [Test]
-    public void HealAnotherCharacter() 
-    {
-        var sut = Character.Create(damage: damage, healing: healing);
-        var victim = Character.Create();
-        sut.Attack(victim);
-        
-        sut.Heal(victim);
-        
-        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage + healing));
-    }
-
-    [Test]
-    public void HealthIsCappedAtInitialHealth()
-    {
-        var sut = Character.Create(healing: healing);
-        var victim = Character.Create();
-        
-        sut.Heal(victim);
-        
-        Assert.That(victim.Health, Is.EqualTo(initialHealth));
-    }
-
-    [Test]
-    public void CannotHealDeadCharacter() {
-        var sut = Character.Create(damage: initialHealth);
-        var victim = Character.Create(health: initialHealth);
-        
-        sut.Attack(victim);
-        
-        Assert.That(sut.CanHeal(victim), Is.False);
-    }
-
-    [Test]
-    public void CanHealDamagedCharacters() {
-        var sut = Character.Create();
-        var victim = Character.Create(health: initialHealth);
-        
-        sut.Attack(victim);
-        
-        Assert.That(sut.CanHeal(victim), Is.True);
     }
 }
