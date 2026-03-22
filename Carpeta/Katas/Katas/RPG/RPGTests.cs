@@ -90,4 +90,16 @@ public class RPGTests {
         
         Assert.That(victim.Health, Is.EqualTo(0));
     }
+
+    [Test]
+    public void HealAnotherCharacter() 
+    {
+        var sut = Character.Create(damage: damage);
+        var victim = Character.Create(damage: initialHealth);
+        sut.Attack(victim);
+        
+        sut.Heal(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(initialHealth));
+    }
 }

@@ -25,6 +25,10 @@ public class Character {
         Health = int.Max(Health - howMuch, 0);
     }
 
+    public void Heal(Character other) {
+        other.Health = 1000;
+    }
+
     public static Character Create(int health = 1000, int damage = 1) {
         return new Character(health, damage);
     }
