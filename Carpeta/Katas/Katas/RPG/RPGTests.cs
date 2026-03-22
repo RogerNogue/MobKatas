@@ -34,26 +34,30 @@ public class RPGTests {
     // TODO: Parametrizar vida
     public void DealDamage()
     {
+        const int initialHealth = 1000;
         var sut = Character.Create();
-        var victim = Character.Create();
+        var victim = Character.Create(health: initialHealth);
 
         sut.Attack(victim);
-        
-        Assert.That(victim.Health, Is.LessThan(1000));
+
+        Assert.That(victim.Health, Is.LessThan(initialHealth));
     }
 }
 
 public class Character {
     public bool IsAlive { get; set; } = true;
+    public int Health { get; set; }
 
-    public int Health { get; set; } = 1000; // Magic number
+    Character(int health) {
+        Health = health;
+    }
 
     public void Attack(Character victim)
     {
         victim.Health -= 1;
     }
 
-    public static Character Create() {
-        return new Character();
+    public static Character Create(int health = 1000) {
+        return new Character(health);
     }
 }
