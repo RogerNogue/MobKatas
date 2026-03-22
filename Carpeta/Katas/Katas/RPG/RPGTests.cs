@@ -15,7 +15,7 @@ namespace Katas.RPG;
 //   x Is alive by default
 //   - Starts at level 1?
 //   x Deal damage
-//   - Damage is accumulative
+//   x Damage is accumulative
 //   - Health cannot be negative
 //   x Kill
 //   - Heal
@@ -78,5 +78,16 @@ public class RPGTests {
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(initialHealth - (damage*2)));
+    }
+
+    [Test]
+    public void HealthCannotBeNegative()
+    {
+        var sut = Character.Create(damage: initialHealth*2);
+        var victim = Character.Create(health: initialHealth);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(0));
     }
 }
