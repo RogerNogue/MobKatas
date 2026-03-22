@@ -30,34 +30,35 @@ public class RPGTests {
     }
 
     [Test]
-    // TODO: Parametrizar daño
-    // TODO: Parametrizar vida
     public void DealDamage()
     {
         const int initialHealth = 1000;
-        var sut = Character.Create();
+        const int damage = 5;
+        var sut = Character.Create(damage: damage);
         var victim = Character.Create(health: initialHealth);
 
         sut.Attack(victim);
 
-        Assert.That(victim.Health, Is.LessThan(initialHealth));
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage));
     }
 }
 
 public class Character {
     public bool IsAlive { get; set; } = true;
     public int Health { get; set; }
+    readonly int damage;
 
-    Character(int health) {
+    Character(int health, int damage) {
         Health = health;
+        this.damage = damage;
     }
 
     public void Attack(Character victim)
     {
-        victim.Health -= 1;
+        victim.Health -= damage;
     }
 
-    public static Character Create(int health = 1000) {
-        return new Character(health);
+    public static Character Create(int health = 1000, int damage = 1) {
+        return new Character(health, damage);
     }
 }
