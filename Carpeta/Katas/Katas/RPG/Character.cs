@@ -30,13 +30,14 @@ public class Character {
         Health = int.Max(Health - howMuch, 0);
     }
 
-    public bool CanHeal(Character victim) {
-        return false;
-    }
-
     public void Heal(Character other) {
+        // if (!CanHeal(other))
+        //     throw new InvalidOperationException("Cannot heal a character");
+        
         other.Health = int.Min(other.Health + healing, MaxHealth);
     }
+
+    public bool CanHeal(Character other) => other.IsAlive;
 
     public static Character Create(int health = 1000, int damage = 1, int healing = 1) {
         return new Character(health, damage, healing);

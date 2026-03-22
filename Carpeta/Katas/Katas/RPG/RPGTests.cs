@@ -119,8 +119,19 @@ public class RPGTests {
     public void CannotHealDeadCharacter() {
         var sut = Character.Create(damage: initialHealth);
         var victim = Character.Create(health: initialHealth);
+        
         sut.Attack(victim);
         
         Assert.That(sut.CanHeal(victim), Is.False);
+    }
+
+    [Test]
+    public void CanHealDamagedCharacters() {
+        var sut = Character.Create();
+        var victim = Character.Create(health: initialHealth);
+        
+        sut.Attack(victim);
+        
+        Assert.That(sut.CanHeal(victim), Is.True);
     }
 }
