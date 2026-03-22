@@ -6,16 +6,17 @@ public class Character {
     readonly int healing;
     
     public bool IsAlive => Health > 0;
-    public int Level => 1;
+    public int Level { get; private set; }
     public int Health { get; private set; }
 
-    Character(int health, int damage, int healing) {
+    Character(int health, int damage, int healing, int level) {
         if(health <= 0)
             throw new ArgumentException("Health cannot be less than zero");
         
         Health = maxHealth = health;
         this.damage = damage;
         this.healing = healing;
+        this.Level = level;
     }
 
     public void Attack(Character victim)
@@ -47,7 +48,7 @@ public class Character {
 
     public bool CanHeal() => IsAlive;
 
-    public static Character Create(int health = 1000, int damage = 1, int healing = 1) {
-        return new Character(health, damage, healing);
+    public static Character Create(int health = 1000, int damage = 1, int healing = 1, int level = 1) {
+        return new Character(health, damage, healing, level);
     }
 }

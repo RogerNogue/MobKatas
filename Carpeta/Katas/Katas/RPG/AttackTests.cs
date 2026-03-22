@@ -78,8 +78,8 @@ public class AttackTests {
         
         Assert.That(victim.Health, Is.EqualTo(0));
     }
-/*
-    [Test]
+
+   /* [Test]
     public void Character5LevelsAboveDealsExtraDamage()
     {
         var sut = Character.Create(damage: damage, level: 6);
