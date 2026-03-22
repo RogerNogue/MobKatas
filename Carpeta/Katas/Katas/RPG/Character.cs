@@ -1,6 +1,10 @@
 namespace Katas.RPG;
 
 public class Character {
+    const float BaseDamageMultiplier = 1;
+    const float OverlevelDamageMultiplier = 1.5f;
+    const int DamageMultiplierLevelThreshold = 5;
+    
     readonly int maxHealth;
     readonly int damage;
     readonly int healing;
@@ -34,10 +38,10 @@ public class Character {
     }
 
     float LevelMultiplier(Character victim) {
-        if (Level >= victim.Level + 5)
-            return 1.5f;
+        if (Level >= victim.Level + DamageMultiplierLevelThreshold)
+            return OverlevelDamageMultiplier;
 
-        return 1;
+        return BaseDamageMultiplier;
     }
 
     void ReceiveDamage(int howMuch)
