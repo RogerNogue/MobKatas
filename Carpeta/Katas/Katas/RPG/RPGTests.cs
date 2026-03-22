@@ -54,6 +54,19 @@ public class RPGTests {
         
         Assert.That(victim.IsAlive, Is.False);
     }
+
+    [Test]
+    public void DealsDamageButDoesNotKill()
+    {
+        const int initialHealth = 1000;
+        const int damage = 5;
+        var sut = Character.Create(damage: damage);
+        var victim = Character.Create(health: initialHealth);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.IsAlive, Is.True);
+    }
 }
 
 public class Character {
@@ -69,7 +82,7 @@ public class Character {
     public void Attack(Character victim)
     {
         victim.Health -= damage;
-        victim.IsAlive = false;
+        victim.IsAlive = victim.Health > 0;
     }
 
     public static Character Create(int health = 1000, int damage = 1) {
