@@ -47,4 +47,18 @@ public class HealingTests
         
         Assert.That(sut.CanHeal(victim), Is.True);
     }
+
+    [Test]
+    public void AccumulativeHealing()
+    {
+        var sut = Character.Create();
+        var victim = Character.Create(health: initialHealth);
+        sut.Attack(victim);
+        sut.Attack(victim);
+        
+        sut.Heal(victim);
+        sut.Heal(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(initialHealth));
+    }
 }
