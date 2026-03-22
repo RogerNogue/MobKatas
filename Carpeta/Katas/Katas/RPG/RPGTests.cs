@@ -12,7 +12,7 @@ namespace Katas.RPG;
 //     - Healing cannot raise health above 1000
 
 // Character
-//   - Is alive by default
+//   x Is alive by default
 //   - Starts at level 1
 //   - Deal damage
 //   - Kill
