@@ -16,7 +16,7 @@ namespace Katas.RPG;
 //   - Starts at level 1?
 //   x Deal damage
 //   x Damage is accumulative
-//   - Health cannot be negative
+//   x Health cannot be negative
 //   x Kill
 //   - Heal
 //   - Dead characters cannot be healed
