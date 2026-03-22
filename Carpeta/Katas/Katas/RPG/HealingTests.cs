@@ -12,7 +12,7 @@ public class HealingTests
         var sut = Character.Create(healing: healing);
         attacker.Attack(sut);
         
-        sut.Heal(sut);
+        sut.Heal();
         
         Assert.That(sut.Health, Is.EqualTo(initialHealth));
     }
@@ -22,7 +22,7 @@ public class HealingTests
     {
         var sut = Character.Create(healing: healing);
         
-        sut.Heal(sut);
+        sut.Heal();
         
         Assert.That(sut.Health, Is.EqualTo(initialHealth));
     }
@@ -55,8 +55,8 @@ public class HealingTests
         attacker.Attack(sut);
         attacker.Attack(sut);
         
-        sut.Heal(sut);
-        sut.Heal(sut);
+        sut.Heal();
+        sut.Heal();
         
         Assert.That(sut.Health, Is.EqualTo(initialHealth));
     }

@@ -36,7 +36,7 @@ public class Character {
         Health = int.Max(Health - howMuch, 0);
     }
 
-    public void Heal(Character other) {
+    public void Heal() {
         if (!CanHeal(this)) 
             throw new InvalidOperationException("Cannot heal a character");
         
