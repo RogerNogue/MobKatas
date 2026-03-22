@@ -15,8 +15,8 @@ public class Character {
         victim.ReceiveDamage(damage);
     }
 
-    void ReceiveDamage(int damage) {
-        Health = int.Max( Health - damage, 0);
+    void ReceiveDamage(int howMuch) {
+        Health = int.Max(Health - howMuch, 0);
         IsAlive = Health > 0;
     }
 
