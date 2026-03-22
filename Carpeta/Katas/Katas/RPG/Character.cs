@@ -18,6 +18,9 @@ public class Character {
 
     public void Attack(Character victim)
     {
+        if(!IsAlive)
+            throw new InvalidOperationException("A dead character cannot attack");
+        
         victim.ReceiveDamage(damage);
     }
 
