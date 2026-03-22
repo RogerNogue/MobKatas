@@ -26,7 +26,18 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
         
-        victim.ReceiveDamage(damage);
+        victim.ReceiveDamage(DamageFor(victim));
+    }
+
+    int DamageFor(Character victim) {
+        return (int)(damage * LevelMultiplier(victim));
+    }
+
+    float LevelMultiplier(Character victim) {
+        if (Level > victim.Level)
+            return 1.5f;
+
+        return 1;
     }
 
     void ReceiveDamage(int howMuch)

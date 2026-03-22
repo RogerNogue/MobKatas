@@ -6,7 +6,7 @@ namespace Katas.RPG;
  */
 public class AttackTests {
     const int initialHealth = 1000;
-    const int damage = 5;
+    const int damage = 6;
     
     [Test]
     public void CharacterIsAlive_ByDefault() {
@@ -79,7 +79,7 @@ public class AttackTests {
         Assert.That(victim.Health, Is.EqualTo(0));
     }
 
-   /* [Test]
+   [Test]
     public void Character5LevelsAboveDealsExtraDamage()
     {
         var sut = Character.Create(damage: damage, level: 6);
@@ -87,6 +87,6 @@ public class AttackTests {
         
         sut.Attack(victim);
         
-        Assert.That(victim.Health, Is.EqualTo(0));
-    }*/
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage * 1.5f));
+    }
 }
