@@ -67,4 +67,16 @@ public class RPGTests {
         
         Assert.That(victim.IsAlive, Is.True);
     }
+
+    [Test]
+    public void DamageIsAccumulative()
+    {
+        var sut = Character.Create(damage: damage);
+        var victim = Character.Create(health: initialHealth);
+        
+        sut.Attack(victim);
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - (damage*2)));
+    }
 }
