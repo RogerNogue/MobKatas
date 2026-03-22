@@ -3,11 +3,12 @@ namespace Katas.RPG;
 public class Character {
     public bool IsAlive => Health > 0;
     public int Health { get; private set; }
+    readonly int MaxHealth;
     readonly int damage;
     readonly int healing;
 
     Character(int health, int damage, int healing) {
-        Health = health;
+        Health = MaxHealth = health;
         this.damage = damage;
         this.healing = healing;
     }
@@ -28,7 +29,7 @@ public class Character {
     }
 
     public void Heal(Character other) {
-        other.Health += healing;
+        other.Health = int.Min(other.Health + healing, MaxHealth);
     }
 
     public static Character Create(int health = 1000, int damage = 1, int healing = 1) {
