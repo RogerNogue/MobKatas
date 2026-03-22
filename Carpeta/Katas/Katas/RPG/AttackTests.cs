@@ -1,7 +1,6 @@
 namespace Katas.RPG;
 /*
     - When dealing damage: 
-        - If the target is 5 or more Levels above the attacker, Damage is reduced by 50% 
         - If the target is 5 or more Levels below the attacker, Damage is increased by 50%
  */
 public class AttackTests {
@@ -83,7 +82,7 @@ public class AttackTests {
     public void Character5LevelsAboveDealsExtraDamage()
     {
         var sut = Character.Create(damage: damage, level: 6);
-        var victim = Character.Create(health: initialHealth, level: 1);
+        var victim = Character.Create(health: initialHealth);
         
         sut.Attack(victim);
         
@@ -94,10 +93,21 @@ public class AttackTests {
     public void DoNotDealExtraDamageUntil5LevelsOrAbove()
     {
         var sut = Character.Create(damage: damage, level: 5);
-        var victim = Character.Create(health: initialHealth, level: 1);
+        var victim = Character.Create(health: initialHealth);
         
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(initialHealth - damage));
+    }
+    
+    [Test]
+    public void Character5LevelsBelowDealsLessDamage()
+    {
+        var sut = Character.Create(damage: damage);
+        var victim = Character.Create(health: initialHealth, level: 6);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage * .5f));
     }
 }
