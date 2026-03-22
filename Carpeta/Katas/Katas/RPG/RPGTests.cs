@@ -20,6 +20,7 @@ namespace Katas.RPG;
 //   - Dead characters cannot be healed
 //   - Healing capped to max health (1000)
 //   x Character factory
+//   - Character with less than 0 health can not be created
 
 public class RPGTests {
     [Test]
@@ -41,6 +42,18 @@ public class RPGTests {
 
         Assert.That(victim.Health, Is.EqualTo(initialHealth - damage));
     }
+
+    [Test]
+    public void Kill()
+    {
+        const int initialHealth = 5;
+        var sut = Character.Create(damage: initialHealth);
+        var victim = Character.Create(health: initialHealth);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.IsAlive, Is.False);
+    }
 }
 
 public class Character {
@@ -56,6 +69,7 @@ public class Character {
     public void Attack(Character victim)
     {
         victim.Health -= damage;
+        victim.IsAlive = false;
     }
 
     public static Character Create(int health = 1000, int damage = 1) {
