@@ -94,12 +94,12 @@ public class RPGTests {
     [Test]
     public void HealAnotherCharacter() 
     {
-        var sut = Character.Create(damage: damage);
+        var sut = Character.Create(damage: damage, healing: 10);
         var victim = Character.Create(damage: initialHealth);
         sut.Attack(victim);
         
         sut.Heal(victim);
         
-        Assert.That(victim.Health, Is.EqualTo(initialHealth));
+        Assert.That(victim.Health, Is.EqualTo(initialHealth - damage + 10));
     }
 }

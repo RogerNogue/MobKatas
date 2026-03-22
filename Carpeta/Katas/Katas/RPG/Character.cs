@@ -4,10 +4,12 @@ public class Character {
     public bool IsAlive => Health > 0;
     public int Health { get; private set; }
     readonly int damage;
+    readonly int healing;
 
-    Character(int health, int damage) {
+    Character(int health, int damage, int healing) {
         Health = health;
         this.damage = damage;
+        this.healing = healing;
     }
 
     public void Attack(Character victim)
@@ -26,10 +28,10 @@ public class Character {
     }
 
     public void Heal(Character other) {
-        other.Health = 1000;
+        other.Health += healing;
     }
 
-    public static Character Create(int health = 1000, int damage = 1) {
-        return new Character(health, damage);
+    public static Character Create(int health = 1000, int damage = 1, int healing = 1) {
+        return new Character(health, damage, healing);
     }
 }
