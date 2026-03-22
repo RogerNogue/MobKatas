@@ -1,11 +1,13 @@
 namespace Katas.RPG;
 
 public class Character {
-    public bool IsAlive => Health > 0;
-    public int Health { get; private set; }
     readonly int maxHealth;
     readonly int damage;
     readonly int healing;
+    
+    public bool IsAlive => Health > 0;
+    public int Level => 1;
+    public int Health { get; private set; }
 
     Character(int health, int damage, int healing) {
         if(health <= 0)
