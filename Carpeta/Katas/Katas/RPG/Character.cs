@@ -7,11 +7,11 @@ public class Character {
     const int DamageMultiplierLevelThreshold = 5;
     
     readonly int maxHealth;
-    readonly int damage;
     readonly int healing;
     
     public bool IsAlive => Health > 0;
     public int Level { get; private set; }
+    public int Damage { get; private set; }
     public int Health { get; private set; }
 
     Character(int health, int damage, int healing, int level) {
@@ -19,7 +19,7 @@ public class Character {
             throw new ArgumentException("Health cannot be less than zero");
         
         Health = maxHealth = health;
-        this.damage = damage;
+        this.Damage = damage;
         this.healing = healing;
         this.Level = level;
     }
@@ -31,17 +31,17 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
         
-        victim.ReceiveDamage(DamageFor(victim));
+        victim.ReceiveDamage(Attack(this, victim));
     }
 
-    int DamageFor(Character victim) {
-        return (int)(damage * LevelMultiplier(victim));
+    int Attack(Character attacker, Character victim) {
+        return (int)(attacker.Damage * LevelMultiplier(victim, attacker.Level));
     }
 
-    float LevelMultiplier(Character victim) {
-        if (Level >= victim.Level + DamageMultiplierLevelThreshold)
+    float LevelMultiplier(Character victim, int level) {
+        if (level >= victim.Level + DamageMultiplierLevelThreshold)
             return OverlevelDamageMultiplier;
-        if (Level <= victim.Level - DamageMultiplierLevelThreshold)
+        if (level <= victim.Level - DamageMultiplierLevelThreshold)
             return UnderlevelDamageMultiplier;
         
 
