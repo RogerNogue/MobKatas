@@ -30,15 +30,15 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
 
-        if (!IsInRange(victim))
+        if (!IsInRange(victim, this))
             return;
         
         victim.Receive(new Attack(this));
     }
 
-    private bool IsInRange(Character victim)
+    private bool IsInRange(Character victim, Character attacker)
     {
-        return victim.position - position <= attackRange;
+        return victim.position - attacker.position <= attacker.attackRange;
     }
 
     void Receive(Attack attack)
