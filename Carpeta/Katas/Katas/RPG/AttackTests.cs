@@ -112,4 +112,15 @@ public class AttackTests {
         
         Assert.That(victim.Health, Is.EqualTo(1000 - 6 * .5f));
     }
+
+    [Test]
+    public void FarVictimDoesNotReceiveDamage()
+    {
+        var sut = Character.Create(position: 1 );
+        var victim = Character.Create(health: 1000, position: 1000);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(1000));
+    }
 }
