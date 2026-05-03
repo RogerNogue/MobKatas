@@ -1,27 +1,5 @@
 namespace Katas.RPG;
 
-public class Attack(Character attacker)
-{
-    private const float BaseDamageMultiplier = 1;
-    private const float OverlevelDamageMultiplier = 1.5f;
-    private const float UnderlevelDamageMultiplier = 0.5f;
-    private const int DamageMultiplierLevelThreshold = 5;
-
-    public int DamageOn(Character victim) {
-        return (int)(attacker.Damage * LevelMultiplier(victim, attacker.Level));
-    }
-
-    private float LevelMultiplier(Character victim, int level) {
-        if (level >= victim.Level + DamageMultiplierLevelThreshold)
-            return OverlevelDamageMultiplier;
-        
-        if (level <= victim.Level - DamageMultiplierLevelThreshold)
-            return UnderlevelDamageMultiplier;
-
-        return BaseDamageMultiplier;
-    }
-}
-
 public class Character {
     readonly int maxHealth;
     readonly int healing;
@@ -53,13 +31,10 @@ public class Character {
 
     void Receive(Attack attack)
     {
-        var damage = attack.DamageOn(this);
-        if (damage <= 0)
-            throw new ArgumentException("Damage must be greater than 0");
         if (!IsAlive)
             throw new InvalidOperationException("Character is not alive");
-        
-        Health = int.Max(Health - damage, 0);
+
+        Health = int.Max(Health - attack.DamageOn(this), 0);
     }
 
     public void Heal() {
