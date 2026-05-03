@@ -4,13 +4,14 @@ public class Character {
     readonly int maxHealth;
     readonly int healing;
     private readonly int position;
+    private readonly int attackRange;
 
     public bool IsAlive => Health > 0;
     public int Level { get; private set; }
     public int Damage { get; private set; }
     public int Health { get; private set; }
 
-    Character(int health, int damage, int healing, int level, int position) {
+    Character(int health, int damage, int healing, int level, int position, int attackRange) {
         if(health <= 0)
             throw new ArgumentException("Health cannot be less than zero");
         
@@ -19,6 +20,7 @@ public class Character {
         this.healing = healing;
         this.Level = level;
         this.position = position;
+        this.attackRange = attackRange;
     }
 
     public void Attack(Character victim)
@@ -28,7 +30,7 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
 
-        if (victim.position >= 20)
+        if (victim.position - position > attackRange)
             return;
         
         victim.Receive(new Attack(this));
@@ -52,6 +54,11 @@ public class Character {
     public bool CanHeal() => IsAlive;
 
     public static Character Melee(int health = 1000, int damage = 1, int healing = 1, int level = 1, int position = 1) {
-        return new Character(health, damage, healing, level, position);
+        return new Character(health, damage, healing, level, position, 2);
+    }
+
+    public static Character Ranged(int health = 1000, int damage = 1, int healing = 1, int level = 1, int position = 1)
+    {
+        return new Character(health, damage, healing, level, position, 20);
     }
 }

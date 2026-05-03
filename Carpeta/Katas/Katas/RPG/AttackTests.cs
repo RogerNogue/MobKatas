@@ -145,4 +145,26 @@ public class AttackTests {
         
         Assert.That(victim.Health, Is.EqualTo(1000));
     }
+    
+    [Test]
+    public void RangedFighterReachesFurtherVictim()
+    {
+        var sut = Character.Ranged(position: 1);
+        var victim = Character.Melee(health: 1000, position: 20);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.Not.EqualTo(1000));
+    }
+    
+    [Test]
+    public void CanAttackEnemyAtMaxRange()
+    {
+        var sut = Character.Ranged(position: 0);
+        var victim = Character.Melee(health: 1000, position: 20);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.Not.EqualTo(1000));
+    }
 }
