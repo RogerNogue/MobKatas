@@ -1,14 +1,31 @@
 namespace Katas.RPG;
 
+public class Attack(Character attacker)
+{
+    private const float BaseDamageMultiplier = 1;
+    private const float OverlevelDamageMultiplier = 1.5f;
+    private const float UnderlevelDamageMultiplier = 0.5f;
+    private const int DamageMultiplierLevelThreshold = 5;
+
+    public int ExecuteOn(Character victim) {
+        return (int)(attacker.Damage * LevelMultiplier(victim, attacker.Level));
+    }
+
+    private float LevelMultiplier(Character victim, int level) {
+        if (level >= victim.Level + DamageMultiplierLevelThreshold)
+            return OverlevelDamageMultiplier;
+        
+        if (level <= victim.Level - DamageMultiplierLevelThreshold)
+            return UnderlevelDamageMultiplier;
+
+        return BaseDamageMultiplier;
+    }
+}
+
 public class Character {
-    const float BaseDamageMultiplier = 1;
-    const float OverlevelDamageMultiplier = 1.5f;
-    const float UnderlevelDamageMultiplier = 0.5f;
-    const int DamageMultiplierLevelThreshold = 5;
-    
     readonly int maxHealth;
     readonly int healing;
-    
+
     public bool IsAlive => Health > 0;
     public int Level { get; private set; }
     public int Damage { get; private set; }
@@ -31,21 +48,7 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
         
-        victim.ReceiveDamage(Attack(this, victim));
-    }
-
-    int Attack(Character attacker, Character victim) {
-        return (int)(attacker.Damage * LevelMultiplier(victim, attacker.Level));
-    }
-
-    float LevelMultiplier(Character victim, int level) {
-        if (level >= victim.Level + DamageMultiplierLevelThreshold)
-            return OverlevelDamageMultiplier;
-        if (level <= victim.Level - DamageMultiplierLevelThreshold)
-            return UnderlevelDamageMultiplier;
-        
-
-        return BaseDamageMultiplier;
+        victim.ReceiveDamage(new Attack(this).ExecuteOn(victim));
     }
 
     void ReceiveDamage(int howMuch)
