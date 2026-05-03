@@ -48,17 +48,18 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
         
-        victim.ReceiveDamage(new Attack(this).DamageOn(victim));
+        victim.Receive(new Attack(this));
     }
 
-    void ReceiveDamage(int howMuch)
+    void Receive(Attack attack)
     {
-        if (howMuch <= 0)
+        var damage = attack.DamageOn(this);
+        if (damage <= 0)
             throw new ArgumentException("Damage must be greater than 0");
         if (!IsAlive)
             throw new InvalidOperationException("Character is not alive");
         
-        Health = int.Max(Health - howMuch, 0);
+        Health = int.Max(Health - damage, 0);
     }
 
     public void Heal() {
