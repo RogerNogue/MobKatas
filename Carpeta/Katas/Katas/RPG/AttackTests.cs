@@ -112,6 +112,11 @@ public class AttackTests {
         
         Assert.That(victim.Health, Is.EqualTo(1000 - 6 * .5f));
     }
+    
+    asdkfjsalkfjas
+    // NOS HEMOS QUEDADO POR AQUÍ (Iteración 3 - Rango)
+    // No podemos tener el concepto de posición en los characters como tal, pensamos en extraer un "mapa" que conozca dónde está cada uno.
+    // Pero eso rompería muchos tests, hay que darle una vuelta.
 
     [Test]
     public void FarVictimDoesNotReceiveDamage()
