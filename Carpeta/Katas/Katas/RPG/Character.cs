@@ -3,6 +3,7 @@ namespace Katas.RPG;
 public class Character {
     const float BaseDamageMultiplier = 1;
     const float OverlevelDamageMultiplier = 1.5f;
+    const float UnderlevelDamageMultiplier = 0.5f;
     const int DamageMultiplierLevelThreshold = 5;
     
     readonly int maxHealth;
@@ -40,6 +41,9 @@ public class Character {
     float LevelMultiplier(Character victim) {
         if (Level >= victim.Level + DamageMultiplierLevelThreshold)
             return OverlevelDamageMultiplier;
+        if (Level <= victim.Level - DamageMultiplierLevelThreshold)
+            return UnderlevelDamageMultiplier;
+        
 
         return BaseDamageMultiplier;
     }

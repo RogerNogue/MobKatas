@@ -97,7 +97,7 @@ public class AttackTests {
         Assert.That(victim.Health, Is.EqualTo(1000 - 6));
     }
     
-    /*[Test]
+    [Test]
     public void Character5LevelsBelowDealsLessDamage()
     {
         var sut = Character.Create(damage: 6);
@@ -106,5 +106,5 @@ public class AttackTests {
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(1000 - 6 * .5f));
-    }*/
+    }
 }
