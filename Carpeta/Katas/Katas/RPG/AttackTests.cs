@@ -11,7 +11,7 @@ namespace Katas.RPG;
 public class AttackTests {
     [Test]
     public void CharacterIsAlive_ByDefault() {
-        var sut = Character.Create();
+        var sut = Character.Melee();
 
         Assert.That(sut.IsAlive, Is.True);
     }
@@ -19,7 +19,7 @@ public class AttackTests {
     [Test]
     public void CharacterIsLevel1ByDefault()
     {
-        var sut = Character.Create();
+        var sut = Character.Melee();
 
         Assert.That(sut.Level, Is.EqualTo(1));
     }
@@ -27,8 +27,8 @@ public class AttackTests {
     [Test]
     public void DealDamage()
     {
-        var sut = Character.Create(damage: 6);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 6);
+        var victim = Character.Melee(health: 1000);
 
         sut.Attack(victim);
 
@@ -38,8 +38,8 @@ public class AttackTests {
     [Test]
     public void Kill()
     {
-        var sut = Character.Create(damage: 1000);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 1000);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         
@@ -49,8 +49,8 @@ public class AttackTests {
     [Test]
     public void DealsDamageButDoesNotKill()
     {
-        var sut = Character.Create(damage: 1000 - 1);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 1000 - 1);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         
@@ -60,8 +60,8 @@ public class AttackTests {
     [Test]
     public void DamageIsAccumulative()
     {
-        var sut = Character.Create(damage: 6);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 6);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         sut.Attack(victim);
@@ -72,8 +72,8 @@ public class AttackTests {
     [Test]
     public void HealthCannotBeNegative()
     {
-        var sut = Character.Create(damage: 1000*2);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 1000*2);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         
@@ -83,8 +83,8 @@ public class AttackTests {
     [Test]
     public void Character5LevelsAboveDealsExtraDamage()
     {
-        var sut = Character.Create(damage: 6, level: 6);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 6, level: 6);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         
@@ -94,8 +94,8 @@ public class AttackTests {
     [Test]
     public void DoNotDealExtraDamageUntil5LevelsOrAbove()
     {
-        var sut = Character.Create(damage: 6, level: 5);
-        var victim = Character.Create(health: 1000);
+        var sut = Character.Melee(damage: 6, level: 5);
+        var victim = Character.Melee(health: 1000);
         
         sut.Attack(victim);
         
@@ -105,8 +105,8 @@ public class AttackTests {
     [Test]
     public void Character5LevelsBelowDealsLessDamage()
     {
-        var sut = Character.Create(damage: 6);
-        var victim = Character.Create(health: 1000, level: 6);
+        var sut = Character.Melee(damage: 6);
+        var victim = Character.Melee(health: 1000, level: 6);
         
         sut.Attack(victim);
         
@@ -116,8 +116,8 @@ public class AttackTests {
     [Test]
     public void FarVictimDoesNotReceiveDamage()
     {
-        var sut = Character.Create(position: 1);
-        var victim = Character.Create(health: 1000, position: 1000);
+        var sut = Character.Melee(position: 1);
+        var victim = Character.Melee(health: 1000, position: 1000);
         
         sut.Attack(victim);
         
@@ -127,11 +127,22 @@ public class AttackTests {
     [Test]
     public void DealDamageWithinRange()
     {
-        var sut = Character.Create(position: 1);
-        var victim = Character.Create(health: 1000, position: 2);
+        var sut = Character.Melee(position: 1);
+        var victim = Character.Melee(health: 1000, position: 2);
         
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.Not.EqualTo(1000));
+    }
+
+    [Test]
+    public void MeleeFighterDoesNotReachFurtherVictim()
+    {
+        var sut = Character.Melee(position: 1);
+        var victim = Character.Melee(health: 1000, position: 20);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.EqualTo(1000));
     }
 }

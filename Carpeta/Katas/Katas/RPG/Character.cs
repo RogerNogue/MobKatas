@@ -28,8 +28,9 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
 
-        if (victim.position == 1000)
+        if (victim.position >= 20)
             return;
+        
         victim.Receive(new Attack(this));
     }
 
@@ -50,7 +51,7 @@ public class Character {
 
     public bool CanHeal() => IsAlive;
 
-    public static Character Create(int health = 1000, int damage = 1, int healing = 1, int level = 1, int position = 1) {
+    public static Character Melee(int health = 1000, int damage = 1, int healing = 1, int level = 1, int position = 1) {
         return new Character(health, damage, healing, level, position);
     }
 }

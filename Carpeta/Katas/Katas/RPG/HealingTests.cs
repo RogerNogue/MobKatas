@@ -8,8 +8,8 @@ public class HealingTests
     [Test]
     public void HealAnotherCharacter() 
     {
-        var attacker = Character.Create(damage: healing);
-        var sut = Character.Create(healing: healing);
+        var attacker = Character.Melee(damage: healing);
+        var sut = Character.Melee(healing: healing);
         attacker.Attack(sut);
         
         sut.Heal();
@@ -20,7 +20,7 @@ public class HealingTests
     [Test]
     public void HealthIsCappedAtInitialHealth()
     {
-        var sut = Character.Create(healing: healing);
+        var sut = Character.Melee(healing: healing);
         
         sut.Heal();
         
@@ -29,8 +29,8 @@ public class HealingTests
 
     [Test]
     public void CannotHealDeadCharacter() {
-        var attacker = Character.Create(damage: initialHealth);
-        var sut = Character.Create(health: initialHealth);
+        var attacker = Character.Melee(damage: initialHealth);
+        var sut = Character.Melee(health: initialHealth);
         
         attacker.Attack(sut);
         
@@ -39,8 +39,8 @@ public class HealingTests
 
     [Test]
     public void CanHealDamagedCharacters() {
-        var attacker = Character.Create();
-        var sut = Character.Create(health: initialHealth);
+        var attacker = Character.Melee();
+        var sut = Character.Melee(health: initialHealth);
         
         attacker.Attack(sut);
         
@@ -50,8 +50,8 @@ public class HealingTests
     [Test]
     public void AccumulativeHealing()
     {
-        var attacker = Character.Create();
-        var sut = Character.Create(health: initialHealth);
+        var attacker = Character.Melee();
+        var sut = Character.Melee(health: initialHealth);
         attacker.Attack(sut);
         attacker.Attack(sut);
         
