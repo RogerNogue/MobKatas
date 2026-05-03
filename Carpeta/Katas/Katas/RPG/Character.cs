@@ -7,7 +7,7 @@ public class Attack(Character attacker)
     private const float UnderlevelDamageMultiplier = 0.5f;
     private const int DamageMultiplierLevelThreshold = 5;
 
-    public int ExecuteOn(Character victim) {
+    public int DamageOn(Character victim) {
         return (int)(attacker.Damage * LevelMultiplier(victim, attacker.Level));
     }
 
@@ -48,7 +48,7 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
         
-        victim.ReceiveDamage(new Attack(this).ExecuteOn(victim));
+        victim.ReceiveDamage(new Attack(this).DamageOn(victim));
     }
 
     void ReceiveDamage(int howMuch)
