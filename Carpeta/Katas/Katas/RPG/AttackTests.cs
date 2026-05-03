@@ -1,7 +1,12 @@
 namespace Katas.RPG;
 /*
-    - When dealing damage: 
-        - If the target is 5 or more Levels below the attacker, Damage is increased by 50%
+    - Characters have an attack Max Range.
+
+    - Melee fighters have a range of 2 meters.
+
+    - Ranged fighters have a range of 20 meters.
+
+    - Characters must be in range to deal damage to a target.
  */
 public class AttackTests {
     [Test]
