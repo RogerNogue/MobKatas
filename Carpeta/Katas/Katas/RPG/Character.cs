@@ -2,21 +2,21 @@ namespace Katas.RPG;
 
 public class Map
 {
-    public bool IsInRange(Character victim, Character attacker)
+    public bool IsInRange(Character victim, Character attacker, int Range)
     {
-        return victim.Position - attacker.Position <= attacker.AttackRange;
+        return victim.Position - attacker.Position <= Range;
     }
 }
 
 public class Character {
     readonly int maxHealth;
     readonly int healing;
+    private readonly int attackRange;
     private readonly Map map;
 
     public bool IsAlive => Health > 0;
     public int Level { get; private set; }
     public int Position { get; private set; }
-    public int AttackRange { get; private set; }
     public int Damage { get; private set; }
     public int Health { get; private set; }
 
@@ -29,7 +29,7 @@ public class Character {
         this.healing = healing;
         this.Level = level;
         this.Position = position;
-        this.AttackRange = attackRange;
+        this.attackRange = attackRange;
         map = new Map();
     }
 
@@ -40,7 +40,7 @@ public class Character {
         if (victim == this)
             throw new InvalidOperationException("Cannot deal damage to itself");
 
-        if (!map.IsInRange(victim, this))
+        if (!map.IsInRange(victim, this, this.attackRange))
             return;
         
         victim.Receive(new Attack(this));
