@@ -116,11 +116,22 @@ public class AttackTests {
     [Test]
     public void FarVictimDoesNotReceiveDamage()
     {
-        var sut = Character.Create(position: 1 );
+        var sut = Character.Create(position: 1);
         var victim = Character.Create(health: 1000, position: 1000);
         
         sut.Attack(victim);
         
         Assert.That(victim.Health, Is.EqualTo(1000));
+    }
+    
+    [Test]
+    public void DealDamageWithinRange()
+    {
+        var sut = Character.Create(position: 1);
+        var victim = Character.Create(health: 1000, position: 2);
+        
+        sut.Attack(victim);
+        
+        Assert.That(victim.Health, Is.Not.EqualTo(1000));
     }
 }
