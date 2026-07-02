@@ -47,7 +47,7 @@ public class DomainEventBus
 
     public void Emit(TestEvent domainEvent)
     {
-        subscriber.Notify(domainEvent);
+        subscriber.Receive(domainEvent);
     }
 }
 
@@ -57,14 +57,14 @@ public struct TestEvent
 
 public interface Subscriber
 {
-    void Notify(TestEvent domainEvent);
+    void Receive(TestEvent domainEvent);
 }
 
 public class MockSubscriber : Subscriber
 {
     public int TimesNotified { get; set; }
 
-    public void Notify(TestEvent domainEvent)
+    public void Receive(TestEvent domainEvent)
     {
         TimesNotified++;
     }
