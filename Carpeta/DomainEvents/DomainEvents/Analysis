@@ -1,0 +1,17 @@
+﻿-- Event Bus --
+
+Observable Behavior: Notificar a interesados sobre eventos que han ocurrido.
+    Input: Suscriptor | Evento de Dominio
+    Output: Notificar a suscriptores
+
+Smaller Behavior: 
+    - Recibo un suscriptor para un tipo de evento concreto.
+    - Cuando se emite ese tipo de evento, el suscriptor es notificado con ese evento.
+    - Cuando se emite ese tipo de evento, si no hay suscriptores, nadie se notifica.
+    
+Examples
+    - con un suscriptor, se emite su evento, el suscriptor es notificado.
+    - con un suscriptor, se emite otro evento, el suscriptor no es notificado.
+    - sin suscriptor, se emite cualquier evento, no pasa nada.
+    - varios suscriptores con el mismo evento, se emite un evento, ambos suscriptores son notificados.
+    - varios suscriptores con distintos eventos, se emite un evento, sólo un suscriptor es notificado.
