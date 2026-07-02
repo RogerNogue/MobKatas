@@ -51,7 +51,7 @@ public class DomainEventBus
     }
 }
 
-public class TestEvent
+public struct TestEvent
 {
 }
 
