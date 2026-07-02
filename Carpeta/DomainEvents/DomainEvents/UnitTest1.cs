@@ -47,7 +47,7 @@ public class DomainEventBus
 
     public void Emit(TestEvent domainEvent)
     {
-        subscriber.TimesNotified++;
+        subscriber.Notify();
     }
 }
 
@@ -58,4 +58,9 @@ public class TestEvent
 public class MockSubscriber
 {
     public int TimesNotified { get; set; }
+
+    public void Notify()
+    {
+        TimesNotified++;
+    }
 }
