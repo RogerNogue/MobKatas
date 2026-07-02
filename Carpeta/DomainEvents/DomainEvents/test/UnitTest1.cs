@@ -44,17 +44,3 @@ public class Tests
         Assert.DoesNotThrow(()=>eventBus.Emit(new TestEvent()));
     }
 }
-
-public struct TestEvent : DomainEvent
-{
-}
-
-public class MockSubscriber : Subscriber
-{
-    public int TimesNotified { get; set; }
-
-    public void Receive(DomainEvent domainEvent)
-    {
-        TimesNotified++;
-    }
-}
