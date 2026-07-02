@@ -11,7 +11,6 @@ public class DomainEventBus
 
     public void Emit(DomainEvent domainEvent)
     {
-        if (subscriber != null)
-            subscriber.Receive(domainEvent);
+        subscriber?.Receive(domainEvent);
     }
 }
