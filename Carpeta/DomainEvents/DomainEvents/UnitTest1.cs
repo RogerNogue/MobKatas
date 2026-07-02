@@ -1,6 +1,5 @@
 namespace DomainEvents;
 /*
-    
  *  - con un suscriptor, se emite su evento, el suscriptor es notificado.
  * - con un suscriptor, se emiten 2 eventos, el suscriptor es notificado 2 veces.
     - con un suscriptor, se emite otro evento, el suscriptor no es notificado.
@@ -10,14 +9,36 @@ namespace DomainEvents;
  */
 public class Tests
 {
-    [SetUp]
-    public void Setup()
+    [Test]
+    public void NotifyOneSubscriber()
+    {
+        var subscriber = new MockSubscriber();
+        var domainEvent = new TestEvent();
+        var eventBus = new DomainEventBus();
+        eventBus.Subscribe<TestEvent>(subscriber);
+        
+        eventBus.Emit(domainEvent);
+        
+        Assert.That(subscriber.TimesNotified, Is.EqualTo(1));
+    }
+}
+
+public class DomainEventBus
+{
+    public void Subscribe<T>(MockSubscriber subscriber)
     {
     }
 
-    [Test]
-    public void Test1()
+    public void Emit(TestEvent domainEvent)
     {
-        Assert.Pass();
     }
+}
+
+public class TestEvent
+{
+}
+
+public class MockSubscriber
+{
+    public int TimesNotified { get; set; } = 1;
 }
