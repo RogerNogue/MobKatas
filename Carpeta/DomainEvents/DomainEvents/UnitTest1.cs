@@ -6,6 +6,7 @@ namespace DomainEvents;
     - sin suscriptor, se emite cualquier evento, no pasa nada.
     - varios suscriptores con el mismo evento, se emite un evento, ambos suscriptores son notificados.
     - varios suscriptores con distintos eventos, se emite un evento, sólo un suscriptor es notificado.
+    - Suscriptor recibe typo de evento explícito para no tener que hacer casteo.
  */
 
 public class Tests
