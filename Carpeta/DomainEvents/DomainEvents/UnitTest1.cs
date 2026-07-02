@@ -35,6 +35,14 @@ public class Tests
         
         Assert.That(subscriber.TimesNotified, Is.EqualTo(2));
     }
+    
+    [Test]
+    public void NotifyWithNoSubscriberDoesNotThrow()
+    {
+        var eventBus = new DomainEventBus();
+
+        Assert.DoesNotThrow(()=>eventBus.Emit(new TestEvent()));
+    }
 }
 
 public struct TestEvent : DomainEvent
