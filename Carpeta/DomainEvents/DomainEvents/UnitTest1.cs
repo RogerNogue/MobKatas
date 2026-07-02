@@ -46,26 +46,30 @@ public class DomainEventBus
         this.subscriber = subscriber;
     }
 
-    public void Emit(TestEvent domainEvent)
+    public void Emit(DomainEvent domainEvent)
     {
         subscriber.Receive(domainEvent);
     }
 }
 
-public struct TestEvent
+public interface DomainEvent
+{
+}
+
+public struct TestEvent : DomainEvent
 {
 }
 
 public interface Subscriber
 {
-    void Receive(TestEvent domainEvent);
+    void Receive(DomainEvent domainEvent);
 }
 
 public class MockSubscriber : Subscriber
 {
     public int TimesNotified { get; set; }
 
-    public void Receive(TestEvent domainEvent)
+    public void Receive(DomainEvent domainEvent)
     {
         TimesNotified++;
     }
