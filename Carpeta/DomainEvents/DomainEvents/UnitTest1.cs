@@ -21,6 +21,19 @@ public class Tests
         
         Assert.That(subscriber.TimesNotified, Is.EqualTo(1));
     }
+    
+    [Test]
+    public void NotifyOneSubscriber_Twice()
+    {
+        var subscriber = new MockSubscriber();
+        var eventBus = new DomainEventBus();
+        eventBus.Subscribe<TestEvent>(subscriber);
+        
+        eventBus.Emit(new TestEvent());
+        eventBus.Emit(new TestEvent());
+        
+        Assert.That(subscriber.TimesNotified, Is.EqualTo(2));
+    }
 }
 
 public class DomainEventBus
@@ -34,7 +47,7 @@ public class DomainEventBus
 
     public void Emit(TestEvent domainEvent)
     {
-        subscriber.TimesNotified = 1;
+        subscriber.TimesNotified++;
     }
 }
 
