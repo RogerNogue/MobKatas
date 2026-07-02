@@ -38,16 +38,16 @@ public class Tests
 
 public class DomainEventBus
 {
-    private MockSubscriber subscriber;
+    private Subscriber subscriber;
 
-    public void Subscribe<T>(MockSubscriber subscriber)
+    public void Subscribe<T>(Subscriber subscriber)
     {
         this.subscriber = subscriber;
     }
 
     public void Emit(TestEvent domainEvent)
     {
-        subscriber.Notify();
+        subscriber.Notify(domainEvent);
     }
 }
 
@@ -55,11 +55,16 @@ public class TestEvent
 {
 }
 
-public class MockSubscriber
+public interface Subscriber
+{
+    void Notify(TestEvent domainEvent);
+}
+
+public class MockSubscriber : Subscriber
 {
     public int TimesNotified { get; set; }
 
-    public void Notify()
+    public void Notify(TestEvent domainEvent)
     {
         TimesNotified++;
     }
