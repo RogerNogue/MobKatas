@@ -30,7 +30,7 @@ public class Tests
     [TestCase(0, 0, "S", "0:0:S")]
     public void Execute_ReturnsStateOfRover(int x, int y, string orientation, string expected)
     {
-        var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), orientation == "N" ? Orientation.North : Orientation.South);
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), Orientation.CreateInstance(orientation));
 
         var result = sut.Execute("");
         
