@@ -2,13 +2,15 @@
 
 public class Rover
 {
+    private readonly Coordinates coordinates;
+
     public Rover(Plateau plateau, Coordinates coordinates, Orientation orientation)
     {
-        
+        this.coordinates = coordinates;
     }
 
     public string Execute(string commands)
     {
-        return "0:0:N";
+        return $"{coordinates.X}:{coordinates.Y}:N";
     }
 }

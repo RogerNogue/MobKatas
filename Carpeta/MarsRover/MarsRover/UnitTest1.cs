@@ -32,4 +32,14 @@ public class Tests
         
         Assert.That(result, Is.EqualTo("0:0:N"));
     }
+    
+    [Test]
+    public void Execute_ReturnsStateOfRover_AtDifferentPosition()
+    {
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(1, 1), Orientation.North);
+
+        var result = sut.Execute("");
+        
+        Assert.That(result, Is.EqualTo("1:1:N"));
+    }
 }
