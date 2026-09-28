@@ -14,7 +14,7 @@ public class Rover
     public string Execute(string commands)
     {
         if (commands == "M")
-            return "0:1:N";
+            return $"{coordinates.Move(0, 1)}:N";
         return $"{coordinates}:{orientation}";
     }
 }

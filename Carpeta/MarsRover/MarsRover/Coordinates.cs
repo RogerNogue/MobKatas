@@ -15,4 +15,9 @@ public struct Coordinates
     {
         return $"{X}:{Y}";
     }
+
+    public Coordinates Move(int deltaX, int deltaY)
+    {
+        return new Coordinates(X + deltaX, Y + deltaY);
+    }
 }
