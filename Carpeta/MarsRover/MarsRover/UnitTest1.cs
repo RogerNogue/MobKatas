@@ -25,23 +25,14 @@ Juntar position and rotation en una misma struct?
  */
 public class Tests
 {
-    [Test]
-    public void Execute_ReturnsStateOfRover()
+    [TestCase(0, 0, "N", "0:0:N")]
+    [TestCase(1, 1, "N", "1:1:N")]
+    public void Execute_ReturnsStateOfRover(int x, int y, string orientation, string expected)
     {
-        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.North);
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), orientation == "N" ? Orientation.North : Orientation.North);
 
         var result = sut.Execute("");
         
-        Assert.That(result, Is.EqualTo("0:0:N"));
-    }
-    
-    [Test]
-    public void Execute_ReturnsStateOfRover_AtDifferentPosition()
-    {
-        var sut = new Rover(new Plateau(10, 10), new Coordinates(1, 1), Orientation.North);
-
-        var result = sut.Execute("");
-        
-        Assert.That(result, Is.EqualTo("1:1:N"));
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
