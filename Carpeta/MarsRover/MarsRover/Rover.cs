@@ -15,6 +15,6 @@ public class Rover
     {
         if (commands == "M")
             return "0:1:N";
-        return $"{coordinates.X}:{coordinates.Y}:{orientation}";
+        return $"{coordinates}:{orientation}";
     }
 }
