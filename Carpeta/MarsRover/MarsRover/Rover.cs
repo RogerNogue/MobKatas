@@ -15,11 +15,16 @@ public class Rover
     {
         if (commands == "M")
         {
+            Coordinates newPosition = coordinates;
             if (orientation.Equals(Orientation.CreateInstance("E")))
             {
-                return $"{coordinates.Move(1, 0)}:{orientation}";
+                newPosition = coordinates.Move(1, 0); 
             }
-            return $"{coordinates.Move(0, 1)}:{orientation}";   
+            else
+            {
+                newPosition = coordinates.Move(0, 1);
+            }
+            return $"{newPosition}:{orientation}";   
         }
         return $"{coordinates}:{orientation}";
     }
