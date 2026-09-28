@@ -37,13 +37,14 @@ public class Tests
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [Test]
-    public void Execute_MovesForward()
+    [TestCase(0, 0, "N", "0:1:N")]
+    [TestCase(0, 0, "E", "1:0:E")]
+    public void Execute_MovesForward(int x, int y, string orientation, string expected)
     {
-        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.CreateInstance("N"));
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), Orientation.CreateInstance(orientation));
 
         var result = sut.Execute("M");
         
-        Assert.That(result, Is.EqualTo("0:1:N"));
+        Assert.That(result, Is.EqualTo(expected));
     }
 }
