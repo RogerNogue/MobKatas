@@ -3,7 +3,7 @@ namespace MarsRover;
 /*
 [x] State: (x, y, q), Commands: "" => x:y:q
 [x] State: (0, 0, N), Commands: "M" => 0:1:N
-[] State: (0, 0, E), Commands: "M" => 1:0:E
+[x] State: (0, 0, E), Commands: "M" => 1:0:E
 [] State: (1, 1, W), Commands: "M" => 0:1:W
 [] State: (1, 1, S), Commands: "M" => 1:0:S
 [] State: (0, 0, N), Commands: "MM" => 0:2:N
