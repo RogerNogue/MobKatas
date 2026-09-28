@@ -6,6 +6,7 @@ Observable behavior:
 Input:
 - an array of commands
 - dimensions of the plateau
+- position and orientation of the Mars rover
 
 Output:
 - position and orientation of the Rover
