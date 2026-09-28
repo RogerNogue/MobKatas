@@ -1,7 +1,10 @@
+using NUnit.Framework.Constraints;
+
 namespace MarsRover;
 
 /*
 State: (x, y, q), Commands: "" => x:y:q
+
 State: (0, 0, N), Commands: "M" => 0:1:N
 State: (0, 0, E), Commands: "M" => 1:0:E
 State: (1, 1, W), Commands: "M" => 0:1:W
@@ -23,14 +26,47 @@ State: (9, 9, E), Commands: "M" => 0:9:E
  */
 public class Tests
 {
-    [SetUp]
-    public void Setup()
+    [Test]
+    public void Execute_ReturnsStateOfRover()
     {
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.North);
+
+        var result = sut.Execute("");
+        
+        Assert.That(result, Is.EqualTo("0:0:N"));
+    }
+}
+
+public struct Orientation
+{
+    public static Orientation North { get; set; }
+}
+
+public struct Coordinates
+{
+    public Coordinates(int x, int y)
+    {
+        
+    }
+}
+
+public class Plateau
+{
+    public Plateau(int width, int height)
+    {
+        
+    }
+}
+
+public class Rover
+{
+    public Rover(Plateau plateau, Coordinates coordinates, Orientation north)
+    {
+        
     }
 
-    [Test]
-    public void Test1()
+    public string Execute(string commands)
     {
-        Assert.Pass();
+        return "0:0:N";
     }
 }
