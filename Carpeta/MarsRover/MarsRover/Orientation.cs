@@ -15,4 +15,16 @@ public struct Orientation
     {
         return new Orientation(cardinality);
     }
+
+    public Coordinates Move(Coordinates from)
+    {
+        if (this.Equals(Orientation.CreateInstance("E")))
+        {
+            return from.Move(1, 0); 
+        }
+        else
+        {
+            return from.Move(0, 1);
+        }
+    }
 }
