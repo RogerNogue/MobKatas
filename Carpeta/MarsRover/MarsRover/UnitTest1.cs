@@ -20,6 +20,8 @@ State: (0, 0, S), Commands: "M" => 0:9:S
 State: (0, 0, W), Commands: "M" => 9:0:W
 State: (9, 9, N), Commands: "M" => 9:0:N
 State: (9, 9, E), Commands: "M" => 0:9:E
+
+Juntar position and rotation en una misma struct?
  */
 public class Tests
 {
