@@ -1,0 +1,25 @@
+https://www.codurance.com/katas/simple-mars-rover
+
+Observable behavior:
+- control the rover over the plateau
+
+Input:
+- an array of commands
+- dimensions of the plateau
+
+Output:
+- position and orientation of the Rover
+
+Preconditions:
+- plateau is bigger than 1x1
+- invalid commands are ignored
+
+Smaller behavior:
+- Mars rover starts at 0, 0 facing north.
+- Mars rover receives an array of commands
+- For each command Mars rover performs an action
+    - `M`: Moves 1 unit forward
+    - `R`: Rotates right N->E->S->W
+    - `L`:  Rotates left N->W->S->E
+- If Mars rover is at the edge of the map it wraps around the plateau.
+- Returns the position and orientation of the Mars rover at the end of the array of commands.
