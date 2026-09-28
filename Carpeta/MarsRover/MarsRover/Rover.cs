@@ -17,9 +17,9 @@ public class Rover
         {
             if (orientation.Equals(Orientation.CreateInstance("E")))
             {
-                return $"{coordinates.Move(1, 0)}:E";
+                return $"{coordinates.Move(1, 0)}:{orientation}";
             }
-            return $"{coordinates.Move(0, 1)}:N";   
+            return $"{coordinates.Move(0, 1)}:{orientation}";   
         }
         return $"{coordinates}:{orientation}";
     }
