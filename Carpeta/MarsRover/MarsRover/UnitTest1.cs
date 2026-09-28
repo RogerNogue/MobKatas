@@ -36,4 +36,14 @@ public class Tests
         
         Assert.That(result, Is.EqualTo(expected));
     }
+
+    [Test]
+    public void Execute_MovesForward()
+    {
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.CreateInstance("N"));
+
+        var result = sut.Execute("M");
+        
+        Assert.That(result, Is.EqualTo("0:1:N"));
+    }
 }
