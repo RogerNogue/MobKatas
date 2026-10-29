@@ -4,7 +4,7 @@ namespace MarsRover;
 [x] State: (x, y, q), Commands: "" => x:y:q
 [x] State: (0, 0, N), Commands: "M" => 0:1:N
 [x] State: (0, 0, E), Commands: "M" => 1:0:E
-[] State: (1, 1, W), Commands: "M" => 0:1:W
+[x] State: (1, 1, W), Commands: "M" => 0:1:W
 [] State: (1, 1, S), Commands: "M" => 1:0:S
 [] State: (0, 0, N), Commands: "MM" => 0:2:N
 [] State: (0, 0, N), Commands: "M" "M" => 0:2:N
@@ -40,6 +40,7 @@ public class Tests
     [TestCase(0, 0, "N", "0:1:N")]
     [TestCase(0, 0, "E", "1:0:E")]
     [TestCase(1, 0, "W", "0:0:W")]
+    [TestCase(0, 1, "S", "0:0:S")]
     public void Execute_MovesForward(int x, int y, string orientation, string expected)
     {
         var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), Orientation.CreateInstance(orientation));

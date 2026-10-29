@@ -26,6 +26,10 @@ public struct Orientation
         {
             return from.Move(-1, 0);
         }
+        else if (this.Equals(Orientation.CreateInstance("S")))
+        {
+            return from.Move(0, -1);
+        }
         else
         {
             return from.Move(0, 1);
