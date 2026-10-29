@@ -4,7 +4,7 @@ public class Orientation
 {
     private readonly string cardinality;
 
-    private Orientation(string cardinality)
+    protected Orientation(string cardinality)
     {
         this.cardinality = cardinality;
     }
@@ -13,14 +13,16 @@ public class Orientation
 
     public static Orientation CreateInstance(string cardinality)
     {
+        if (cardinality == "E")
+            return new East();
         return new Orientation(cardinality);
     }
     
-    public Coordinates Move(Coordinates from)
+    virtual public Coordinates Move(Coordinates from)
     {
         if (cardinality.Equals("E"))
         {
-            return from.Move(1, 0);
+            throw new NotImplementedException();
         }
         else if (cardinality.Equals("W"))
         {
@@ -34,5 +36,17 @@ public class Orientation
         {
             return from.Move(0, 1);
         }
+    }
+}
+
+public class East : Orientation
+{
+    public East() : base("E")
+    {
+    }
+
+    public override Coordinates Move(Coordinates from)
+    {
+        return from.Move(1, 0);
     }
 }
