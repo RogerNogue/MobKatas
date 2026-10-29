@@ -39,6 +39,7 @@ public class Tests
 
     [TestCase(0, 0, "N", "0:1:N")]
     [TestCase(0, 0, "E", "1:0:E")]
+    [TestCase(1, 0, "W", "0:0:W")]
     public void Execute_MovesForward(int x, int y, string orientation, string expected)
     {
         var sut = new Rover(new Plateau(10, 10), new Coordinates(x, y), Orientation.CreateInstance(orientation));
