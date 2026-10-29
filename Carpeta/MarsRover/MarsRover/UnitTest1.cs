@@ -58,4 +58,14 @@ public class Tests
         
         Assert.That(result, Is.EqualTo("0:2:N"));
     }
+    
+    [Test]
+    public void MovingTwice_AcrossTwoCommands() {
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.CreateInstance("N"));
+
+        sut.Execute("M");
+        var result = sut.Execute("M");
+        
+        Assert.That(result, Is.EqualTo("0:2:N"));
+    }
 }

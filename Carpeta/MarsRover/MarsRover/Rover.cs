@@ -15,10 +15,9 @@ public class Rover
     {
         if (commands == "M")
         {
-            return $"{orientation.Move(coordinates)}:{orientation}";
+            coordinates = orientation.Move(coordinates);
         }
-        
-        if (commands == "MM") {
+        else if (commands == "MM") {
             coordinates = orientation.Move(coordinates);
             coordinates = orientation.Move(coordinates);
         }
