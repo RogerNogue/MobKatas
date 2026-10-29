@@ -13,13 +13,12 @@ public class Rover
 
     public string Execute(string commands)
     {
-        if (commands == "M")
+        foreach (var command in commands) 
         {
-            coordinates = orientation.Move(coordinates);
-        }
-        else if (commands == "MM") {
-            coordinates = orientation.Move(coordinates);
-            coordinates = orientation.Move(coordinates);
+            if (command == 'M')
+            {
+                coordinates = orientation.Move(coordinates);
+            }    
         }
         
         return $"{coordinates}:{orientation}";
