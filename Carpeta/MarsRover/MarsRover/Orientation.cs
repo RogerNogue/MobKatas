@@ -17,6 +17,8 @@ public class Orientation
             return new East();
         if (cardinality == "W")
             return new West();
+        if (cardinality == "S")
+            return new South();
         return new Orientation(cardinality);
     }
     
@@ -32,7 +34,7 @@ public class Orientation
         }
         else if (cardinality.Equals("S"))
         {
-            return from.Move(0, -1);
+            throw new NotImplementedException();
         }
         else
         {
@@ -50,6 +52,18 @@ public class East : Orientation
     public override Coordinates Move(Coordinates from)
     {
         return from.Move(1, 0);
+    }
+}
+
+public class South : Orientation
+{
+    public South() : base("S")
+    {
+    }
+
+    public override Coordinates Move(Coordinates from)
+    {
+        return from.Move(0, -1);
     }
 }
 
