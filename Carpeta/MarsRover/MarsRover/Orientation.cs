@@ -19,6 +19,8 @@ public class Orientation
             return new West();
         if (cardinality == "S")
             return new South();
+        if (cardinality == "N")
+            return new North();
         return new Orientation(cardinality);
     }
     
@@ -38,8 +40,20 @@ public class Orientation
         }
         else
         {
-            return from.Move(0, 1);
+            throw new NotImplementedException();
         }
+    }
+}
+
+public class North : Orientation
+{
+    public North() : base("N")
+    {
+    }
+
+    public override Coordinates Move(Coordinates from)
+    {
+        return from.Move(0, 1);
     }
 }
 
