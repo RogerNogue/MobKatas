@@ -1,6 +1,6 @@
 ﻿namespace MarsRover;
 
-public struct Orientation
+public class Orientation
 {
     private readonly string cardinality;
 
@@ -15,18 +15,18 @@ public struct Orientation
     {
         return new Orientation(cardinality);
     }
-
+    
     public Coordinates Move(Coordinates from)
     {
-        if (this.Equals(Orientation.CreateInstance("E")))
+        if (cardinality.Equals("E"))
         {
-            return from.Move(1, 0); 
+            return from.Move(1, 0);
         }
-        else if (this.Equals(Orientation.CreateInstance("W")))
+        else if (cardinality.Equals("W"))
         {
             return from.Move(-1, 0);
         }
-        else if (this.Equals(Orientation.CreateInstance("S")))
+        else if (cardinality.Equals("S"))
         {
             return from.Move(0, -1);
         }
