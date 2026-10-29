@@ -1,6 +1,6 @@
 ﻿namespace MarsRover;
 
-public class Orientation
+public abstract class Orientation
 {
     private readonly string cardinality;
 
@@ -21,28 +21,10 @@ public class Orientation
             return new South();
         if (cardinality == "N")
             return new North();
-        return new Orientation(cardinality);
+        throw new ArgumentException("Invalid cardinality");
     }
     
-    virtual public Coordinates Move(Coordinates from)
-    {
-        if (cardinality.Equals("E"))
-        {
-            throw new NotImplementedException();
-        }
-        else if (cardinality.Equals("W"))
-        {
-            throw new NotImplementedException();
-        }
-        else if (cardinality.Equals("S"))
-        {
-            throw new NotImplementedException();
-        }
-        else
-        {
-            throw new NotImplementedException();
-        }
-    }
+    public abstract Coordinates Move(Coordinates from);
 }
 
 public class North : Orientation
