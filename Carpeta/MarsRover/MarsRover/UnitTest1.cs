@@ -6,7 +6,7 @@ namespace MarsRover;
 [x] State: (0, 0, E), Commands: "M" => 1:0:E
 [x] State: (1, 1, W), Commands: "M" => 0:1:W
 [x] State: (1, 1, S), Commands: "M" => 1:0:S
-[] State: (0, 0, N), Commands: "MM" => 0:2:N
+[x] State: (0, 0, N), Commands: "MM" => 0:2:N
 [] State: (0, 0, N), Commands: "M" "M" => 0:2:N
 [] State: (0, 0, N), Commands: "R" => 0:0:E
 [] State: (0, 0, E), Commands: "R" => 0:0:S
@@ -48,5 +48,14 @@ public class Tests
         var result = sut.Execute("M");
         
         Assert.That(result, Is.EqualTo(expected));
+    }
+
+    [Test]
+    public void MovingTwice_InSameCommand() {
+        var sut = new Rover(new Plateau(10, 10), new Coordinates(0, 0), Orientation.CreateInstance("N"));
+
+        var result = sut.Execute("MM");
+        
+        Assert.That(result, Is.EqualTo("0:2:N"));
     }
 }

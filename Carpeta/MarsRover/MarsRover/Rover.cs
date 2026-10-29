@@ -2,8 +2,8 @@
 
 public class Rover
 {
-    private readonly Coordinates coordinates;
-    private readonly Orientation orientation;
+    private Coordinates coordinates;
+    private Orientation orientation;
 
     public Rover(Plateau plateau, Coordinates coordinates, Orientation orientation)
     {
@@ -17,6 +17,12 @@ public class Rover
         {
             return $"{orientation.Move(coordinates)}:{orientation}";
         }
+        
+        if (commands == "MM") {
+            coordinates = orientation.Move(coordinates);
+            coordinates = orientation.Move(coordinates);
+        }
+        
         return $"{coordinates}:{orientation}";
     }
 }
